@@ -1,0 +1,93 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#E9E9E9"
+    android:orientation="vertical"
+    android:paddingTop="20dip">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dip"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/province_line_border">
+
+            <TextView
+                android:id="@+id/tv_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:gravity="center_vertical"
+                android:text="确定"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_vertical"
+                android:text="选择地区"
+                android:textColor="#000000"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/tv_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="15dp"
+                android:gravity="center_vertical"
+                android:text="取消"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.ihidea.as.citypicker.widget.wheel.WheelView
+                android:id="@+id/id_province"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+            </com.ihidea.as.citypicker.widget.wheel.WheelView>
+
+            <com.ihidea.as.citypicker.widget.wheel.WheelView
+
+                android:id="@+id/id_city"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+            </com.ihidea.as.citypicker.widget.wheel.WheelView>
+
+            <com.ihidea.as.citypicker.widget.wheel.WheelView
+                android:id="@+id/id_district"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+            </com.ihidea.as.citypicker.widget.wheel.WheelView>
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <TextView
+
+        android:id="@+id/tv_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"/>
+
+</LinearLayout>
