@@ -5,14 +5,16 @@
 
 ### 效果预览
 #### 应用在实际项目中效果
-![](http://img.blog.csdn.net/20160512153339132)
+![](http://img.blog.csdn.net/20160513153736550)
 
-![](http://img.blog.csdn.net/20160512153355991)
+![](http://img.blog.csdn.net/20160513153748475)
 
-![](http://img.blog.csdn.net/20160512153405741)
+![](http://img.blog.csdn.net/20160513153756003)
+
 
 #### demo效果
-![](http://img.blog.csdn.net/20160512153428312)
+
+![](http://img.blog.csdn.net/20160513153802897)
 
 ### 数据来源
 数据来源主要有2种方式，可根据洗好选择哪种方式使用。
@@ -26,6 +28,9 @@
 ### APK下载
 
 [APK下载地址](http://download.csdn.net/detail/lj188266/9518048)
+
+### 关于我
+[我的个人博客](http://crazyandcoder.github.io/about/)
 
 ### 感谢
 
