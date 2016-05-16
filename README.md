@@ -27,7 +27,8 @@
 
 ### APK下载
 
-[APK下载地址](http://download.csdn.net/detail/lj188266/9518048)
+1. [APK下载地址CSDN](http://download.csdn.net/detail/lj188266/9518048)
+2. [fir下载](http://fir.im/xce2?release_id=57392423f2fc421f7900000e)
 
 ### 关于我
 [我的个人博客](http://crazyandcoder.github.io/about/)
@@ -36,4 +37,9 @@
 
  - [http://blog.csdn.net/wulianghuan/article/details/41549189](http://blog.csdn.net/wulianghuan/article/details/41549189)
 
+### MIT License
+> Copyright (c) [2016] [crazyandcoder]
 
+> Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish,distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
