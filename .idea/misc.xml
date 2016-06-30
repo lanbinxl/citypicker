@@ -3,10 +3,8 @@
   <component name="EclipseCodeFormatter">
     <option name="defaultSettings" value="true" />
     <option name="formatter" value="ECLIPSE" />
-    <option name="id" value="1462437528812" />
+    <option name="id" value="1462418161279" />
     <option name="name" value="default" />
-    <option name="pathToConfigFileJava" value="E:/公司开发/xcds_formatter.xml" />
-    <option name="selectedJavaProfile" value="CodeFormatter" />
   </component>
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
