@@ -1,7 +1,5 @@
 ## citypicker Android Studio实现
 
-![](http://img.blog.csdn.net/20160702160946025)
-
 ### 前言
 在实际的项目中需要使用到省市区三级联动的功能，在网上找来找去，都没有找到一个合适的库， 所以自己就封装了一个，不需要自己添加数据源，直接引用即可，一行代码搞定城市选择。怎么简单，怎么方便，怎么来，就是这么任性！
 
@@ -10,18 +8,24 @@
 
 
 ### 使用
-**V0.1.0版本更新内容**
-1：直接传入context获取省市区信息
-
-
-
 
 **Gradle引用**
 
 ```
-    compile 'liji.library.dev:citypickerview:0.1.0'
+    compile 'liji.library.dev:citypickerview:0.2.0'
 
 ```
+
+**V0.2.0版本更新内容**
+新增以下属性内容：
+1：滚轮是否循环滚动
+2、新增文字颜色修改
+3、新增文字大小修改
+4、新增滚轮内容可见数量
+
+
+**V0.1.0版本更新内容**
+1：直接传入context获取省市区信息
 
 
 
@@ -42,6 +46,10 @@
                  
             }
         });
+        cityPickerView.setTextColor(Color.BLUE);//新增文字颜色修改
+        cityPickerView.setTextSize(20);//新增文字大小修改
+        cityPickerView.setVisibleItems(5);//新增滚轮内容可见数量
+        cityPickerView.setIsCyclic(true);//滚轮是否循环滚动
         cityPickerView.show();
 ```
 **结果返回**
