@@ -7,16 +7,14 @@
 无需自己配置省市区域的数据，不需要再进行解析之类的繁杂操作，只需引用即可，结果返回省市区和邮编等四项数据信息，如果不满意样式的话可以自己修改源码！
 
 
-### 使用
-
-**Gradle引用**
+### Gradle引用
 
 ```
     compile 'liji.library.dev:citypickerview:0.2.0'
 
 ```
 
-**V0.2.0版本更新内容**
+#### V0.2.0版本更新内容
 新增以下属性内容：
 1：滚轮是否循环滚动
 2、新增文字颜色修改
@@ -24,12 +22,12 @@
 4、新增滚轮内容可见数量
 
 
-**V0.1.0版本更新内容**
+#### V0.1.0版本更新内容
 1：直接传入context获取省市区信息
 
 
 
-**代码示例：**
+#### 代码示例
 ```
  CityPickerView cityPickerView = new CityPickerView(MainActivity.this);
         cityPickerView.setOnCityItemClickListener(new CityPickerView.OnCityItemClickListener() {
@@ -52,7 +50,7 @@
         cityPickerView.setIsCyclic(true);//滚轮是否循环滚动
         cityPickerView.show();
 ```
-**结果返回**
+#### 结果返回
 只需传入Context便可获取选择的省市区域的信息，结果返回四项，可根据自己的实际需求进行选择。
 
  1. citySelected[0]：表示：省份信息
