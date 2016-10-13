@@ -9,6 +9,7 @@
 ### APK下载
 
 ![这里写图片描述](http://img.blog.csdn.net/20161013143043278)
+
 1. [fir下载apk演示](http://fir.im/r3dp)
 
 
@@ -30,13 +31,13 @@
 #### 代码示例（v0.3.0）
 
 ```
-CityPicker cityPicker = new CityPicker.Builder(context).textSize(20)
-                        .textColor(Color.parseColor("#000000"))
-                        .provinceCyclic(true)
-                        .cityCyclic(false)
-                        .districtCyclic(false)
-                        .visibleItemsCount(7)
-                        .itemPadding(10)
+CityPicker cityPicker = new CityPicker.Builder(context).textSize(20)//滚轮文字的大小
+                        .textColor(Color.parseColor("#000000"))//滚轮文字的颜色
+                        .provinceCyclic(true)//省份滚轮是否循环显示
+                        .cityCyclic(false)//城市滚轮是否循环显示
+                        .districtCyclic(false)//地区（县）滚轮是否循环显示
+                        .visibleItemsCount(7)//滚轮显示的item个数
+                        .itemPadding(10)//滚轮item间距
                         .build();
                 
                 cityPicker.show();
