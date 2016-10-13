@@ -7,30 +7,36 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.lljjcoder.citypickerview.widget.CityPickerView;
+import com.lljjcoder.citypickerview.widget.CityPicker;
 
 public class MainActivity extends AppCompatActivity {
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        
         Button go = (Button) findViewById(R.id.go);
         final TextView tvResult = (TextView) findViewById(R.id.tv_result);
         go.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CityPickerView cityPickerView = new CityPickerView(MainActivity.this);
-                cityPickerView.setTextColor(Color.BLUE);
-                cityPickerView.setTextSize(20);
-                cityPickerView.setVisibleItems(5);
-                cityPickerView.setIsCyclic(true);
-                cityPickerView.show();
-                cityPickerView.setOnCityItemClickListener(new CityPickerView.OnCityItemClickListener() {
+
+                CityPicker cityPicker = new CityPicker.Builder(MainActivity.this).textSize(20)
+                        .textColor(Color.parseColor("#000000"))
+                        .provinceCyclic(true)
+                        .cityCyclic(false)
+                        .districtCyclic(false)
+                        .visibleItemsCount(7)
+                        .itemPadding(10)
+                        .build();
+                
+                cityPicker.show();
+                cityPicker.setOnCityItemClickListener(new CityPicker.OnCityItemClickListener() {
                     @Override
                     public void onSelected(String... citySelected) {
-                        tvResult.setText("选择结果：\n省：" + citySelected[0] + "\n市：" + citySelected[1] + "\n区：" + citySelected[2] + "\n邮编：" + citySelected[3]);
+                        tvResult.setText("选择结果：\n省：" + citySelected[0] + "\n市：" + citySelected[1] + "\n区："
+                                + citySelected[2] + "\n邮编：" + citySelected[3]);
                     }
                 });
             }

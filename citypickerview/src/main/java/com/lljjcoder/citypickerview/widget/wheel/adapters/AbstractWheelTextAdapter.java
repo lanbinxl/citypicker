@@ -46,20 +46,25 @@ public abstract class AbstractWheelTextAdapter extends AbstractWheelAdapter {
     
     // Text settings
     private int textColor = DEFAULT_TEXT_COLOR;
+    
     private int textSize = DEFAULT_TEXT_SIZE;
+    
+    private int padding = 5;
     
     // Current context
     protected Context context;
+    
     // Layout inflater
     protected LayoutInflater inflater;
     
     // Items resources
     protected int itemResourceId;
+    
     protected int itemTextResourceId;
     
     // Empty items resources
     protected int emptyItemResourceId;
-	
+    
     /**
      * Constructor
      * @param context the current context
@@ -67,7 +72,7 @@ public abstract class AbstractWheelTextAdapter extends AbstractWheelAdapter {
     protected AbstractWheelTextAdapter(Context context) {
         this(context, TEXT_VIEW_ITEM_RESOURCE);
     }
-
+    
     /**
      * Constructor
      * @param context the current context
@@ -105,6 +110,18 @@ public abstract class AbstractWheelTextAdapter extends AbstractWheelAdapter {
      */
     public void setTextColor(int textColor) {
         this.textColor = textColor;
+    }
+    
+    /**
+     * item间距
+     * @return
+     */
+    public int getPadding() {
+        return padding;
+    }
+    
+    public void setPadding(int padding) {
+        this.padding = padding;
     }
     
     /**
@@ -154,7 +171,7 @@ public abstract class AbstractWheelTextAdapter extends AbstractWheelAdapter {
     public void setItemTextResource(int itemTextResourceId) {
         this.itemTextResourceId = itemTextResourceId;
     }
-
+    
     /**
      * Gets resource Id for empty items views
      * @return the empty item resource Id
@@ -162,7 +179,7 @@ public abstract class AbstractWheelTextAdapter extends AbstractWheelAdapter {
     public int getEmptyItemResource() {
         return emptyItemResourceId;
     }
-
+    
     /**
      * Sets resource Id for empty items views
      * @param emptyItemResourceId the empty item resource Id to set
@@ -171,14 +188,13 @@ public abstract class AbstractWheelTextAdapter extends AbstractWheelAdapter {
         this.emptyItemResourceId = emptyItemResourceId;
     }
     
-    
     /**
      * Returns text for specified item
      * @param index the item index
      * @return the text of specified items
      */
     protected abstract CharSequence getItemText(int index);
-
+    
     @Override
     public View getItem(int index, View convertView, ViewGroup parent) {
         if (index >= 0 && index < getItemsCount()) {
@@ -192,28 +208,28 @@ public abstract class AbstractWheelTextAdapter extends AbstractWheelAdapter {
                     text = "";
                 }
                 textView.setText(text);
-    
+                
                 if (itemResourceId == TEXT_VIEW_ITEM_RESOURCE) {
                     configureTextView(textView);
                 }
             }
             return convertView;
         }
-    	return null;
+        return null;
     }
-
+    
     @Override
     public View getEmptyItem(View convertView, ViewGroup parent) {
         if (convertView == null) {
             convertView = getView(emptyItemResourceId, parent);
         }
         if (emptyItemResourceId == TEXT_VIEW_ITEM_RESOURCE && convertView instanceof TextView) {
-            configureTextView((TextView)convertView);
+            configureTextView((TextView) convertView);
         }
-            
+        
         return convertView;
-	}
-
+    }
+    
     /**
      * Configures text view. Is called for the TEXT_VIEW_ITEM_RESOURCE views.
      * @param view the text view to be configured
@@ -221,11 +237,12 @@ public abstract class AbstractWheelTextAdapter extends AbstractWheelAdapter {
     protected void configureTextView(TextView view) {
         view.setTextColor(textColor);
         view.setGravity(Gravity.CENTER);
+        view.setPadding(0, padding, 0, padding);
         view.setTextSize(textSize);
         view.setEllipsize(TextUtils.TruncateAt.END);
         view.setLines(1);
-//        view.setCompoundDrawablePadding(20);
-//        view.setTypeface(Typeface.SANS_SERIF, Typeface.BOLD);
+        //        view.setCompoundDrawablePadding(20);
+        //        view.setTypeface(Typeface.SANS_SERIF, Typeface.BOLD);
     }
     
     /**
@@ -235,17 +252,18 @@ public abstract class AbstractWheelTextAdapter extends AbstractWheelAdapter {
      * @return the loaded text view
      */
     private TextView getTextView(View view, int textResource) {
-    	TextView text = null;
-    	try {
+        TextView text = null;
+        try {
             if (textResource == NO_RESOURCE && view instanceof TextView) {
                 text = (TextView) view;
-            } else if (textResource != NO_RESOURCE) {
+            }
+            else if (textResource != NO_RESOURCE) {
                 text = (TextView) view.findViewById(textResource);
             }
-        } catch (ClassCastException e) {
+        }
+        catch (ClassCastException e) {
             Log.e("AbstractWheelAdapter", "You must supply a resource ID for a TextView");
-            throw new IllegalStateException(
-                    "AbstractWheelAdapter requires the resource ID to be a TextView", e);
+            throw new IllegalStateException("AbstractWheelAdapter requires the resource ID to be a TextView", e);
         }
         
         return text;
@@ -258,12 +276,12 @@ public abstract class AbstractWheelTextAdapter extends AbstractWheelAdapter {
      */
     private View getView(int resource, ViewGroup parent) {
         switch (resource) {
-        case NO_RESOURCE:
-            return null;
-        case TEXT_VIEW_ITEM_RESOURCE:
-            return new TextView(context);
-        default:
-            return inflater.inflate(resource, parent, false);    
+            case NO_RESOURCE:
+                return null;
+            case TEXT_VIEW_ITEM_RESOURCE:
+                return new TextView(context);
+            default:
+                return inflater.inflate(resource, parent, false);
         }
     }
 }
