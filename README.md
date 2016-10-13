@@ -6,29 +6,115 @@
 ### 亮点
 无需自己配置省市区域的数据，不需要再进行解析之类的繁杂操作，只需引用即可，结果返回省市区和邮编等四项数据信息，如果不满意样式的话可以自己修改源码！
 
+### APK下载
 
-### Gradle引用
+![这里写图片描述](http://img.blog.csdn.net/20161013143043278)
+1. [fir下载apk演示](http://fir.im/r3dp)
+
+
+----------
+
+
+###  V0.3.0版本更新内容（2016.10.13）
+#### 更新内容
+
+ 1. 新增item间距属性
+ 2. 拆分省市区三个滚轮循环显示为分别是否循环滚动
+ 3. 优化代码结构
+
+#### gradle引用
+```
+    compile 'liji.library.dev:citypickerview:0.3.0'
 
 ```
-    compile 'liji.library.dev:citypickerview:0.2.0'
+#### 代码示例（v0.3.0）
 
 ```
+CityPicker cityPicker = new CityPicker.Builder(context).textSize(20)
+                        .textColor(Color.parseColor("#000000"))
+                        .provinceCyclic(true)
+                        .cityCyclic(false)
+                        .districtCyclic(false)
+                        .visibleItemsCount(7)
+                        .itemPadding(10)
+                        .build();
+                
+                cityPicker.show();
+                cityPicker.setOnCityItemClickListener(new CityPicker.OnCityItemClickListener() {
+                    @Override
+                    public void onSelected(String... citySelected) {
+                       //省份
+		               String province = citySelected[0];
+		               //城市
+		               String city = citySelected[1];
+		               //区县
+		               String district = citySelected[2];
+		               //邮编
+		               String code = citySelected[3]; 
+                    }
+                });
+```
 
-#### V0.2.0版本更新内容
-新增以下属性内容：
+#### 属性说明
 
+ 
+
+> textSize
+
+ 滚轮文字的大小，int 类型，默认为18
+
+
+>  textColor   
+
+ 滚轮文字的颜色 ，int 类型，默认为0xFF585858
+
+> visibleItemsCount
+
+滚轮显示的item个数，int 类型，默认为5个
+
+>    provinceCyclic
+
+省份滚轮是否循环显示，boolean 类型，默认为true
+
+>    cityCyclic
+
+城市滚轮是否循环显示，boolean 类型，默认为true
+
+>    districtCyclic
+
+地区（县）滚轮是否循环显示，boolean 类型，默认为true
+
+> itemPadding
+
+滚轮item间距，默认为5dp
+
+
+
+#### 结果返回
+只需传入Context便可获取选择的省市区域的信息，结果返回四项，可根据自己的实际需求进行选择。
+
+ 1. citySelected[0]：表示：省份信息
+ 2. citySelected[1]：表示：城市信息
+ 3. citySelected[2]：表示：区县信息
+ 4. citySelected[3]：表示：邮编信息
+
+
+----------
+
+
+###  V0.2.0版本更新内容（2016.05.16）
+#### 更新内容
 1. 滚轮是否循环滚动
 2. 新增文字颜色修改
 3. 新增文字大小修改
 4. 新增滚轮内容可见数量
 
+#### gradle引用
+```
+    compile 'liji.library.dev:citypickerview:0.2.0'
 
-#### V0.1.0版本更新内容
-1. 直接传入context获取省市区信息
-
-
-
-#### 代码示例
+```
+#### 代码示例（v0.2.0）
 ```
  CityPickerView cityPickerView = new CityPickerView(MainActivity.this);
         cityPickerView.setOnCityItemClickListener(new CityPickerView.OnCityItemClickListener() {
@@ -60,6 +146,18 @@
  4. citySelected[3]：表示：邮编信息
 
 
+----------
+
+
+### V0.1.0版本更新内容
+1. 直接传入context获取省市区信息
+
+
+
+
+
+
+
 ### 效果预览
 #### 应用在实际项目中效果
 ![](http://img.blog.csdn.net/20160513153736550)
@@ -79,10 +177,7 @@
 #### json数据
 ![](http://img.blog.csdn.net/20160512153906553)
 
-### APK下载
 
-1. [APK下载地址CSDN](http://download.csdn.net/detail/lj188266/9518048)
-2. [fir下载](http://fir.im/xce2?release_id=57392423f2fc421f7900000e)
 
 ### 关于我
 [我的个人博客](http://crazyandcoder.github.io/about/)
@@ -90,6 +185,8 @@
 ### 感谢
 
 - [http://blog.csdn.net/wulianghuan/article/details/41549189](http://blog.csdn.net/wulianghuan/article/details/41549189)
+
+
 
 
 
