@@ -37,7 +37,7 @@
     compile 'liji.library.dev:citypickerview:0.4.0'
 
 ```
-#### 代码示例（v0.3.0）
+#### 代码示例（v0.4.0）
 
 ```
  CityPicker cityPicker = new CityPicker.Builder(MainActivity.this).textSize(20) //滚轮文字的大小
