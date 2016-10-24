@@ -21,8 +21,14 @@ public class MainActivity extends AppCompatActivity {
         go.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                
                 CityPicker cityPicker = new CityPicker.Builder(MainActivity.this).textSize(20)
+                        .onlyShowProvinceAndCity(true)
+                        .confirTextColor("#000000")
+                        .cancelTextColor("#000000")
+                        .province("江苏省")
+                        .city("常州市")
+                        .district("新北区")
                         .textColor(Color.parseColor("#000000"))
                         .provinceCyclic(true)
                         .cityCyclic(false)
