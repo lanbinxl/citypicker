@@ -24,7 +24,81 @@
 
 
 ----------
+###  V0.4.0版本更新内容（2016.10.24）
+#### 更新内容
 
+ 1. 新增只显示省市两级联动设置
+ 2. 新增确认和取消按钮文字颜色的设置
+ 3. 新增设置默认省市区的设置
+
+
+#### gradle引用
+```
+    compile 'liji.library.dev:citypickerview:0.4.0'
+
+```
+#### 代码示例（v0.3.0）
+
+```
+ CityPicker cityPicker = new CityPicker.Builder(MainActivity.this).textSize(20) //滚轮文字的大小
+                        .onlyShowProvinceAndCity(true) //显示省市两级联动
+                        .confirTextColor("#000000") //设置确认按钮文字颜色
+                        .cancelTextColor("#000000") //设置取消按钮文字颜色
+                        .province("江苏省") //设置默认省
+                        .city("常州市") //设置默认城市
+                        .district("新北区") //设置默认地区（县）
+                        .textColor(Color.parseColor("#000000")) //滚轮文字的颜色
+                        .provinceCyclic(true) //省份滚轮是否循环显示
+                        .cityCyclic(false) //城市滚轮是否循环显示
+                        .districtCyclic(false) //地区（县）滚轮是否循环显示
+                        .visibleItemsCount(7) //滚轮显示的item个数
+                        .itemPadding(10) //滚轮item间距
+                        .build();
+                        
+                cityPicker.show();
+                cityPicker.setOnCityItemClickListener(new CityPicker.OnCityItemClickListener() {
+                    @Override
+                    public void onSelected(String... citySelected) {
+                       //省份
+		               String province = citySelected[0];
+		               //城市
+		               String city = citySelected[1];
+		               //区县（如果设定了两级联动，那么该项返回空）
+		               String district = citySelected[2];
+		               //邮编
+		               String code = citySelected[3]; 
+                    }
+                });
+```
+
+#### 属性说明
+
+> onlyShowProvinceAndCity(boolean flag)
+
+ 省市两级联动，boolean 类型，默认false，三级联动
+
+
+>  confirTextColor
+
+ 确认按钮文字的颜色 ，int 类型，默认为#0000FF（BLUE）
+ 
+ >  cancelTextColor
+
+ 取消按钮文字的颜色 ，int 类型，默认为#000000（BLACK）
+
+>  province
+
+ 设置默认省 ，String类型，默认为江苏省
+
+>  city
+
+ 设置默认市 ，String 类型，默认为常州市
+
+>  district
+
+ 设置默认区（县），String 类型，默认为新北区
+
+----------
 
 ###  V0.3.0版本更新内容（2016.10.13）
 #### 更新内容
