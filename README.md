@@ -21,6 +21,60 @@
 ![这里写图片描述](http://img.blog.csdn.net/20161013143043278)
 
 1. [fir下载apk演示](http://fir.im/r3dp)
+
+----------
+###  V0.6.0版本更新内容（2016.11.09）
+#### 更新内容
+
+ 1. 修复部分城市数据不全的问题
+ 2. 添加修改标题的属性
+
+
+#### gradle引用
+```
+    compile 'liji.library.dev:citypickerview:0.6.0'
+
+```
+
+#### 代码示例（v0.6.0）
+
+```
+ CityPicker cityPicker = new CityPicker.Builder(MainActivity.this).textSize(20) //滚轮文字的大小
+ 			.title("城市选择") //标题，设置名称
+                        .titleBackgroundColor("#234Dfa") //标题背景
+                        .onlyShowProvinceAndCity(true) //显示省市两级联动
+                        .confirTextColor("#000000") //设置确认按钮文字颜色
+                        .cancelTextColor("#000000") //设置取消按钮文字颜色
+                        .province("江苏省") //设置默认省
+                        .city("常州市") //设置默认城市
+                        .district("新北区") //设置默认地区（县）
+                        .textColor(Color.parseColor("#000000")) //滚轮文字的颜色
+                        .provinceCyclic(true) //省份滚轮是否循环显示
+                        .cityCyclic(false) //城市滚轮是否循环显示
+                        .districtCyclic(false) //地区（县）滚轮是否循环显示
+                        .visibleItemsCount(7) //滚轮显示的item个数
+                        .itemPadding(10) //滚轮item间距
+                        .build();
+                        
+                cityPicker.show();
+                cityPicker.setOnCityItemClickListener(new CityPicker.OnCityItemClickListener() {
+                    @Override
+                    public void onSelected(String... citySelected) {
+                       //省份
+		               String province = citySelected[0];
+		               //城市
+		               String city = citySelected[1];
+		               //区县（如果设定了两级联动，那么该项返回空）
+		               String district = citySelected[2];
+		               //邮编
+		               String code = citySelected[3]; 
+                    }
+                });
+```
+
+
+
+
 ----------
 ###  V0.5.0版本更新内容（2016.10.28）
 #### 更新内容
