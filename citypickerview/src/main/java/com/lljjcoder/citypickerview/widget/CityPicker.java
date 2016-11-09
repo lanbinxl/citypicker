@@ -223,7 +223,8 @@ public class CityPicker implements CanShow, OnWheelChangedListener {
         mTvOK = (TextView) popview.findViewById(R.id.tv_confirm);
         mTvTitle = (TextView) popview.findViewById(R.id.tv_title);
         mTvCancel = (TextView) popview.findViewById(R.id.tv_cancel);
-        
+
+
         popwindow = new PopupWindow(popview, LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         popwindow.setBackgroundDrawable(new ColorDrawable(0x80000000));
@@ -231,6 +232,7 @@ public class CityPicker implements CanShow, OnWheelChangedListener {
         popwindow.setTouchable(true);
         popwindow.setOutsideTouchable(true);
         popwindow.setFocusable(true);
+
 
         /**
          * 设置标题背景颜色
