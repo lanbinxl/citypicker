@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 
                 CityPicker cityPicker = new CityPicker.Builder(MainActivity.this).textSize(20)
+                        .title("我是老大")
+                        .titleBackgroundColor("#234Dfa")
                         .onlyShowProvinceAndCity(true)
                         .confirTextColor("#000000")
                         .cancelTextColor("#000000")

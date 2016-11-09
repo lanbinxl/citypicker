@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.lljjcoder.citypickerview.R;
@@ -48,9 +49,13 @@ public class CityPicker implements CanShow, OnWheelChangedListener {
     private WheelView mViewCity;
     
     private WheelView mViewDistrict;
+
+    private RelativeLayout mRelativeTitleBg;
     
     private TextView mTvOK;
-    
+
+    private TextView mTvTitle;
+
     private TextView mTvCancel;
     
     /**
@@ -146,26 +151,22 @@ public class CityPicker implements CanShow, OnWheelChangedListener {
      */
     private int padding = 5;
     
-    //    /**
-    //     * 取消按钮文字颜色
-    //     */
-    //    private int cancelTextColor = Color.BLACK;
-    
+
     /**
      * Color.BLACK
      */
     private String cancelTextColorStr = "#000000";
     
-    //    /**
-    //     *
-    //     * 确认按钮文字颜色
-    //     */
-    //    private int confirmTextColor = Color.BLUE;
-    
+
     /**
      * Color.BLUE
      */
     private String confirmTextColorStr = "#0000FF";
+
+    /**
+     * 标题背景颜色
+     */
+    private String titleBackgroundColorStr="#E9E9E9";
     
     /**
      * 第一次默认的显示省份，一般配合定位，使用
@@ -186,6 +187,11 @@ public class CityPicker implements CanShow, OnWheelChangedListener {
      * 两级联动
      */
     private boolean showProvinceAndCity = false;
+
+    /**
+     * 标题
+     */
+    private String mTitle="选择地区";
     
     private CityPicker(Builder builder) {
         this.textColor = builder.textColor;
@@ -196,10 +202,9 @@ public class CityPicker implements CanShow, OnWheelChangedListener {
         this.isCityCyclic = builder.isCityCyclic;
         this.context = builder.mContext;
         this.padding = builder.padding;
-        
-        //        this.confirmTextColor = builder.confirmTextColor;
+        this.mTitle=builder.mTitle;
+        this.titleBackgroundColorStr=builder.titleBackgroundColorStr;
         this.confirmTextColorStr = builder.confirmTextColorStr;
-        //        this.cancelTextColor = builder.cancelTextColor;
         this.cancelTextColorStr = builder.cancelTextColorStr;
         
         this.defaultDistrict = builder.defaultDistrict;
@@ -214,7 +219,9 @@ public class CityPicker implements CanShow, OnWheelChangedListener {
         mViewProvince = (WheelView) popview.findViewById(R.id.id_province);
         mViewCity = (WheelView) popview.findViewById(R.id.id_city);
         mViewDistrict = (WheelView) popview.findViewById(R.id.id_district);
+        mRelativeTitleBg = (RelativeLayout) popview.findViewById(R.id.rl_title);
         mTvOK = (TextView) popview.findViewById(R.id.tv_confirm);
+        mTvTitle = (TextView) popview.findViewById(R.id.tv_title);
         mTvCancel = (TextView) popview.findViewById(R.id.tv_cancel);
         
         popwindow = new PopupWindow(popview, LinearLayout.LayoutParams.MATCH_PARENT,
@@ -224,22 +231,31 @@ public class CityPicker implements CanShow, OnWheelChangedListener {
         popwindow.setTouchable(true);
         popwindow.setOutsideTouchable(true);
         popwindow.setFocusable(true);
-        
+
+        /**
+         * 设置标题背景颜色
+         */
+        if (!TextUtils.isEmpty(this.titleBackgroundColorStr)) {
+            mRelativeTitleBg.setBackgroundColor(Color.parseColor(this.titleBackgroundColorStr));
+        }
+
+        /**
+         * 设置标题
+         */
+        if (!TextUtils.isEmpty(this.mTitle)){
+            mTvTitle.setText(this.mTitle);
+        }
+
         //设置确认按钮文字颜色
         if (!TextUtils.isEmpty(this.confirmTextColorStr)) {
             mTvOK.setTextColor(Color.parseColor(this.confirmTextColorStr));
         }
-        //        else {
-        //            mTvOK.setTextColor(this.confirmTextColor);
-        //        }
-        
+
         //设置取消按钮文字颜色
         if (!TextUtils.isEmpty(this.cancelTextColorStr)) {
             mTvCancel.setTextColor(Color.parseColor(this.cancelTextColorStr));
         }
-        //        else {
-        //            mTvCancel.setTextColor(this.cancelTextColor);
-        //        }
+
         
         //只显示省市两级联动
         if (this.showProvinceAndCity) {
@@ -326,26 +342,22 @@ public class CityPicker implements CanShow, OnWheelChangedListener {
          */
         private int padding = 5;
         
-        //        /**
-        //         * 取消按钮文字颜色
-        //         */
-        //        private int cancelTextColor = Color.BLACK;
-        
+
         /**
          * Color.BLACK
          */
         private String cancelTextColorStr = "#000000";
         
-        //        /**
-        //         *
-        //         * 确认按钮文字颜色
-        //         */
-        //        private int confirmTextColor = Color.BLUE;
-        
+
         /**
          * Color.BLUE
          */
         private String confirmTextColorStr = "#0000FF";
+
+        /**
+         * 标题背景颜色
+         */
+        private String titleBackgroundColorStr="#E9E9E9";
         
         /**
          * 第一次默认的显示省份，一般配合定位，使用
@@ -361,6 +373,11 @@ public class CityPicker implements CanShow, OnWheelChangedListener {
          * 第一次默认得显示，一般配合定位，使用
          */
         private String defaultDistrict = "新北区";
+
+        /**
+         * 标题
+         */
+        private String mTitle="选择地区";
         
         /**
          * 两级联动
@@ -370,7 +387,27 @@ public class CityPicker implements CanShow, OnWheelChangedListener {
         public Builder(Context context) {
             this.mContext = context;
         }
-        
+
+        /**
+         * 设置标题背景颜色
+         * @param colorBg
+         * @return
+         */
+        public Builder titleBackgroundColor(String colorBg){
+            this.titleBackgroundColorStr=colorBg;
+            return this;
+        }
+
+        /**
+         * 设置标题
+         * @param mtitle
+         * @return
+         */
+        public Builder title(String mtitle){
+            this.mTitle=mtitle;
+            return this;
+        }
+
         /**
          * 是否只显示省市两级联动
          * @param flag

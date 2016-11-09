@@ -70,6 +70,9 @@
     </city>
     <city name="合肥市">
       <district name="包河区" zipcode="230000" />
+      <district name="高新区" zipcode="230000" />
+      <district name="新站区" zipcode="230000" />
+      <district name="滨湖新区" zipcode="230000" />
       <district name="长丰县" zipcode="230000" />
       <district name="肥东县" zipcode="230000" />
       <district name="肥西县" zipcode="230000" />
@@ -89,6 +92,7 @@
       <district name="八公山区" zipcode="232000" />
       <district name="大通区" zipcode="232000" />
       <district name="凤台县" zipcode="232000" />
+      <district name="寿县" zipcode="232000" />
       <district name="潘集区" zipcode="232000" />
       <district name="田家庵区" zipcode="232000" />
       <district name="谢家集区" zipcode="232000" />
@@ -109,7 +113,6 @@
       <district name="霍山县" zipcode="237000" />
       <district name="金安区" zipcode="237000" />
       <district name="金寨县" zipcode="237000" />
-      <district name="寿县" zipcode="237000" />
       <district name="舒城县" zipcode="237000" />
       <district name="裕安区" zipcode="237000" />
       <district name="其他" zipcode="237000" />
@@ -460,6 +463,20 @@
       <district name="源城区" zipcode="517000" />
       <district name="紫金县" zipcode="517000" />
       <district name="其他" zipcode="517000" />
+    </city>
+    <city name="东莞市">
+      <district name="莞城区" zipcode="523000" />
+      <district name="东城区" zipcode="523000" />
+      <district name="南城区" zipcode="523000" />
+      <district name="万江区" zipcode="523000" />
+    </city>
+    <city name="中山市">
+      <district name="石岐街道" zipcode="528400" />
+      <district name="东区街道" zipcode="528400" />
+      <district name="西区街道" zipcode="528400" />
+      <district name="南区街道" zipcode="528400" />
+      <district name="五桂山街道" zipcode="528400" />
+      <district name="中山开发区" zipcode="528400" />
     </city>
     <city name="惠州市">
       <district name="博罗县" zipcode="516000" />
