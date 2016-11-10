@@ -40,7 +40,9 @@
 
 ```
  CityPicker cityPicker = new CityPicker.Builder(MainActivity.this).textSize(20) //滚轮文字的大小
- 				.title("城市选择") //标题，设置名称
+ 
+ 			//以下两个属性设置为新增方法
+ 			.title("城市选择") //标题，设置名称
                         .titleBackgroundColor("#234Dfa") //标题背景
 			
                         //... 相关属性设置同v0.5.0版本
@@ -98,6 +100,8 @@
 
 ```
  CityPicker cityPicker = new CityPicker.Builder(MainActivity.this).textSize(20) //滚轮文字的大小
+ 
+ 			//以下属性设置为新增方法
                         .onlyShowProvinceAndCity(true) //显示省市两级联动
                         .confirTextColor("#000000") //设置确认按钮文字颜色
                         .cancelTextColor("#000000") //设置取消按钮文字颜色
