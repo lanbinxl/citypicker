@@ -40,20 +40,11 @@
 
 ```
  CityPicker cityPicker = new CityPicker.Builder(MainActivity.this).textSize(20) //滚轮文字的大小
- 			.title("城市选择") //标题，设置名称
+ 				.title("城市选择") //标题，设置名称
                         .titleBackgroundColor("#234Dfa") //标题背景
-                        .onlyShowProvinceAndCity(true) //显示省市两级联动
-                        .confirTextColor("#000000") //设置确认按钮文字颜色
-                        .cancelTextColor("#000000") //设置取消按钮文字颜色
-                        .province("江苏省") //设置默认省
-                        .city("常州市") //设置默认城市
-                        .district("新北区") //设置默认地区（县）
-                        .textColor(Color.parseColor("#000000")) //滚轮文字的颜色
-                        .provinceCyclic(true) //省份滚轮是否循环显示
-                        .cityCyclic(false) //城市滚轮是否循环显示
-                        .districtCyclic(false) //地区（县）滚轮是否循环显示
-                        .visibleItemsCount(7) //滚轮显示的item个数
-                        .itemPadding(10) //滚轮item间距
+			
+                        //... 相关属性设置同v0.5.0版本
+			
                         .build();
                         
                 cityPicker.show();
@@ -113,12 +104,9 @@
                         .province("江苏省") //设置默认省
                         .city("常州市") //设置默认城市
                         .district("新北区") //设置默认地区（县）
-                        .textColor(Color.parseColor("#000000")) //滚轮文字的颜色
-                        .provinceCyclic(true) //省份滚轮是否循环显示
-                        .cityCyclic(false) //城市滚轮是否循环显示
-                        .districtCyclic(false) //地区（县）滚轮是否循环显示
-                        .visibleItemsCount(7) //滚轮显示的item个数
-                        .itemPadding(10) //滚轮item间距
+			
+                        //...相关属性同v0.4.0版本
+			
                         .build();
                         
                 cityPicker.show();
