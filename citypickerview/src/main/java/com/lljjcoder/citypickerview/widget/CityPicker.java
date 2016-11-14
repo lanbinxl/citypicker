@@ -693,14 +693,17 @@ public class CityPicker implements CanShow, OnWheelChangedListener {
         mViewDistrict.setViewAdapter(districtWheel);
         if (-1 != districtDefault) {
             mViewDistrict.setCurrentItem(districtDefault);
+            //获取默认设置的区
+            mCurrentDistrictName = defaultDistrict;
         }
         else {
             mViewDistrict.setCurrentItem(0);
+            //获取第一个区名称
+            mCurrentDistrictName = mDistrictDatasMap.get(mCurrentCityName)[0];
             
         }
         districtWheel.setPadding(padding);
         //获取第一个区名称
-        mCurrentDistrictName = mDistrictDatasMap.get(mCurrentCityName)[0];
         mCurrentZipCode = mZipcodeDatasMap.get(mCurrentDistrictName);
     }
     
