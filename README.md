@@ -21,7 +21,19 @@
 ![这里写图片描述](http://img.blog.csdn.net/20161013143043278)
 
 1. [fir下载apk演示](http://fir.im/r3dp)
+----------
+###  V0.7.0版本更新内容（2016.11.14）
+#### 更新内容
 
+ ![1. 修复#10问题](https://github.com/crazyandcoder/citypicker/issues/10)
+
+
+
+#### gradle引用
+```
+    compile 'liji.library.dev:citypickerview:0.7.0'
+
+```
 ----------
 ###  V0.6.0版本更新内容（2016.11.09）
 #### 更新内容
