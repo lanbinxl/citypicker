@@ -25,7 +25,7 @@
 ###  V0.7.0版本更新内容（2016.11.14）
 #### 更新内容
 
- ![1. 修复#10问题](https://github.com/crazyandcoder/citypicker/issues/10)
+ [1. 修复#10问题](https://github.com/crazyandcoder/citypicker/issues/10)
 
 
 
