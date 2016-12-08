@@ -1,8 +1,8 @@
 ## citypicker Android Studio实现
 
-**欢迎加入citypicker交流群**
+**欢迎加入轮子学习(android)交流群**
 
-群名称：**citypicker**
+群名称：**轮子学习(android)**
 群   号：**539175620**
 
 ![](http://img.blog.csdn.net/20161208212647594?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
