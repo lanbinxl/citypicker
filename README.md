@@ -1,5 +1,14 @@
 ## citypicker Android Studio实现
 
+**欢迎加入citypicker交流群**
+
+群名称：**citypicker**
+群   号：**539175620**
+
+![](http://img.blog.csdn.net/20161208212647594?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
+
+
 ### 前言
 在实际的项目中需要使用到省市区三级联动的功能，在网上找来找去，都没有找到一个合适的库， 所以自己就封装了一个，不需要自己添加数据源，直接引用即可，一行代码搞定城市选择。怎么简单，怎么方便，怎么来，就是这么任性！
 
