@@ -10,26 +10,27 @@ import android.widget.TextView;
 import com.lljjcoder.citypickerview.widget.CityPicker;
 
 public class MainActivity extends AppCompatActivity {
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
+
         Button go = (Button) findViewById(R.id.go);
         final TextView tvResult = (TextView) findViewById(R.id.tv_result);
         go.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+
                 CityPicker cityPicker = new CityPicker.Builder(MainActivity.this).textSize(20)
                         .title("我是老大")
                         .titleBackgroundColor("#234Dfa")
+                        .backgroundPop(0xa0000000)
                         .confirTextColor("#000000")
                         .cancelTextColor("#000000")
                         .province("江苏省")
                         .city("常州市")
-                        .district("新北区")
+                        .district("天宁区")
                         .textColor(Color.parseColor("#000000"))
                         .provinceCyclic(true)
                         .cityCyclic(false)
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                         .visibleItemsCount(7)
                         .itemPadding(10)
                         .build();
-                
+
                 cityPicker.show();
                 cityPicker.setOnCityItemClickListener(new CityPicker.OnCityItemClickListener() {
                     @Override
