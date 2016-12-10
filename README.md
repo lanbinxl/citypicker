@@ -24,9 +24,9 @@
 ### demo演示(下载二维码)
 
  ![](http://img.blog.csdn.net/20161209212021359?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
-
-
-
+#### 下载地址
+ [http://fir.im/r3dp](http://fir.im/r3dp)
+ 
 ### 使用方法
 #### gradle引用
 ```
