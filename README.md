@@ -17,61 +17,48 @@
 
 ### 效果预览
 #### 应用在实际项目中效果
-![](http://img.blog.csdn.net/20160513153736550)
 
-![](http://img.blog.csdn.net/20160513153748475)
-
-![](http://img.blog.csdn.net/20160513153756003)
+![](http://img.blog.csdn.net/20161209211413273?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)  ![](http://img.blog.csdn.net/20161209211426836?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast) ![](http://img.blog.csdn.net/20161209211442594?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
 
+### demo演示(下载二维码)
 
-### APK下载
-
-![这里写图片描述](http://img.blog.csdn.net/20161013143043278)
-
-1. [fir下载apk演示](http://fir.im/r3dp)
-----------
-###  V0.7.0版本更新内容（2016.11.14）
-#### 更新内容
-
- [1. 修复#10问题](https://github.com/crazyandcoder/citypicker/issues/10)
+ ![](http://img.blog.csdn.net/20161209212021359?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
 
 
+### 使用方法
 #### gradle引用
 ```
-    compile 'liji.library.dev:citypickerview:0.7.0'
+compile 'liji.library.dev:citypickerview:0.8.0'
 
 ```
-----------
-###  V0.6.0版本更新内容（2016.11.09）
-#### 更新内容
-
- 1. 修复部分城市数据不全的问题
- 2. 添加修改标题的属性
-
-
-#### gradle引用
-```
-    compile 'liji.library.dev:citypickerview:0.6.0'
+#### 代码示例
 
 ```
-
-#### 代码示例（v0.6.0）
-
-```
- CityPicker cityPicker = new CityPicker.Builder(MainActivity.this).textSize(20) //滚轮文字的大小
- 
- 			//以下两个属性设置为新增方法
- 			.title("城市选择") //标题，设置名称
-                        .titleBackgroundColor("#234Dfa") //标题背景
-			
-                        //... 相关属性设置同v0.5.0版本
-			
+CityPicker cityPicker = new CityPicker.Builder(MainActivity.this)
+						.textSize(20)
+                        .title("地址选择")
+                        .backgroundPop(0xa0000000)
+                        .titleBackgroundColor("#234Dfa")
+                        .backgroundPop(0xa0000000)
+                        .confirTextColor("#000000")
+                        .cancelTextColor("#000000")
+                        .province("江苏省")
+                        .city("常州市")
+                        .district("天宁区")
+                        .textColor(Color.parseColor("#000000"))
+                        .provinceCyclic(true)
+                        .cityCyclic(false)
+                        .districtCyclic(false)
+                        .visibleItemsCount(7)
+                        .itemPadding(10)
+                        .onlyShowProvinceAndCity(false)
                         .build();
-                        
                 cityPicker.show();
-                cityPicker.setOnCityItemClickListener(new CityPicker.OnCityItemClickListener() {
+
+//监听方法，获取选择结果
+cityPicker.setOnCityItemClickListener(new CityPicker.OnCityItemClickListener() {
                     @Override
                     public void onSelected(String... citySelected) {
                        //省份
@@ -87,262 +74,98 @@
 ```
 
 
+#### 使用说明
+
+#### 结果返回
+只需传入Context便可获取选择的省市区域的信息，结果返回四项，可根据自己的实际需求进行选择。
+
+ 1. citySelected[0]：表示：省份信息
+ 2. citySelected[1]：表示：城市信息
+ 3. citySelected[2]：表示：区县信息
+ 4. citySelected[3]：表示：邮编信息
+
+#### 方法说明
+
+ 1. textSize（滚轮文字的大小，int 类型，默认为18）
+ 2. title（选择器标题，默认为“选择地区”）
+ 3. backgroundPop（背景，默认为半透明，16位进制颜色代码，带alpha值，如0xa0ffffff）
+ 4. titleBackgroundColor（标题栏背景，默认为灰色，#C7C7C7）
+ 5. confirTextColor（确认按钮字体颜色，默认为系统的colorPrimary颜色值）
+ 6. cancelTextColor（取消按钮字体颜色，默认为系统的colorPrimary颜色值）
+ 7. province（默认的显示省份，显示选择器后直接定位的item位置）
+ 8. city（默认的显示市，显示选择器后直接定位的item位置）
+ 9. district（默认的显示区，显示选择器后直接定位的item位置）
+ 10. textColor（滚轮文字的颜色 ，int 类型，默认为0xFF585858）
+ 11. provinceCyclic（省份的滚轮是否循环滚动）
+ 12. cityCyclic（市的滚轮是否循环滚动）
+ 13. districtCyclic（区的滚轮是否循环滚动）
+ 14. visibleItemsCount（滚轮显示的item个数，int 类型，默认为5个）
+ 15. itemPadding（滚轮item间距，默认为5dp）
+ 16. onlyShowProvinceAndCity(boolean flag)（是否只显示省份和市的两级联动，去掉区或者县）
 
 
 ----------
-###  V0.5.0版本更新内容（2016.10.28）
-#### 更新内容
+### 更新日志
+
+#### V0.8.0版本更新内容（2016.12.10）
+
+ 1. 新增设置背景透明度的属性
+ 2. [修复#11问题](https://github.com/crazyandcoder/citypicker/issues/11)
+ 3. [修复#13问题](https://github.com/crazyandcoder/citypicker/issues/13)
+ 4. [修复#14问题](https://github.com/crazyandcoder/citypicker/issues/14)
+
+####  V0.7.0版本更新内容（2016.11.14）
+
+ 1. [修复#10问题](https://github.com/crazyandcoder/citypicker/issues/10)
+
+####  V0.6.0版本更新内容（2016.11.09）
+
+ 1. 修复部分城市数据不全的问题
+ 2. 添加修改标题的属性
+
+####  V0.5.0版本更新内容（2016.10.28）
 
  1. 修复当数据源少于7个item时，设置字体颜色有阴影的bug
 
-
-#### gradle引用
-```
-    compile 'liji.library.dev:citypickerview:0.5.0'
-
-```
-**使用方法同V0.4.0版本**
-
-----------
-###  V0.4.0版本更新内容（2016.10.24）
-#### 更新内容
+####  V0.4.0版本更新内容（2016.10.24）
 
  1. 新增只显示省市两级联动设置
  2. 新增确认和取消按钮文字颜色的设置
  3. 新增设置默认省市区的设置
 
 
-#### gradle引用
-```
-    compile 'liji.library.dev:citypickerview:0.4.0'
-
-```
-#### 代码示例（v0.4.0）
-
-```
- CityPicker cityPicker = new CityPicker.Builder(MainActivity.this).textSize(20) //滚轮文字的大小
- 
- 			//以下属性设置为新增方法
-                        .onlyShowProvinceAndCity(true) //显示省市两级联动
-                        .confirTextColor("#000000") //设置确认按钮文字颜色
-                        .cancelTextColor("#000000") //设置取消按钮文字颜色
-                        .province("江苏省") //设置默认省
-                        .city("常州市") //设置默认城市
-                        .district("新北区") //设置默认地区（县）
-			
-                        //...相关属性同v0.4.0版本
-			
-                        .build();
-                        
-                cityPicker.show();
-                cityPicker.setOnCityItemClickListener(new CityPicker.OnCityItemClickListener() {
-                    @Override
-                    public void onSelected(String... citySelected) {
-                       //省份
-		               String province = citySelected[0];
-		               //城市
-		               String city = citySelected[1];
-		               //区县（如果设定了两级联动，那么该项返回空）
-		               String district = citySelected[2];
-		               //邮编
-		               String code = citySelected[3]; 
-                    }
-                });
-```
-
-#### 属性说明
-
-> onlyShowProvinceAndCity(boolean flag)
-
- 省市两级联动，boolean 类型，默认false，三级联动
-
-
->  confirTextColor
-
- 确认按钮文字的颜色 ，int 类型，默认为#0000FF（BLUE）
- 
- >  cancelTextColor
-
- 取消按钮文字的颜色 ，int 类型，默认为#000000（BLACK）
-
->  province
-
- 设置默认省 ，String类型，默认为江苏省
-
->  city
-
- 设置默认市 ，String 类型，默认为常州市
-
->  district
-
- 设置默认区（县），String 类型，默认为新北区
-
-----------
-
-###  V0.3.0版本更新内容（2016.10.13）
-#### 更新内容
+####  V0.3.0版本更新内容（2016.10.13）
 
  1. 新增item间距属性
  2. 拆分省市区三个滚轮循环显示为分别是否循环滚动
  3. 优化代码结构
 
-#### gradle引用
-```
-    compile 'liji.library.dev:citypickerview:0.3.0'
 
-```
-#### 代码示例（v0.3.0）
-
-```
-CityPicker cityPicker = new CityPicker.Builder(context).textSize(20)//滚轮文字的大小
-                        .textColor(Color.parseColor("#000000"))//滚轮文字的颜色
-                        .provinceCyclic(true)//省份滚轮是否循环显示
-                        .cityCyclic(false)//城市滚轮是否循环显示
-                        .districtCyclic(false)//地区（县）滚轮是否循环显示
-                        .visibleItemsCount(7)//滚轮显示的item个数
-                        .itemPadding(10)//滚轮item间距
-                        .build();
-                
-                cityPicker.show();
-                cityPicker.setOnCityItemClickListener(new CityPicker.OnCityItemClickListener() {
-                    @Override
-                    public void onSelected(String... citySelected) {
-                       //省份
-		               String province = citySelected[0];
-		               //城市
-		               String city = citySelected[1];
-		               //区县
-		               String district = citySelected[2];
-		               //邮编
-		               String code = citySelected[3]; 
-                    }
-                });
-```
-
-#### 属性说明
-
- 
-
-> textSize
-
- 滚轮文字的大小，int 类型，默认为18
-
-
->  textColor   
-
- 滚轮文字的颜色 ，int 类型，默认为0xFF585858
-
-> visibleItemsCount
-
-滚轮显示的item个数，int 类型，默认为5个
-
->    provinceCyclic
-
-省份滚轮是否循环显示，boolean 类型，默认为true
-
->    cityCyclic
-
-城市滚轮是否循环显示，boolean 类型，默认为true
-
->    districtCyclic
-
-地区（县）滚轮是否循环显示，boolean 类型，默认为true
-
-> itemPadding
-
-滚轮item间距，默认为5dp
-
-
-
-#### 结果返回
-只需传入Context便可获取选择的省市区域的信息，结果返回四项，可根据自己的实际需求进行选择。
-
- 1. citySelected[0]：表示：省份信息
- 2. citySelected[1]：表示：城市信息
- 3. citySelected[2]：表示：区县信息
- 4. citySelected[3]：表示：邮编信息
-
-
-----------
-
-
-###  V0.2.0版本更新内容（2016.05.16）
-#### 更新内容
+####  V0.2.0版本更新内容（2016.05.16）
 1. 滚轮是否循环滚动
 2. 新增文字颜色修改
 3. 新增文字大小修改
 4. 新增滚轮内容可见数量
 
-#### gradle引用
-```
-    compile 'liji.library.dev:citypickerview:0.2.0'
 
-```
-#### 代码示例（v0.2.0）
-```
- CityPickerView cityPickerView = new CityPickerView(MainActivity.this);
-        cityPickerView.setOnCityItemClickListener(new CityPickerView.OnCityItemClickListener() {
-            @Override
-            public void onSelected(String... citySelected) {
-                //省份
-                String province = citySelected[0];
-                //城市
-                String city = citySelected[1];
-                //区县
-                String district = citySelected[2];
-                //邮编
-                String code = citySelected[3];
-                 
-            }
-        });
-        cityPickerView.setTextColor(Color.BLUE);//新增文字颜色修改
-        cityPickerView.setTextSize(20);//新增文字大小修改
-        cityPickerView.setVisibleItems(5);//新增滚轮内容可见数量
-        cityPickerView.setIsCyclic(true);//滚轮是否循环滚动
-        cityPickerView.show();
-```
-#### 结果返回
-只需传入Context便可获取选择的省市区域的信息，结果返回四项，可根据自己的实际需求进行选择。
-
- 1. citySelected[0]：表示：省份信息
- 2. citySelected[1]：表示：城市信息
- 3. citySelected[2]：表示：区县信息
- 4. citySelected[3]：表示：邮编信息
+#### V0.1.0版本更新内容（2016.05.08）
+1. 直接传入context获取省市区信息
 
 
 ----------
 
 
-### V0.1.0版本更新内容
-1. 直接传入context获取省市区信息
-
-
-
-
-
-
-
-
-
-### 数据来源
-数据来源主要有2种方式，可根据喜好选择哪种方式使用。
-
-#### xml数据
-![](http://img.blog.csdn.net/20160512153839068)
-
-#### json数据
-![](http://img.blog.csdn.net/20160512153906553)
-
-
-
 ### 关于我
-[我的个人博客](http://crazyandcoder.github.io/about/)
+1. 简书 [http://www.jianshu.com/users/18281bdb07ce/latest_articles](http://www.jianshu.com/users/18281bdb07ce/latest_articles)
+
+2. 博客 [http://crazyandcoder.github.io/](http://crazyandcoder.github.io/)
+
+3. github [https://github.com/crazyandcoder](https://github.com/crazyandcoder)
+
 
 ### 感谢
 
-- [http://blog.csdn.net/wulianghuan/article/details/41549189](http://blog.csdn.net/wulianghuan/article/details/41549189)
 
-
-
-
+ 1. [http://blog.csdn.net/wulianghuan/article/details/41549189](http://blog.csdn.net/wulianghuan/article/details/41549189)
+ 2. WheelView
 
