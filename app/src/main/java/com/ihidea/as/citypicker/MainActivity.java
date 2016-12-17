@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
                 CityPicker cityPicker = new CityPicker.Builder(MainActivity.this).textSize(20)
                         .title("我是老大")
-                        .titleBackgroundColor("#234Dfa")
                         .backgroundPop(0xa0000000)
+                        .titleBackgroundColor("#234Dfa")
                         .confirTextColor("#000000")
                         .cancelTextColor("#000000")
                         .province("江苏省")
