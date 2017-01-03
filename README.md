@@ -30,7 +30,7 @@
 ### 使用方法
 #### gradle引用
 ```
-compile 'liji.library.dev:citypickerview:0.8.0'
+compile 'liji.library.dev:citypickerview:0.9.0'
 
 ```
 #### 代码示例
@@ -41,6 +41,7 @@ CityPicker cityPicker = new CityPicker.Builder(MainActivity.this)
                         .title("地址选择")
                         .backgroundPop(0xa0000000)
                         .titleBackgroundColor("#234Dfa")
+			.titleTextColor("#000000")
                         .backgroundPop(0xa0000000)
                         .confirTextColor("#000000")
                         .cancelTextColor("#000000")
@@ -102,10 +103,17 @@ cityPicker.setOnCityItemClickListener(new CityPicker.OnCityItemClickListener() {
  14. visibleItemsCount（滚轮显示的item个数，int 类型，默认为5个）
  15. itemPadding（滚轮item间距，默认为5dp）
  16. onlyShowProvinceAndCity(boolean flag)（是否只显示省份和市的两级联动，去掉区或者县）
+ 17. titleTextColor(标题文字颜色，默认为 #E9E9E9)
 
 
 ----------
 ### 更新日志
+
+#### V0.9.0版本更新内容（2017.01.03）
+
+ 1. 新增标题字体颜色的属性titleTextColor
+ 2. [修复#15问题](https://github.com/crazyandcoder/citypicker/issues/15)
+ 
 
 #### V0.8.0版本更新内容（2016.12.10）
 
