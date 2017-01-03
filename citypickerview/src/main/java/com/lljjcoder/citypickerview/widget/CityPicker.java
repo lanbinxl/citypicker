@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -167,6 +166,10 @@ public class CityPicker implements CanShow, OnWheelChangedListener {
      * 标题背景颜色
      */
     private String titleBackgroundColorStr = "#E9E9E9";
+    /**
+     * 标题颜色
+     */
+    private String titleTextColorStr = "#E9E9E9";
 
     /**
      * 第一次默认的显示省份，一般配合定位，使用
@@ -218,6 +221,7 @@ public class CityPicker implements CanShow, OnWheelChangedListener {
 
         this.showProvinceAndCity = builder.showProvinceAndCity;
         this.backgroundPop = builder.backgroundPop;
+        this.titleTextColorStr = builder.titleTextColorStr;
 
         LayoutInflater layoutInflater = LayoutInflater.from(context);
         popview = layoutInflater.inflate(R.layout.pop_citypicker, null);
@@ -236,7 +240,7 @@ public class CityPicker implements CanShow, OnWheelChangedListener {
         popwindow.setBackgroundDrawable(new ColorDrawable(backgroundPop));
         popwindow.setAnimationStyle(R.style.AnimBottom);
         popwindow.setTouchable(true);
-        popwindow.setOutsideTouchable(true);
+        popwindow.setOutsideTouchable(false);
         popwindow.setFocusable(true);
 
 
@@ -253,6 +257,13 @@ public class CityPicker implements CanShow, OnWheelChangedListener {
         if (!TextUtils.isEmpty(this.mTitle)) {
             mTvTitle.setText(this.mTitle);
         }
+
+
+        //设置确认按钮文字颜色
+        if (!TextUtils.isEmpty(this.titleTextColorStr)) {
+            mTvTitle.setTextColor(Color.parseColor(this.titleTextColorStr));
+        }
+
 
         //设置确认按钮文字颜色
         if (!TextUtils.isEmpty(this.confirmTextColorStr)) {
@@ -366,6 +377,12 @@ public class CityPicker implements CanShow, OnWheelChangedListener {
         private String titleBackgroundColorStr = "#E9E9E9";
 
         /**
+         * 标题颜色
+         */
+        private String titleTextColorStr = "#E9E9E9";
+
+
+        /**
          * 第一次默认的显示省份，一般配合定位，使用
          */
         private String defaultProvinceName = "江苏";
@@ -420,6 +437,18 @@ public class CityPicker implements CanShow, OnWheelChangedListener {
             this.titleBackgroundColorStr = colorBg;
             return this;
         }
+
+        /**
+         * 设置标题背景颜色
+         *
+         * @param titleTextColorStr
+         * @return
+         */
+        public Builder titleTextColor(String titleTextColorStr) {
+            this.titleTextColorStr = titleTextColorStr;
+            return this;
+        }
+
 
         /**
          * 设置标题
@@ -680,7 +709,11 @@ public class CityPicker implements CanShow, OnWheelChangedListener {
                         DistrictModel districtModel = new DistrictModel(districtList.get(k).getName(),
                                 districtList.get(k).getZipcode());
                         // 区/县对于的邮编，保存到mZipcodeDatasMap
-                        mZipcodeDatasMap.put(districtList.get(k).getName(), districtList.get(k).getZipcode());
+//                        JLogUtils.D("zipcode: " + mProvinceDatas[i] + cityNames[j] +
+//                                districtList.get(k).getName() + "  " + districtList.get(k).getZipcode());
+                        mZipcodeDatasMap.put(mProvinceDatas[i] + cityNames[j] +
+                                        districtList.get(k).getName(),
+                                districtList.get(k).getZipcode());
                         distrinctArray[k] = districtModel;
                         distrinctNameArray[k] = districtModel.getName();
                     }
@@ -735,8 +768,9 @@ public class CityPicker implements CanShow, OnWheelChangedListener {
 
         }
         districtWheel.setPadding(padding);
+//        JLogUtils.D("zipcode key: " + mCurrentProviceName + mCurrentCityName + mCurrentDistrictName);
         //获取第一个区名称
-        mCurrentZipCode = mZipcodeDatasMap.get(mCurrentDistrictName);
+        mCurrentZipCode = mZipcodeDatasMap.get(mCurrentProviceName + mCurrentCityName + mCurrentDistrictName);
     }
 
     /**
@@ -809,7 +843,8 @@ public class CityPicker implements CanShow, OnWheelChangedListener {
             updateAreas();
         } else if (wheel == mViewDistrict) {
             mCurrentDistrictName = mDistrictDatasMap.get(mCurrentCityName)[newValue];
-            mCurrentZipCode = mZipcodeDatasMap.get(mCurrentDistrictName);
+//            JLogUtils.D("zipcode key: " + mCurrentProviceName + mCurrentCityName + mCurrentDistrictName);
+            mCurrentZipCode = mZipcodeDatasMap.get(mCurrentProviceName + mCurrentCityName + mCurrentDistrictName);
         }
     }
 }
