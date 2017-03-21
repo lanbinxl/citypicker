@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lljjcoder.citypickerview.widget.CityPicker;
 
@@ -23,12 +24,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 CityPicker cityPicker = new CityPicker.Builder(MainActivity.this).textSize(20)
-                        .title("我是老大")
                         .titleTextColor("#000000")
                         .backgroundPop(0xa0000000)
-                        .titleBackgroundColor("#234Dfa")
-                        .confirTextColor("#000000")
-                        .cancelTextColor("#000000")
                         .province("江苏省")
                         .city("常州市")
                         .district("天宁区")
@@ -46,6 +43,11 @@ public class MainActivity extends AppCompatActivity {
                     public void onSelected(String... citySelected) {
                         tvResult.setText("选择结果：\n省：" + citySelected[0] + "\n市：" + citySelected[1] + "\n区："
                                 + citySelected[2] + "\n邮编：" + citySelected[3]);
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        Toast.makeText(MainActivity.this, "已取消", Toast.LENGTH_LONG).show();
                     }
                 });
             }

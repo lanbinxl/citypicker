@@ -101,6 +101,7 @@ public class CityPicker implements CanShow, OnWheelChangedListener {
 
     public interface OnCityItemClickListener {
         void onSelected(String... citySelected);
+        void onCancel();
     }
 
     public void setOnCityItemClickListener(OnCityItemClickListener listener) {
@@ -296,6 +297,7 @@ public class CityPicker implements CanShow, OnWheelChangedListener {
         mTvCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                listener.onCancel();
                 hide();
             }
         });

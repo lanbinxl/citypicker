@@ -3947,4 +3947,48 @@
       <district name="其他" zipcode="404100" />
     </city>
   </province>
+  <province name="香港">
+    <city name="香港">
+      <district name="中西区" zipcode="999077" />
+      <district name="湾仔区" zipcode="999077" />
+      <district name="东区" zipcode="999077" />
+      <district name="南区" zipcode="999077" />
+      <district name="油尖旺区" zipcode="999077" />
+      <district name="深水埗区" zipcode="999077" />
+      <district name="九龙城区" zipcode="999077" />
+      <district name="黄大仙区" zipcode="999077" />
+      <district name="观塘区" zipcode="999077" />
+      <district name="新界" zipcode="999077" />
+      <district name="北区" zipcode="999077" />
+      <district name="大埔区" zipcode="999077" />
+      <district name="沙田区" zipcode="999077" />
+      <district name="西贡区" zipcode="999077" />
+      <district name="荃湾区" zipcode="999077" />
+      <district name="屯门区" zipcode="999077" />
+      <district name="元朗区" zipcode="999077" />
+      <district name="葵青区" zipcode="999077" />
+      <district name="离岛区" zipcode="999077" />
+    </city>
+  </province>
+  <province name="澳门">
+    <city name="澳门">
+      <district name="花地玛堂区" zipcode="999078" />
+      <district name="圣安多尼堂区" zipcode="999078" />
+      <district name="大堂区" zipcode="999078" />
+      <district name="望德堂区" zipcode="999078" />
+      <district name="风顺堂区" zipcode="999078" />
+      <district name="嘉模堂区" zipcode="999078" />
+      <district name="圣方济各堂区" zipcode="999078" />
+    </city>
+  </province>
+  <province name="台湾">
+    <city name="台湾">
+      <district name="台北市" zipcode="999079" />
+      <district name="新北市" zipcode="999079" />
+      <district name="桃园市" zipcode="999079" />
+      <district name="台中市" zipcode="999079" />
+      <district name="台南市" zipcode="999079" />
+      <district name="高雄市" zipcode="999079" />
+    </city>
+  </province>
 </root>
