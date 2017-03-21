@@ -24,7 +24,7 @@
 ### 使用方法
 #### gradle引用
 ```
-compile 'liji.library.dev:citypickerview:0.9.0'
+compile 'liji.library.dev:citypickerview:1.0.0'
 
 ```
 #### 代码示例
@@ -52,8 +52,8 @@ CityPicker cityPicker = new CityPicker.Builder(MainActivity.this)
                         .build();
                 cityPicker.show();
 
-//监听方法，获取选择结果
-cityPicker.setOnCityItemClickListener(new CityPicker.OnCityItemClickListener() {
+		//监听方法，获取选择结果
+		cityPicker.setOnCityItemClickListener(new CityPicker.OnCityItemClickListener() {
                     @Override
                     public void onSelected(String... citySelected) {
                        //省份
@@ -64,6 +64,11 @@ cityPicker.setOnCityItemClickListener(new CityPicker.OnCityItemClickListener() {
 		               String district = citySelected[2];
 		               //邮编
 		               String code = citySelected[3]; 
+                    }
+		    
+		    @Override
+                    public void onCancel() {
+                        Toast.makeText(MainActivity.this, "已取消", Toast.LENGTH_LONG).show();
                     }
                 });
 ```
@@ -102,6 +107,11 @@ cityPicker.setOnCityItemClickListener(new CityPicker.OnCityItemClickListener() {
 
 ----------
 ### 更新日志
+#### V1.0.0版本更新内容（2017.03.21）
+
+ 1. 修复部分城市数据不全的问题，新增香港、澳门、台湾的数据
+ 2. [修复#18问题](https://github.com/crazyandcoder/citypicker/issues/18)
+ 3. [修复#20问题](https://github.com/crazyandcoder/citypicker/issues/20)
 
 #### V0.9.0版本更新内容（2017.01.03）
 
