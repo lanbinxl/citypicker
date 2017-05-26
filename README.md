@@ -23,7 +23,7 @@
 
 **2、城市列表选择器**
 
-![](http://img.blog.csdn.net/20170526093550290?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![](http://img.blog.csdn.net/20170526135448897?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
 
 ### demo演示(下载二维码)
@@ -42,7 +42,9 @@ compile 'liji.library.dev:citypickerview:1.1.0'
 
 **1、城市列表选择器代码**
 
-**友情提醒：**列表选择器的原理主要就是通过startActivityForResult方法来实现的，如果不熟悉startActivityForResult的应用，请自行解决。
+**友情提醒：**
+
+列表选择器的原理主要就是通过startActivityForResult方法来实现的，如果不熟悉startActivityForResult的应用，请自行解决。
 
 ```
 //首先跳转到列表页面，通过startActivityForResult实现页面跳转传值
