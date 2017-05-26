@@ -35,7 +35,7 @@
 ### 使用方法
 #### gradle引用
 ```
-compile 'liji.library.dev:citypickerview:1.0.0'
+compile 'liji.library.dev:citypickerview:1.1.0'
 
 ```
 #### 代码示例
