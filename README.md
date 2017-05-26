@@ -7,17 +7,28 @@
 在实际的项目中需要使用到省市区三级联动的功能，在网上找来找去，都没有找到一个合适的库， 所以自己就封装了一个，不需要自己添加数据源，直接引用即可，一行代码搞定城市选择。怎么简单，怎么方便，怎么来，就是这么任性！
 
 ### 亮点
-无需自己配置省市区域的数据，不需要再进行解析之类的繁杂操作，只需引用即可，结果返回省市区和邮编等四项数据信息，如果不满意样式的话可以自己修改源码！
+
+ 1. 无需自己配置省市区域的数据，不需要再进行解析之类的繁杂操作，只需引用即可，结果返回省市区和邮编等四项数据信息，如果不满意样式的话可以自己修改源码！
+ 2. 多种样式选择，高仿iOS滚轮实现以及列表选择。
 
 ### 效果预览
+
+![](http://img.blog.csdn.net/20170526093653244?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
 #### 应用在实际项目中效果
+
+**1、高仿iOS滚轮实现城市选择器**
 
 ![](http://img.blog.csdn.net/20161209211413273?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)  ![](http://img.blog.csdn.net/20161209211426836?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast) ![](http://img.blog.csdn.net/20161209211442594?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
+**2、城市列表选择器**
+
+![](http://img.blog.csdn.net/20170526093550290?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
 
 ### demo演示(下载二维码)
+![](http://img.blog.csdn.net/20170526093735635?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
- ![](http://img.blog.csdn.net/20161209212021359?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 #### 下载地址
  [http://fir.im/r3dp](http://fir.im/r3dp)
  
@@ -29,6 +40,47 @@ compile 'liji.library.dev:citypickerview:1.0.0'
 ```
 #### 代码示例
 
+**1、城市列表选择器代码**
+
+**友情提醒：**列表选择器的原理主要就是通过startActivityForResult方法来实现的，如果不熟悉startActivityForResult的应用，请自行解决。
+
+```
+//首先跳转到列表页面，通过startActivityForResult实现页面跳转传值
+Intent intent = new Intent(MainActivity.this, CityListSelectActivity.class);
+startActivityForResult(intent, CityListSelectActivity.CITY_SELECT_RESULT_FRAG);
+
+//接收选择器选中的结果：
+@Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CityListSelectActivity.CITY_SELECT_RESULT_FRAG) {
+            if (resultCode == RESULT_OK) {
+                if (data == null) {
+                    return;
+                }
+                Bundle bundle = data.getExtras();
+
+                CityInfoBean cityInfoBean = (CityInfoBean) bundle.getParcelable("cityinfo");
+
+                if (null == cityInfoBean)
+                    return;
+
+                //城市名称
+                String cityName = cityInfoBean.getName();
+                //纬度
+                String latitude = cityInfoBean.getLongitude();
+                //经度
+                String longitude = cityInfoBean.getLatitude();
+
+				//获取到城市名称，经纬度值后可自行使用...
+            }
+        }
+    }
+```
+
+
+
+**2、高仿iOS滚轮实现选择器代码**
 ```
 CityPicker cityPicker = new CityPicker.Builder(MainActivity.this)
 						.textSize(20)
@@ -74,9 +126,13 @@ CityPicker cityPicker = new CityPicker.Builder(MainActivity.this)
 ```
 
 
-#### 使用说明
+
+
 
 #### 结果返回
+
+
+
 只需传入Context便可获取选择的省市区域的信息，结果返回四项，可根据自己的实际需求进行选择。
 
  1. citySelected[0]：表示：省份信息
@@ -84,7 +140,7 @@ CityPicker cityPicker = new CityPicker.Builder(MainActivity.this)
  3. citySelected[2]：表示：区县信息
  4. citySelected[3]：表示：邮编信息
 
-#### 方法说明
+#### 高仿iOS滚轮实现方法说明
 
  1. textSize（滚轮文字的大小，int 类型，默认为18）
  2. title（选择器标题，默认为“选择地区”）
@@ -107,6 +163,12 @@ CityPicker cityPicker = new CityPicker.Builder(MainActivity.this)
 
 ----------
 ### 更新日志
+
+#### V1.1.0版本更新内容（2017.05.26）
+
+ 1. 增加列表选择器，可获取相关城市的经纬度（百度经纬度）
+ 2. 修复已知的bug。
+
 #### V1.0.0版本更新内容（2017.03.21）
 
  1. 修复部分城市数据不全的问题，新增香港、澳门、台湾的数据
