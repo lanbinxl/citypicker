@@ -15,7 +15,7 @@
 
 ![](http://img.blog.csdn.net/20170526093653244?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
-#### 应用在实际项目中效果
+### 应用在实际项目中效果
 
 **1、高仿iOS滚轮实现城市选择器**
 
@@ -26,16 +26,42 @@
 ![](http://img.blog.csdn.net/20170526135448897?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
 
-### demo演示(下载二维码)
-![](http://img.blog.csdn.net/20170526093735635?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+----------
 
-#### 下载地址
- [http://fir.im/r3dp](http://fir.im/r3dp)
+### 数据结构概览
+
+> 选择结果
+
+![](http://img.blog.csdn.net/20170822071251738?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
+> 省份数据结构
+
+![](http://img.blog.csdn.net/20170822071119678?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
+
+
+
+> 城市数据结构
+
+![](http://img.blog.csdn.net/20170822071228790?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
+> 区县数据结构
+
+![](http://img.blog.csdn.net/20170822071311231?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
+
+----------
+
+
+
+
+
+ 
  
 ### 使用方法
 #### gradle引用
 ```
-compile 'liji.library.dev:citypickerview:1.1.0'
+compile 'liji.library.dev:citypickerview:2.0.0'
 
 ```
 #### 代码示例
@@ -84,7 +110,7 @@ startActivityForResult(intent, CityListSelectActivity.CITY_SELECT_RESULT_FRAG);
 
 **2、高仿iOS滚轮实现选择器代码**
 ```
-CityPicker cityPicker = new CityPicker.Builder(MainActivity.this)
+CityPickerView cityPicker = new CityPickerView.Builder(MainActivity.this)
 						.textSize(20)
                         .title("地址选择")
                         .backgroundPop(0xa0000000)
@@ -107,22 +133,18 @@ CityPicker cityPicker = new CityPicker.Builder(MainActivity.this)
                 cityPicker.show();
 
 		//监听方法，获取选择结果
-		cityPicker.setOnCityItemClickListener(new CityPicker.OnCityItemClickListener() {
+		cityPicker.setOnCityItemClickListener(new CityPickerView.OnCityItemClickListener() {
                     @Override
-                    public void onSelected(String... citySelected) {
-                       //省份
-		               String province = citySelected[0];
-		               //城市
-		               String city = citySelected[1];
-		               //区县（如果设定了两级联动，那么该项返回空）
-		               String district = citySelected[2];
-		               //邮编
-		               String code = citySelected[3]; 
-                    }
-		    
-		    @Override
+                    public void onSelected(ProvinceBean province, CityBean city, DistrictBean district) {
+                        //返回结果
+			//ProvinceBean 省份信息
+			//CityBean     城市信息
+			//DistrictBean 区县信息
+                    }
+                    
+                    @Override
                     public void onCancel() {
-                        Toast.makeText(MainActivity.this, "已取消", Toast.LENGTH_LONG).show();
+                        
                     }
                 });
 ```
@@ -137,10 +159,47 @@ CityPicker cityPicker = new CityPicker.Builder(MainActivity.this)
 
 只需传入Context便可获取选择的省市区域的信息，结果返回四项，可根据自己的实际需求进行选择。
 
- 1. citySelected[0]：表示：省份信息
- 2. citySelected[1]：表示：城市信息
- 3. citySelected[2]：表示：区县信息
- 4. citySelected[3]：表示：邮编信息
+ 1. ProvinceBean：表示：省份信息
+ 2. CityBean：表示：城市信息
+ 3. DistrictBean：表示：区县信息
+
+
+**返回结果参数说明**
+
+ProvinceBean  , CityBean  , DistrictBean  同样的数据结构
+
+![](http://img.blog.csdn.net/20170822071533962?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
+> id
+
+城市code
+
+> name
+
+城市名称
+
+> pinYin
+
+城市拼音
+
+> gisGcj02Lat
+
+高德坐标系-纬度
+
+> gisGcj02Lng
+
+高德坐标系-经度
+
+
+> gisBd09Lat
+
+百度坐标系-纬度
+
+> gisBd09Lng
+
+百度坐标系-经度
+
+----------
 
 #### 高仿iOS滚轮实现方法说明
 
@@ -166,6 +225,12 @@ CityPicker cityPicker = new CityPicker.Builder(MainActivity.this)
 ----------
 ### 更新日志
 
+#### V2.0.0版本更新内容（2017.08.22）
+
+ 1. 更丰富的数据结构、包含选择地区的百度、高德经纬度、城市code等；
+ 2. 更全面的全国省市区数据信息；
+ 3. 优化及修复bug。
+ 
 #### V1.1.0版本更新内容（2017.05.26）
 
  1. 增加列表选择器，可获取相关城市的经纬度（百度经纬度）
