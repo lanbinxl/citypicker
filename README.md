@@ -61,7 +61,7 @@
 ### 使用方法
 #### gradle引用
 ```
-compile 'liji.library.dev:citypickerview:2.0.0'
+compile 'liji.library.dev:citypickerview:2.0.1'
 
 ```
 #### 代码示例
@@ -224,6 +224,9 @@ ProvinceBean  , CityBean  , DistrictBean  同样的数据结构
 
 ----------
 ### 更新日志
+#### V2.0.1版本更新内容（2017.08.22）
+
+ 1. 修复选中台湾、澳门、香港时崩溃的问题；
 
 #### V2.0.0版本更新内容（2017.08.22）
 
