@@ -279,8 +279,8 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
             mViewDistrict.setVisibility(View.VISIBLE);
         }
         
-        //初始化城市数据
         initProvinceDatas(context);
+
         
         // 添加change事件
         mViewProvince.addChangingListener(this);
@@ -816,7 +816,9 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
         }
         else {
             mViewDistrict.setCurrentItem(0);
-            mDistrictBean = areas[0];
+            if (areas.length > 0) {
+                mDistrictBean = areas[0];
+            }
         }
         districtWheel.setPadding(padding);
         

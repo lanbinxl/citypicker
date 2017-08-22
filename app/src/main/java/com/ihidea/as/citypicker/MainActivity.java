@@ -67,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onSelected(ProvinceBean province, CityBean city, DistrictBean district) {
                         //返回结果
+                        tv_resultWheel.setText(
+                                "所选城市：" + province.getName() + "  " + city.getName() + "   " + district.getName());
                     }
                     
                     @Override
