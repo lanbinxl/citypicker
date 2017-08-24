@@ -224,6 +224,13 @@ ProvinceBean  , CityBean  , DistrictBean  同样的数据结构
 
 ----------
 ### 更新日志
+
+#### V2.0.2版本更新内容（2017.08.24）
+
+ 1. 更新台湾省市区数据
+ 2. [修复#50问题](https://github.com/crazyandcoder/citypicker/issues/50)
+
+
 #### V2.0.1版本更新内容（2017.08.22）
 
  1. 修复选中台湾、澳门、香港时崩溃的问题；
