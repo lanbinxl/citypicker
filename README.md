@@ -58,8 +58,8 @@
 
 
 
- 
- 
+
+
 ### 使用方法
 #### gradle引用
 ```
@@ -143,17 +143,44 @@ CityPickerView cityPicker = new CityPickerView.Builder(MainActivity.this)
 			//CityBean     城市信息
 			//DistrictBean 区县信息
                     }
-                    
+
                     @Override
                     public void onCancel() {
-                        
+
                     }
                 });
 ```
 
+#### 注意：如果仅仅用来选择　省市区，不必进行地理位置，邮编，拼音匹配等操作的话，可以在源代码中，使用更加精简的
+JSON文件 (见 src/main/assets/simple_cities.json )来替代．
 
+JSON　文件格式：(注意，该文件的内容建议自行生成，因为不同公司的项目，
+对于直辖市的处理手法是不一样的）
 
+```
+[
+  {
+    "name":"直辖市",
+    "cityList":[
+      {
+        "name":"北京",
+        "cityList":[
+          {
+            "name":"东城区"
+          },
+          {
+            "name":"西城区"
+          }
+        ]
+      }
+    ]
+  ｝
+  // 第二个省份．．．
+］
+```
 
+同时，修改对应的 文件（ProvinceBean, CityBean, DistrictBean),
+只保留name, cityList 这两个必要的属性的　getter/setter, 就可以了．
 
 #### 结果返回
 
@@ -242,7 +269,7 @@ ProvinceBean  , CityBean  , DistrictBean  同样的数据结构
  1. 更丰富的数据结构、包含选择地区的百度、高德经纬度、城市code等；
  2. 更全面的全国省市区数据信息；
  3. 优化及修复bug。
- 
+
 #### V1.1.0版本更新内容（2017.05.26）
 
  1. 增加列表选择器，可获取相关城市的经纬度（百度经纬度）
@@ -258,7 +285,7 @@ ProvinceBean  , CityBean  , DistrictBean  同样的数据结构
 
  1. 新增标题字体颜色的属性titleTextColor
  2. [修复#15问题](https://github.com/crazyandcoder/citypicker/issues/15)
- 
+
 
 #### V0.8.0版本更新内容（2016.12.10）
 
