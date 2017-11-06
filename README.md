@@ -1,52 +1,45 @@
 ## citypicker Android Studio实现
 
 ### 前言
-在实际的项目中需要使用到省市区三级联动的功能，在网上找来找去，都没有找到一个合适的库， 所以自己就封装了一个，不需要自己添加数据源，直接引用即可，一行代码搞定城市选择。怎么简单，怎么方便，怎么来，就是这么任性！
+在实际的项目中需要使用到省市区三级联动的功能，在网上找来找去，都没有找到一个合适的库， 所以自己就封装了一个，不需要自己添加数据源，直接引用即可。
 
 ### 亮点
 
- 1. 无需自己配置省市区域的数据，不需要再进行解析之类的繁杂操作，只需引用即可，结果返回省市区和邮编等四项数据信息，如果不满意样式的话可以自己修改源码！
+ 1. 无需自己配置省市区域的数据，不需要再进行解析之类的繁杂操作，只需引用即可，结果返回省市区、经纬度、城市code等多种数据信息，如果不满意样式的话可以自己修改源码！
  2. 多种样式选择，高仿iOS滚轮实现以及列表选择。
 
 ### 效果预览
 
 ![](http://img.blog.csdn.net/20170526093653244?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
-### 应用在实际项目中效果
+### 样式选择
 
-**1、高仿iOS滚轮实现城市选择器**
+本库提供两种省市区城市选择器，一是列表，而是仿iOS滚轮实现的选择器。
 
-![](http://img.blog.csdn.net/20161209211413273?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)  ![](http://img.blog.csdn.net/20161209211426836?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast) ![](http://img.blog.csdn.net/20161209211442594?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+ ![](http://img.blog.csdn.net/20171106212310029?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+ 
+#### **1、高仿iOS滚轮实现城市选择器**
 
-**2、城市列表选择器**
+拥有多种属性，个性化设置。
 
-![](http://img.blog.csdn.net/20170526135448897?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
-
-
-
-
-----------
-
-### 数据结构概览
-
-> 选择结果
-
-![](http://img.blog.csdn.net/20170822071251738?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
-
-> 省份数据结构
-
-![](http://img.blog.csdn.net/20170822071119678?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![](http://img.blog.csdn.net/20171106213009437?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
 
 
+![](http://img.blog.csdn.net/20171106213028111?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
-> 城市数据结构
+![](http://img.blog.csdn.net/20171106213040116?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
-![](http://img.blog.csdn.net/20170822071228790?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+#### **2、城市列表选择器**
 
-> 区县数据结构
+![](http://img.blog.csdn.net/20171106212859208?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
-![](http://img.blog.csdn.net/20170822071311231?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+列表展示所有城市数据
+
+![](http://img.blog.csdn.net/20171106212912877?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
+支持快捷搜索，以及右边字母快捷定位所在城市
+
 
 
 ----------
@@ -60,7 +53,7 @@
 ### 使用方法
 #### gradle引用
 ```
-compile 'liji.library.dev:citypickerview:2.0.1'
+compile 'liji.library.dev:citypickerview:2.1.0'
 
 ```
 #### 代码示例
@@ -109,37 +102,39 @@ startActivityForResult(intent, CityListSelectActivity.CITY_SELECT_RESULT_FRAG);
 
 **2、高仿iOS滚轮实现选择器代码**
 ```
-CityPickerView cityPicker = new CityPickerView.Builder(MainActivity.this)
-						.textSize(20)
-                        .title("地址选择")
-                        .backgroundPop(0xa0000000)
-                        .titleBackgroundColor("#234Dfa")
-			.titleTextColor("#000000")
-                        .backgroundPop(0xa0000000)
-                        .confirTextColor("#000000")
-                        .cancelTextColor("#000000")
-                        .province("江苏省")
-                        .city("常州市")
-                        .district("天宁区")
-                        .textColor(Color.parseColor("#000000"))
-                        .provinceCyclic(true)
-                        .cityCyclic(false)
-                        .districtCyclic(false)
-                        .visibleItemsCount(7)
-                        .itemPadding(10)
-                        .onlyShowProvinceAndCity(false)
-                        .build();
-                cityPicker.show();
+CityConfig cityConfig = new CityConfig.Builder(CitypickerWheelActivity.this)
+                .title("选择地区")
+                .titleBackgroundColor("#E9E9E9")
+                .textSize(18)
+                .titleTextColor("#585858")
+                .textColor("0xFF585858")
+                .confirTextColor("#0000FF")
+                .cancelTextColor("#000000")
+                .province("江苏")
+                .city("常州")
+                .district("新北区")
+                .visibleItemsCount(5)
+                .provinceCyclic(true)
+                .cityCyclic(true)
+                .districtCyclic(true)
+                .itemPadding(5)
+                .setCityInfoType(CityConfig.CityInfoType.BASE)
+                .setCityWheelType(CityConfig.WheelType.PRO_CITY_DIS)
+                .build();
 
-		//监听方法，获取选择结果
-		cityPicker.setOnCityItemClickListener(new CityPickerView.OnCityItemClickListener() {
+ CityPickerView cityPicker = new CityPickerView(cityConfig);
+ cityPicker.show();
+
+//监听方法，获取选择结果
+cityPicker.setOnCityItemClickListener(new CityPickerView.OnCityItemClickListener() {
                     @Override
                     public void onSelected(ProvinceBean province, CityBean city, DistrictBean district) {
-                        //返回结果
-			//ProvinceBean 省份信息
-			//CityBean     城市信息
-			//DistrictBean 区县信息
-                    }
+                    
+			        //ProvinceBean 省份信息
+			        //CityBean     城市信息
+			        //DistrictBean 区县信息
+			        
+                    }
 
                     @Override
                     public void onCancel() {
@@ -148,42 +143,109 @@ CityPickerView cityPicker = new CityPickerView.Builder(MainActivity.this)
                 });
 ```
 
-#### 注意：如果仅仅用来选择　省市区，不必进行地理位置，邮编，拼音匹配等操作的话，可以在源代码中，使用更加精简的
-JSON文件 (见 src/main/assets/simple_cities.json )来替代．
+ **注意：上述属性中存在一个属性CityInfoType：**
 
-JSON　文件格式：(注意，该文件的内容建议自行生成，因为不同公司的项目，
-对于直辖市的处理手法是不一样的）
+```
+//设置加载省市区的数据类型
+setCityInfoType(CityConfig.CityInfoType.BASE)
+
+该属性是一个枚举类型
+/**
+* 城市数据类别
+* BASE: 基本的城市数据信息，只包含省市区名称，不包含详细的经纬度、code、等数据
+* DETAIL: 包含详细的经纬度、code、省市区数据名称等数据
+*/
+public enum CityInfoType {
+    BASE, DETAIL
+}
+```
+
+如果没有特别要求，只是显示基本的省市区名称时，建议选择BASE类型，因为 **BASE** 和  **DETAIL** 类型所对应的 json 文件大小相差接近 20 倍，所以导致解析速度相差很大。如果需要 code 、经纬度等信息时请选择 **DETAIL** 类型
+
+ 
+
+### 数据结构概览
+
+#### **BASE**数据结构
+json 文件对应于(assets/simple_cities_pro.json)，改属性只包含基础的城市名称，而不包含经纬度、code等值，选择时请根据需要来决定使用哪个json文件。
 
 ```
 [
-  {
-    "name":"直辖市",
-    "cityList":[
-      {
-        "name":"北京",
+    {
+        "name":"北京(直辖市)",
         "cityList":[
-          {
-            "name":"东城区"
-          },
-          {
-            "name":"西城区"
-          }
-        ]
-      }
-    ]
-  ｝
-  // 第二个省份．．．
-］
+            {
+                "name":"东城区"
+            },
+            {
+                "name":"西城区"
+            },
+            {
+                "name":"崇文区"
+            },
+            {
+                "name":"宣武区"
+            },
+            Object{...}
+        ],
+        
+    {
+        "name":"天津(直辖市)",
+        "cityList":[
+            {
+                "name":"和平区"
+            },
+            {
+                "name":"河东区"
+            },
+            {
+                "name":"河西区"
+            },
+            ...
+    },
 ```
 
-同时，修改对应的 文件（ProvinceBean, CityBean, DistrictBean),
-只保留name, cityList 这两个必要的属性的　getter/setter, 就可以了．
+#### **DETAIL**数据结构
+json 文件对应于(assets/simple_cities_pro_city_dis.json)，改属性包含基础的城市名称经纬度（百度、高德）、code、等值，选择时请根据需要来决定使用哪个json文件。
 
-#### 结果返回
+```
+"pinYin":"Beijing",
+        "id":"110000",
+        "gisGcj02Lng":116.409,
+        "cityList":[
+            {
+                "pinYin":"Beijing",
+                "id":"110100",
+                "gisGcj02Lng":116.408,
+                "cityList":[
+                    {
+                        "id":"110101",
+                        "name":"东城区",
+                        "status":1,
+                        "orderId":null,
+                        "createAccount":null,
+                        "createTime":null,
+                        "modifyAccount":null,
+                        "modifyTime":null,
+                        "gisBd09Lat":39.935,
+                        "gisBd09Lng":116.422,
+                        "gisGcj02Lat":39.9288,
+                        "gisGcj02Lng":116.416,
+                        "stubGroupCnt":1,
+                        "pinYin":"Dongcheng"
+                    },
+                    Object{...},
+                    Object{...},
+                    Object{...},
+                    ...
+```
 
 
+----------
 
-只需传入Context便可获取选择的省市区域的信息，结果返回四项，可根据自己的实际需求进行选择。
+
+### 数据返回
+
 
  1. ProvinceBean：表示：省份信息
  2. CityBean：表示：城市信息
@@ -197,34 +259,37 @@ ProvinceBean  , CityBean  , DistrictBean  同样的数据结构
 
 ![](http://img.blog.csdn.net/20170822071533962?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
-> id
 
-城市code
+仿iOS滚轮实现的选择的结果：
 
-> name
+![](http://img.blog.csdn.net/20170822071251738?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
-城市名称
+> 省份数据结构
 
-> pinYin
-
-城市拼音
-
-> gisGcj02Lat
-
-高德坐标系-纬度
-
-> gisGcj02Lng
-
-高德坐标系-经度
+![](http://img.blog.csdn.net/20170822071119678?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
 
-> gisBd09Lat
 
-百度坐标系-纬度
 
-> gisBd09Lng
+> 城市数据结构
 
-百度坐标系-经度
+![](http://img.blog.csdn.net/20170822071228790?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
+> 区县数据结构
+
+![](http://img.blog.csdn.net/20170822071311231?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
+属性说明：
+```
+id  //城市code
+name //城市名称
+pinYin //城市拼音
+gisGcj02Lat //高德坐标系-纬度
+gisGcj02Lng //高德坐标系-经度
+gisBd09Lat //百度坐标系-纬度
+gisBd09Lng //百度坐标系-经度
+
+```
 
 ----------
 
@@ -232,25 +297,35 @@ ProvinceBean  , CityBean  , DistrictBean  同样的数据结构
 
  1. textSize（滚轮文字的大小，int 类型，默认为18）
  2. title（选择器标题，默认为“选择地区”）
- 3. backgroundPop（背景，默认为半透明，16位进制颜色代码，带alpha值，如0xa0ffffff）
- 4. titleBackgroundColor（标题栏背景，默认为灰色，#C7C7C7）
- 5. confirTextColor（确认按钮字体颜色，默认为系统的colorPrimary颜色值）
- 6. cancelTextColor（取消按钮字体颜色，默认为系统的colorPrimary颜色值）
+ 3. titleTextColor(标题文字颜色，默认为 #585858)
+ 4. titleBackgroundColor（标题栏背景，默认为灰色，#E9E9E9）
+ 5. confirTextColor（确认按钮字体颜色，默认#0000FF 值）
+ 6. cancelTextColor（取消按钮字体颜色，默认#000000 值）
  7. province（默认的显示省份，显示选择器后直接定位的item位置）
  8. city（默认的显示市，显示选择器后直接定位的item位置）
  9. district（默认的显示区，显示选择器后直接定位的item位置）
- 10. textColor（滚轮文字的颜色 ，int 类型，默认为0xFF585858）
+ 10. textColor（滚轮文字的颜色 ， 默认为0xFF585858）
  11. provinceCyclic（省份的滚轮是否循环滚动）
  12. cityCyclic（市的滚轮是否循环滚动）
  13. districtCyclic（区的滚轮是否循环滚动）
  14. visibleItemsCount（滚轮显示的item个数，int 类型，默认为5个）
  15. itemPadding（滚轮item间距，默认为5dp）
- 16. onlyShowProvinceAndCity(boolean flag)（是否只显示省份和市的两级联动，去掉区或者县）
- 17. titleTextColor(标题文字颜色，默认为 #E9E9E9)
+ 16. setCityWheelType(CityConfig.WheelType )（只显示省份滚轮、显示省份和城市滚轮、显示省市区三级滚轮）
+ 17. setCityInfoType(CityConfig.CityInfoType )（显示加载的城市数据类别，base和detail类型）
 
 
 ----------
 ### 更新日志
+
+#### V2.1.0版本更新内容（2017.11.06）
+
+ 1. 更新部分城市数据信息
+ 2. [修复#41问题](https://github.com/crazyandcoder/citypicker/issues/41)
+ 3. [修复#58问题](https://github.com/crazyandcoder/citypicker/issues/58)
+ 4. 修复其他bug
+ 5. 优化加载弹出选择器的速度。
+
+
 
 #### V2.0.2版本更新内容（2017.08.24）
 
