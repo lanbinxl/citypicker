@@ -1,4 +1,4 @@
-package com.lljjcoder.city_20170724;
+package com.lljjcoder.utils;
 
 import android.content.Context;
 import android.content.res.AssetManager;

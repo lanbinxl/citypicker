@@ -1,4 +1,4 @@
-package com.lljjcoder.city_20171104;
+package com.lljjcoder.citywheel;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -11,9 +11,9 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.lljjcoder.city_20170724.bean.CityBean;
-import com.lljjcoder.city_20170724.bean.DistrictBean;
-import com.lljjcoder.city_20170724.bean.ProvinceBean;
+import com.lljjcoder.bean.CityBean;
+import com.lljjcoder.bean.DistrictBean;
+import com.lljjcoder.bean.ProvinceBean;
 import com.lljjcoder.citypickerview.R;
 import com.lljjcoder.citypickerview.widget.CanShow;
 import com.lljjcoder.citypickerview.widget.wheel.OnWheelChangedListener;
@@ -208,8 +208,15 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
         arrayWheelAdapter.setTextColor(Color.parseColor(config.getTextColor()));
         arrayWheelAdapter.setTextSize(config.getTextSize());
         
-        updateCities();
-        updateAreas();
+        //二级或者三级
+        if (config.getWheelType() == CityConfig.WheelType.PRO_CITY
+                || config.getWheelType() == CityConfig.WheelType.PRO_CITY_DIS) {
+            updateCities();
+            
+            if (config.getWheelType() == CityConfig.WheelType.PRO_CITY_DIS) {
+                updateAreas();
+            }
+        }
     }
     
     /**
@@ -261,7 +268,11 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
         }
         
         cityWheel.setPadding(config.getPadding());
-        updateAreas();
+        
+        //三级才会显示
+        if (config.getWheelType() == CityConfig.WheelType.PRO_CITY_DIS) {
+            updateAreas();
+        }
     }
     
     /**
@@ -354,7 +365,9 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
             updateCities();
         }
         else if (wheel == mViewCity) {
-            updateAreas();
+            if (config.getWheelType() == CityConfig.WheelType.PRO_CITY_DIS) {
+                updateAreas();
+            }
         }
         else if (wheel == mViewDistrict) {
             if (parseHelper != null && parseHelper.getCity_DisMap() != null) {

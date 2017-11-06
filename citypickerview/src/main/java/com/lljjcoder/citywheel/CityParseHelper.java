@@ -1,13 +1,13 @@
-package com.lljjcoder.city_20171104;
+package com.lljjcoder.citywheel;
 
 import android.content.Context;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.lljjcoder.city_20170724.bean.CityBean;
-import com.lljjcoder.city_20170724.bean.DistrictBean;
-import com.lljjcoder.city_20170724.bean.ProvinceBean;
-import com.lljjcoder.city_20170724.utils;
+import com.lljjcoder.bean.CityBean;
+import com.lljjcoder.bean.DistrictBean;
+import com.lljjcoder.bean.ProvinceBean;
+import com.lljjcoder.utils.utils;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -160,9 +160,23 @@ public class CityParseHelper {
     public void initData(Context context) {
         
         //如果只显示省份的话
-        if (config.getWheelType() == CityConfig.WheelType.PRO
-                || config.getCityInfoType() == CityConfig.CityInfoType.DETAIL) {
-            cityJsonDataType = "simple_cities_pro_city_dis.json";
+        if (config.getWheelType() == CityConfig.WheelType.PRO) {
+            if (config.getCityInfoType() == CityConfig.CityInfoType.DETAIL) {
+                cityJsonDataType = "simple_cities_pro_city_dis.json";
+            }
+            else {
+                cityJsonDataType = "simple_cities_pro.json";
+            }
+        }
+        else {
+            //if (config.getWheelType() == CityConfig.WheelType.PRO_CITY)
+            if (config.getCityInfoType() == CityConfig.CityInfoType.DETAIL) {
+                cityJsonDataType = "simple_cities_pro_city_dis.json";
+            }
+            else {
+                cityJsonDataType = "simple_cities_pro_city.json";
+            }
+            
         }
         
         String cityJson = utils.getJson(context, cityJsonDataType);
@@ -199,51 +213,59 @@ public class CityParseHelper {
             //遍历每个省份
             ProvinceBean itemProvince = mProvinceBeanArrayList.get(p);
             
-            //每个省份对应下面的市
-            ArrayList<CityBean> cityList = itemProvince.getCityList();
-            
-            //当前省份下面的所有城市
-            CityBean[] cityNames = new CityBean[cityList.size()];
-            
-            //遍历当前省份下面城市的所有数据
-            for (int j = 0; j < cityList.size(); j++) {
-                cityNames[j] = cityList.get(j);
+            //当现实二级或者三级联动时，才会解析该数据
+            if (config.getWheelType() == CityConfig.WheelType.PRO_CITY
+                    || config.getWheelType() == CityConfig.WheelType.PRO_CITY_DIS) {
                 
-                //当前省份下面每个城市下面再次对应的区或者县
-                List<DistrictBean> districtList = cityList.get(j).getCityList();
+                //每个省份对应下面的市
+                ArrayList<CityBean> cityList = itemProvince.getCityList();
                 
-                DistrictBean[] distrinctArray = new DistrictBean[districtList.size()];
+                //当前省份下面的所有城市
+                CityBean[] cityNames = new CityBean[cityList.size()];
                 
-                for (int k = 0; k < districtList.size(); k++) {
+                //遍历当前省份下面城市的所有数据
+                for (int j = 0; j < cityList.size(); j++) {
+                    cityNames[j] = cityList.get(j);
                     
-                    // 遍历市下面所有区/县的数据
-                    DistrictBean districtModel = districtList.get(k);
+                    //当前省份下面每个城市下面再次对应的区或者县
+                    List<DistrictBean> districtList = cityList.get(j).getCityList();
+                    if (districtList == null) {
+                        break;
+                    }
+                    DistrictBean[] distrinctArray = new DistrictBean[districtList.size()];
                     
-                    //存放 省市区-区 数据
-                    mDisMap.put(itemProvince.getName() + cityNames[j].getName() + districtList.get(k).getName(),
-                            districtModel);
-                    
-                    distrinctArray[k] = districtModel;
+                    for (int k = 0; k < districtList.size(); k++) {
+                        
+                        // 遍历市下面所有区/县的数据
+                        DistrictBean districtModel = districtList.get(k);
+                        
+                        //存放 省市区-区 数据
+                        mDisMap.put(itemProvince.getName() + cityNames[j].getName() + districtList.get(k).getName(),
+                                districtModel);
+                        
+                        distrinctArray[k] = districtModel;
+                        
+                    }
+                    // 市-区/县的数据，保存到mDistrictDatasMap
+                    mCity_DisMap.put(itemProvince.getName() + cityNames[j].getName(), distrinctArray);
                     
                 }
-                // 市-区/县的数据，保存到mDistrictDatasMap
-                mCity_DisMap.put(itemProvince.getName() + cityNames[j].getName(), distrinctArray);
+                
+                // 省-市的数据，保存到mCitisDatasMap
+                mPro_CityMap.put(itemProvince.getName(), cityNames);
+                
+                mCityBeanArrayList.add(cityList);
+                
+                //只有显示三级联动，才会执行
+                ArrayList<ArrayList<DistrictBean>> array2DistrictLists = new ArrayList<>(cityList.size());
+                
+                for (int c = 0; c < cityList.size(); c++) {
+                    CityBean cityBean = cityList.get(c);
+                    array2DistrictLists.add(cityBean.getCityList());
+                }
+                mDistrictBeanArrayList.add(array2DistrictLists);
                 
             }
-            
-            // 省-市的数据，保存到mCitisDatasMap
-            mPro_CityMap.put(itemProvince.getName(), cityNames);
-            
-            mCityBeanArrayList.add(cityList);
-            
-            ArrayList<ArrayList<DistrictBean>> array2DistrictLists = new ArrayList<>(cityList.size());
-            
-            for (int c = 0; c < cityList.size(); c++) {
-                CityBean cityBean = cityList.get(c);
-                array2DistrictLists.add(cityBean.getCityList());
-            }
-            mDistrictBeanArrayList.add(array2DistrictLists);
-            
             //赋值所有省份的名称
             mProvinceBeenArray[p] = itemProvince;
             

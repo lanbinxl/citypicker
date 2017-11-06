@@ -1,4 +1,4 @@
-package com.lljjcoder.city_20170724.bean;
+package com.lljjcoder.bean;
 
 import android.os.Parcel;
 import android.os.Parcelable;

@@ -1,4 +1,4 @@
-package com.lljjcoder.city_20171104;
+package com.lljjcoder.citywheel;
 
 import android.content.Context;
 
@@ -275,6 +275,7 @@ public class CityConfig {
         this.defaultProvinceName = builder.defaultProvinceName;
         
         this.mWheelType = builder.mWheelType;
+        this.mCityInfoType = builder.mCityInfoType;
         this.titleTextColorStr = builder.titleTextColorStr;
         
         //        this.outSideTouchable = builder.outSideTouchable;

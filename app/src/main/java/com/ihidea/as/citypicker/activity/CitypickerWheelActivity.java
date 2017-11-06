@@ -10,11 +10,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.ihidea.as.citypicker.R;
-import com.lljjcoder.city_20170724.bean.CityBean;
-import com.lljjcoder.city_20170724.bean.DistrictBean;
-import com.lljjcoder.city_20170724.bean.ProvinceBean;
-import com.lljjcoder.city_20171104.CityConfig;
-import com.lljjcoder.city_20171104.CityPickerView;
+import com.lljjcoder.bean.CityBean;
+import com.lljjcoder.bean.DistrictBean;
+import com.lljjcoder.bean.ProvinceBean;
+import com.lljjcoder.citywheel.CityConfig;
+import com.lljjcoder.citywheel.CityPickerView;
 
 public class CitypickerWheelActivity extends AppCompatActivity {
     
@@ -241,8 +241,19 @@ public class CitypickerWheelActivity extends AppCompatActivity {
         defaultCityName = "常州";
         defaultDistrict = "新北区";
         mTitle = "选择地区";
+
+
         mCityInfoType = CityConfig.CityInfoType.BASE;
         mWheelType = CityConfig.WheelType.PRO_CITY_DIS;
+
+        setCityInfoType(mCityInfoType);
+        setWheelType(mWheelType);
+
+
+        mProCyclicCk.setChecked(true);
+        mCityCyclicCk.setChecked(true);
+        mAreaCyclicCk.setChecked(true);
+
         
         mTitleEt.setText("" + mTitle);
         mTitleColorEt.setText("" + titleTextColorStr);
