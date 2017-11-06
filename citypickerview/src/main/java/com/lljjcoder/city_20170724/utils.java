@@ -15,6 +15,8 @@ import java.io.InputStreamReader;
 
 public class utils {
     
+    String cityJsonStr = "";
+    
     //读取方法
     public static String getJson(Context context, String fileName) {
         StringBuilder stringBuilder = new StringBuilder();

@@ -657,7 +657,7 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
     
     protected void initProvinceDatas(Context context) {
         
-        String cityJson = utils.getJson(context, "city_20170724.json");
+        String cityJson = utils.getJson(context, "simple_cities_pro_city_dis.json");
         Type type = new TypeToken<ArrayList<ProvinceBean>>() {
         }.getType();
         
