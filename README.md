@@ -193,6 +193,7 @@ JSON　文件格式：(注意，该文件的内容建议自行生成，因为不
  3. DistrictBean：表示：区县信息
 
 
+
 **返回结果参数说明**
 
 ProvinceBean  , CityBean  , DistrictBean  同样的数据结构
