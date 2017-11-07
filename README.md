@@ -1,3 +1,5 @@
+[![](https://badge.juejin.im/entry/5a010b7451882561a326570c/likes.svg?style=flat-square)](https://juejin.im/post/5a010b06f265da4322409a0d)
+
 ## citypicker Android Studio实现
 
 ### 前言
@@ -101,6 +103,8 @@ startActivityForResult(intent, CityListSelectActivity.CITY_SELECT_RESULT_FRAG);
 
 **2、高仿iOS滚轮实现选择器代码**
 ```
+
+//详细属性设置，如果不需要自定义样式的话，可以直接使用默认的，去掉下面的属性设置，直接build()即可。
 CityConfig cityConfig = new CityConfig.Builder(CitypickerWheelActivity.this)
                 .title("选择地区")
                 .titleBackgroundColor("#E9E9E9")
@@ -121,8 +125,9 @@ CityConfig cityConfig = new CityConfig.Builder(CitypickerWheelActivity.this)
                 .setCityWheelType(CityConfig.WheelType.PRO_CITY_DIS)
                 .build();
 
- CityPickerView cityPicker = new CityPickerView(cityConfig);
- cityPicker.show();
+//配置属性
+CityPickerView cityPicker = new CityPickerView(cityConfig);
+cityPicker.show();
 
 //监听方法，获取选择结果
 cityPicker.setOnCityItemClickListener(new CityPickerView.OnCityItemClickListener() {
