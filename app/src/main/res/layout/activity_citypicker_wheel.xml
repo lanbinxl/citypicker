@@ -13,7 +13,7 @@
         android:layout_height="45dp"
         android:background="@color/c_blue"
         android:gravity="center"
-        android:text="防iOS滚轮选择"
+        android:text="仿iOS滚轮选择"
         android:textColor="@color/white"
         android:textSize="16sp"/>
 

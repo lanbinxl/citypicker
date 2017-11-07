@@ -241,19 +241,16 @@ public class CitypickerWheelActivity extends AppCompatActivity {
         defaultCityName = "常州";
         defaultDistrict = "新北区";
         mTitle = "选择地区";
-
-
+        
         mCityInfoType = CityConfig.CityInfoType.BASE;
         mWheelType = CityConfig.WheelType.PRO_CITY_DIS;
-
+        
         setCityInfoType(mCityInfoType);
         setWheelType(mWheelType);
-
-
+        
         mProCyclicCk.setChecked(true);
         mCityCyclicCk.setChecked(true);
         mAreaCyclicCk.setChecked(true);
-
         
         mTitleEt.setText("" + mTitle);
         mTitleColorEt.setText("" + titleTextColorStr);
@@ -340,23 +337,24 @@ public class CitypickerWheelActivity extends AppCompatActivity {
         visibleItems = (Integer.parseInt(mProVisibleCountEt.getText().toString()));
         padding = (Integer.parseInt(mItemPaddingEt.getText().toString()));
         
-        CityConfig cityConfig = new CityConfig.Builder(CitypickerWheelActivity.this).title(mTitle)
-                .titleBackgroundColor(titleBackgroundColorStr)
-                .textSize(textSize)
-                .titleTextColor(titleTextColorStr)
-                .textColor(textColor)
-                .confirTextColor(confirmTextColorStr)
-                .cancelTextColor(cancelTextColorStr)
-                .province(defaultProvinceName)
-                .city(defaultCityName)
-                .visibleItemsCount(visibleItems)
-                .district(defaultDistrict)
-                .provinceCyclic(isProvinceCyclic)
-                .cityCyclic(isCityCyclic)
-                .districtCyclic(isDistrictCyclic)
-                .itemPadding(padding)
-                .setCityInfoType(mCityInfoType)
-                .setCityWheelType(mWheelType)
+        CityConfig cityConfig = new CityConfig.Builder(CitypickerWheelActivity.this)
+                .title("选择地区")
+                .titleBackgroundColor("#E9E9E9")
+                .textSize(18)
+                .titleTextColor("#585858")
+                .textColor("0xFF585858")
+                .confirTextColor("#0000FF")
+                .cancelTextColor("#000000")
+                .province("江苏")
+                .city("常州")
+                .district("新北区")
+                .visibleItemsCount(5)
+                .provinceCyclic(true)
+                .cityCyclic(true)
+                .districtCyclic(true)
+                .itemPadding(5)
+                .setCityInfoType(CityConfig.CityInfoType.BASE)
+                .setCityWheelType(CityConfig.WheelType.PRO_CITY_DIS)
                 .build();
         
         CityPickerView cityPicker = new CityPickerView(cityConfig);
