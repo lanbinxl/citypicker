@@ -1,7 +1,5 @@
 [![v2.1.0](https://badge.juejin.im/entry/5a010b7451882561a326570c/likes.svg?style=flat-square)](https://juejin.im/post/5a010b06f265da4322409a0d)
 
-[![v2.0.0](https://badge.juejin.im/entry/599b6bc66fb9a0247b3b5370/likes.svg?style=flat-square)](https://juejin.im/post/599b6bc66fb9a0247b3b5370)
-
 
 ## citypicker Android Studio实现
 
