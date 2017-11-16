@@ -51,7 +51,7 @@
 ### 使用方法
 #### gradle引用
 ```
-compile 'liji.library.dev:citypickerview:2.1.0'
+compile 'liji.library.dev:citypickerview:2.1.1'
 
 ```
 #### 代码示例
@@ -116,6 +116,7 @@ CityConfig cityConfig = new CityConfig.Builder(CitypickerWheelActivity.this)
                 .visibleItemsCount(5)
                 .provinceCyclic(true)
                 .cityCyclic(true)
+                .showBackground(true)
                 .districtCyclic(true)
                 .itemPadding(5)
                 .setCityInfoType(CityConfig.CityInfoType.BASE)
@@ -126,9 +127,28 @@ CityConfig cityConfig = new CityConfig.Builder(CitypickerWheelActivity.this)
 CityPickerView cityPicker = new CityPickerView(cityConfig);
 cityPicker.show();
 
-//监听方法，获取选择结果
+//监听方法，获取选择结果，根据你选择的显示类别，覆盖对应的返回结果，如果获取结果失败，请检查选择的类型跟结果返回方法是否对应！！！！
 cityPicker.setOnCityItemClickListener(new CityPickerView.OnCityItemClickListener() {
+
+					//当只选择省份时，需要覆盖此方法，从该方法中获取省份结果
                     @Override
+                    public void onSelected(ProvinceBean province) {
+                    
+			        //ProvinceBean 省份信息
+			        
+                    }
+
+					//当只选择省市两级时，需要覆盖此方法，从该方法中获取省份和城市结果
+					@Override
+                    public void onSelected(ProvinceBean province, CityBean city ) {
+                    
+			        //ProvinceBean 省份信息
+			        //CityBean     城市信息
+			        
+                    }
+
+					//当只选择省市区三级时，需要覆盖此方法，从该方法中获取省市区三级联动结果
+					@Override
                     public void onSelected(ProvinceBean province, CityBean city, DistrictBean district) {
                     
 			        //ProvinceBean 省份信息
@@ -309,6 +329,7 @@ gisBd09Lng //百度坐标系-经度
  11. provinceCyclic（省份的滚轮是否循环滚动）
  12. cityCyclic（市的滚轮是否循环滚动）
  13. districtCyclic（区的滚轮是否循环滚动）
+ 14. isShowBackground （是否显示半透明背景0.5f）
  14. visibleItemsCount（滚轮显示的item个数，int 类型，默认为5个）
  15. itemPadding（滚轮item间距，默认为5dp）
  16. setCityWheelType(CityConfig.WheelType )（只显示省份滚轮、显示省份和城市滚轮、显示省市区三级滚轮）
@@ -317,6 +338,15 @@ gisBd09Lng //百度坐标系-经度
 
 ----------
 ### 更新日志
+
+
+#### V2.1.1版本更新内容（2017.11.16）
+
+ 1. 新增是否显示半透明背景属性
+ 2. [修复天津地区的数据问题，#67](https://github.com/crazyandcoder/citypicker/issues/67)
+ 3. [修复两级地区选择时，数据返回异常问题，#66](https://github.com/crazyandcoder/citypicker/issues/66)
+ 4. 修改返回结果数据结构
+ 4. 修复其他bug
 
 #### V2.1.0版本更新内容（2017.11.06）
 
