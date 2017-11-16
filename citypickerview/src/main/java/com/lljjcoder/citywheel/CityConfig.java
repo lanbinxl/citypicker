@@ -129,10 +129,10 @@ public class CityConfig {
         PRO, PRO_CITY, PRO_CITY_DIS
     }
     
-    //    /**
-    //     * 是否显示半透明的背景
-    //     */
-    //    private boolean isShowBackground = false;
+    /**
+     * 是否显示半透明的背景
+     */
+    private boolean isShowBackground = false;
     //
     //    /**
     //     * 点击外面的区域是否可以关闭选择，当没有设置半透明背景的条件下，改属性才会起作用
@@ -148,15 +148,9 @@ public class CityConfig {
         return mWheelType;
     }
     
-    //    public boolean isShowBackground() {
-    //        return isShowBackground;
-    //    }
-    
-    //
-    //    public int getBackgroundPop() {
-    //        return backgroundPop;
-    //    }
-    //
+    public boolean isShowBackground() {
+        return isShowBackground;
+    }
     
     //
     //    public void setShowBackground(boolean showBackground) {
@@ -278,8 +272,9 @@ public class CityConfig {
         this.mCityInfoType = builder.mCityInfoType;
         this.titleTextColorStr = builder.titleTextColorStr;
         
+        this.isShowBackground = builder.isShowBackground;
+        
         //        this.outSideTouchable = builder.outSideTouchable;
-        //        this.isShowBackground = builder.isShowBackground;
         //        this.backgroundPop = builder.backgroundPop;
         
     }
@@ -388,12 +383,11 @@ public class CityConfig {
          */
         private CityConfig.CityInfoType mCityInfoType = CityConfig.CityInfoType.BASE;
         
-        //        
-        //        /**
-        //         * 是否显示半透明的背景
-        //         */
-        //        private boolean isShowBackground = false;
-        //
+        /**
+         * 是否显示半透明的背景
+         */
+        private boolean isShowBackground = false;
+        
         //        /**
         //         * 点击外面的区域是否可以关闭选择，当没有设置半透明背景的条件下，改属性才会起作用
         //         */
@@ -408,16 +402,16 @@ public class CityConfig {
             this.mContext = context;
         }
         
-        //        
-        //        /**
-        //         * 是否显示半透明的背景
-        //         * @param isShowBackground
-        //         * @return
-        //         */
-        //        public Builder showBackground(boolean isShowBackground) {
-        //            this.isShowBackground = isShowBackground;
-        //            return this;
-        //        }
+        /**
+         * 是否显示半透明的背景
+         * @param isShowBackground
+         * @return
+         */
+        public Builder showBackground(boolean isShowBackground) {
+            this.isShowBackground = isShowBackground;
+            return this;
+        }
+        
         //        
         //        /**
         //         * 点击外面的区域是否可以关闭选择，当没有设置半透明背景的条件下，改属性才会起作用

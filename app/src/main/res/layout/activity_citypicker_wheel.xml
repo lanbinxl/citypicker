@@ -303,6 +303,28 @@
                     />
 
             </LinearLayout>
+
+
+            <!--是否显示半透明背景效果-->
+            <LinearLayout
+                style="@style/linearlayout_style">
+
+                <TextView
+                    style="@style/linearlayout_text_style"
+                    android:text="是否显示半透明背景效果 :"
+                    />
+
+                <CheckBox
+                    android:id="@+id/half_bg_ck"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/city_cyclic"
+                    android:button="@null"
+                    android:checked="true"
+                    />
+
+            </LinearLayout>
+
             <!--省份循环显示-->
             <LinearLayout
                 style="@style/linearlayout_style">

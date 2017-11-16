@@ -151,7 +151,6 @@ public class CityParseHelper {
     
     public CityParseHelper(CityConfig config) {
         this.config = config;
-        
     }
     
     /**
@@ -169,7 +168,6 @@ public class CityParseHelper {
             }
         }
         else {
-            //if (config.getWheelType() == CityConfig.WheelType.PRO_CITY)
             if (config.getCityInfoType() == CityConfig.CityInfoType.DETAIL) {
                 cityJsonDataType = "simple_cities_pro_city_dis.json";
             }

@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.ihidea.as.citypicker.R;
+import com.lljjcoder.Interface.OnCityItemClickListener;
 import com.lljjcoder.bean.CityBean;
 import com.lljjcoder.bean.DistrictBean;
 import com.lljjcoder.bean.ProvinceBean;
@@ -48,6 +49,8 @@ public class CitypickerWheelActivity extends AppCompatActivity {
     
     CheckBox mAreaCyclicCk;
     
+    CheckBox mHalfBgCk;
+    
     TextView mResetSettingTv;
     
     TextView mSubmitTv;
@@ -75,6 +78,8 @@ public class CitypickerWheelActivity extends AppCompatActivity {
     private boolean isCityCyclic = true;
     
     private boolean isDistrictCyclic = true;
+    
+    private boolean isShowBg = true;
     
     private int padding = 5;
     
@@ -124,6 +129,7 @@ public class CitypickerWheelActivity extends AppCompatActivity {
         mProCyclicCk = (CheckBox) findViewById(R.id.pro_cyclic_ck);
         mCityCyclicCk = (CheckBox) findViewById(R.id.city_cyclic_ck);
         mAreaCyclicCk = (CheckBox) findViewById(R.id.area_cyclic_ck);
+        mHalfBgCk = (CheckBox) findViewById(R.id.half_bg_ck);
         mResetSettingTv = (TextView) findViewById(R.id.reset_setting_tv);
         mSubmitTv = (TextView) findViewById(R.id.submit_tv);
         mBaseTv = (TextView) findViewById(R.id.base_tv);
@@ -218,6 +224,14 @@ public class CitypickerWheelActivity extends AppCompatActivity {
             }
         });
         
+        //区是否循环显示
+        mHalfBgCk.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                isShowBg = isChecked;
+            }
+        });
+        
         setCityInfoType(mCityInfoType);
         setWheelType(mWheelType);
     }
@@ -232,6 +246,8 @@ public class CitypickerWheelActivity extends AppCompatActivity {
         isProvinceCyclic = true;
         isCityCyclic = true;
         isDistrictCyclic = true;
+        isShowBg = true;
+        
         padding = 5;
         cancelTextColorStr = "#000000";
         confirmTextColorStr = "#0000FF";
@@ -264,6 +280,11 @@ public class CitypickerWheelActivity extends AppCompatActivity {
         mCancelTextColorEt.setText("" + cancelTextColorStr);
         mProVisibleCountEt.setText("" + visibleItems);
         mItemPaddingEt.setText("" + padding);
+        
+        mHalfBgCk.setChecked(isShowBg);
+        mProCyclicCk.setChecked(isProvinceCyclic);
+        mAreaCyclicCk.setChecked(isDistrictCyclic);
+        mCityCyclicCk.setChecked(isCityCyclic);
         
         setWheelType(mWheelType);
         
@@ -337,29 +358,26 @@ public class CitypickerWheelActivity extends AppCompatActivity {
         visibleItems = (Integer.parseInt(mProVisibleCountEt.getText().toString()));
         padding = (Integer.parseInt(mItemPaddingEt.getText().toString()));
         
-        CityConfig cityConfig = new CityConfig.Builder(CitypickerWheelActivity.this)
-                .title("选择地区")
-                .titleBackgroundColor("#E9E9E9")
-                .textSize(18)
-                .titleTextColor("#585858")
-                .textColor("0xFF585858")
-                .confirTextColor("#0000FF")
-                .cancelTextColor("#000000")
-                .province("江苏")
-                .city("常州")
-                .district("新北区")
+        CityConfig cityConfig = new CityConfig.Builder(CitypickerWheelActivity.this).title(mTitle)
+                .titleBackgroundColor(titleBackgroundColorStr)
+                .textSize(textSize)
+                .titleTextColor(titleTextColorStr)
+                .textColor(textColor)
+                .confirTextColor(confirmTextColorStr)
+                .cancelTextColor(cancelTextColorStr)
+                .setCityWheelType(mWheelType)
+                .showBackground(isShowBg)
                 .visibleItemsCount(5)
-                .provinceCyclic(true)
-                .cityCyclic(true)
-                .districtCyclic(true)
-                .itemPadding(5)
-                .setCityInfoType(CityConfig.CityInfoType.BASE)
-                .setCityWheelType(CityConfig.WheelType.PRO_CITY_DIS)
+                .provinceCyclic(isProvinceCyclic)
+                .cityCyclic(isCityCyclic)
+                .districtCyclic(isDistrictCyclic)
+                .itemPadding(31)
+                .setCityInfoType(mCityInfoType)
                 .build();
         
         CityPickerView cityPicker = new CityPickerView(cityConfig);
         cityPicker.show();
-        cityPicker.setOnCityItemClickListener(new CityPickerView.OnCityItemClickListener() {
+        cityPicker.setOnCityItemClickListener(new OnCityItemClickListener() {
             @Override
             public void onSelected(ProvinceBean province, CityBean city, DistrictBean district) {
                 

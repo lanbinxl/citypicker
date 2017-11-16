@@ -1,7 +1,9 @@
 package com.lljjcoder.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.view.WindowManager;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -32,5 +34,11 @@ public class utils {
             e.printStackTrace();
         }
         return stringBuilder.toString();
+    }
+    
+    public static void setBackgroundAlpha(Context mContext, float bgAlpha) {
+        WindowManager.LayoutParams lp = ((Activity) mContext).getWindow().getAttributes();
+        lp.alpha = bgAlpha;
+        ((Activity) mContext).getWindow().setAttributes(lp);
     }
 }
