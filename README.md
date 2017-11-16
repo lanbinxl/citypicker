@@ -51,7 +51,7 @@
 ### 使用方法
 #### gradle引用
 ```
-compile 'liji.library.dev:citypickerview:2.1.1'
+compile 'liji.library.dev:citypickerview:2.1.2'
 
 ```
 
@@ -112,7 +112,7 @@ startActivityForResult(intent, CityListSelectActivity.CITY_SELECT_RESULT_FRAG);
 ```
 
 //详细属性设置，如果不需要自定义样式的话，可以直接使用默认的，去掉下面的属性设置，直接build()即可。
-CityConfig cityConfig = new CityConfig.Builder(CitypickerWheelActivity.this)
+	CityConfig cityConfig = new CityConfig.Builder(CitypickerWheelActivity.this)
                 .title("选择地区")
                 .titleBackgroundColor("#E9E9E9")
                 .textSize(18)
@@ -134,44 +134,34 @@ CityConfig cityConfig = new CityConfig.Builder(CitypickerWheelActivity.this)
                 .build();
 
 //配置属性
-CityPickerView cityPicker = new CityPickerView(cityConfig);
-cityPicker.show();
 
-//监听方法，获取选择结果，根据你选择的显示类别，覆盖对应的返回结果，如果获取结果失败，请检查选择的类型跟结果返回方法是否对应！！！！
-cityPicker.setOnCityItemClickListener(new CityPickerView.OnCityItemClickListener() {
+	CityPickerView cityPicker = new CityPickerView(cityConfig);
+        cityPicker.show();
+        cityPicker.setOnCityItemClickListener(new OnCityItemClickListener() {
+            @Override
+            public void onSelected(ProvinceBean province, CityBean city, DistrictBean district) {
 
-					//当只选择省份时，需要覆盖此方法，从该方法中获取省份结果
-                    @Override
-                    public void onSelected(ProvinceBean province) {
-                    
-			        //ProvinceBean 省份信息
-			        
-                    }
 
-					//当只选择省市两级时，需要覆盖此方法，从该方法中获取省份和城市结果
-					@Override
-                    public void onSelected(ProvinceBean province, CityBean city ) {
-                    
-			        //ProvinceBean 省份信息
-			        //CityBean     城市信息
-			        
-                    }
+                //ProvinceBean 省份信息
+                //CityBean     城市信息
+                //DistrictBean 区县信息
 
-					//当只选择省市区三级时，需要覆盖此方法，从该方法中获取省市区三级联动结果
-					@Override
-                    public void onSelected(ProvinceBean province, CityBean city, DistrictBean district) {
-                    
-			        //ProvinceBean 省份信息
-			        //CityBean     城市信息
-			        //DistrictBean 区县信息
-			        
-                    }
 
-                    @Override
-                    public void onCancel() {
+                
+                //当wheelType==CityConfig.WheelType.PRO时，CityBean和DistrictBean为null
+                //当wheelType==CityConfig.WheelType.PRO_CITY时， DistrictBean为null
+                //当wheelType==CityConfig.WheelType.PRO_CITY_DIS时， 可取省市区三个对象的值
+                
+                //使用之前需判断province、city、district是否等于null
+                
+            }
+            
+            @Override
+            public void onCancel() {
+                
+            }
+        });
 
-                    }
-                });
 ```
 
  **注意：上述属性中存在一个属性CityInfoType：**
@@ -349,6 +339,9 @@ gisBd09Lng //百度坐标系-经度
 ----------
 ### 更新日志
 
+#### V2.1.2版本更新内容（2017.11.16）
+
+ 1. 修改返回结果数据结构
 
 #### V2.1.1版本更新内容（2017.11.16）
 
