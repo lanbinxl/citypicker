@@ -54,6 +54,16 @@
 compile 'liji.library.dev:citypickerview:2.1.1'
 
 ```
+
+#### 代码混淆
+
+```
+#地区3级联动选择器
+-keep class com.lljjcoder.**{
+*;
+}
+```
+
 #### 代码示例
 
 **1、城市列表选择器代码**
