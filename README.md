@@ -443,15 +443,11 @@ gisBd09Lng //百度坐标系-经度
 
 
 ### 关于我
-1. 简书 [http://www.jianshu.com/users/18281bdb07ce/latest_articles](http://www.jianshu.com/users/18281bdb07ce/latest_articles)
 
+1. 简书 [http://www.jianshu.com/users/18281bdb07ce/latest_articles](http://www.jianshu.com/users/18281bdb07ce/latest_articles)
 2. 博客 [http://crazyandcoder.github.io/](http://crazyandcoder.github.io/)
 
-3. github [https://github.com/crazyandcoder](https://github.com/crazyandcoder)
-
-
 ### 感谢
-
 
  1. [http://blog.csdn.net/wulianghuan/article/details/41549189](http://blog.csdn.net/wulianghuan/article/details/41549189)
  2. WheelView
