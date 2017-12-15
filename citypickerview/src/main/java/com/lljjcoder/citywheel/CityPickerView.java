@@ -15,11 +15,11 @@ import com.lljjcoder.Interface.OnCityItemClickListener;
 import com.lljjcoder.bean.CityBean;
 import com.lljjcoder.bean.DistrictBean;
 import com.lljjcoder.bean.ProvinceBean;
-import com.lljjcoder.citypickerview.R;
-import com.lljjcoder.citypickerview.widget.CanShow;
-import com.lljjcoder.citypickerview.widget.wheel.OnWheelChangedListener;
-import com.lljjcoder.citypickerview.widget.wheel.WheelView;
-import com.lljjcoder.citypickerview.widget.wheel.adapters.ArrayWheelAdapter;
+import com.lljjcoder.style.citypickerview.R;
+import com.lljjcoder.style.citypickerview.widget.CanShow;
+import com.lljjcoder.style.citypickerview.widget.wheel.OnWheelChangedListener;
+import com.lljjcoder.style.citypickerview.widget.wheel.WheelView;
+import com.lljjcoder.style.citypickerview.widget.wheel.adapters.ArrayWheelAdapter;
 import com.lljjcoder.utils.utils;
 
 /**
@@ -156,10 +156,10 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
             public void onClick(View v) {
                 if (parseHelper != null) {
                     if (config.getWheelType() == CityConfig.WheelType.PRO) {
-                        mBaseListener.onSelected(parseHelper.getProvinceBean());
+                        mBaseListener.onSelected(parseHelper.getProvinceBean(), null, null);
                     }
                     else if (config.getWheelType() == CityConfig.WheelType.PRO_CITY) {
-                        mBaseListener.onSelected(parseHelper.getProvinceBean(), parseHelper.getCityBean());
+                        mBaseListener.onSelected(parseHelper.getProvinceBean(), parseHelper.getCityBean(), null);
                     }
                     else {
                         mBaseListener.onSelected(parseHelper.getProvinceBean(),

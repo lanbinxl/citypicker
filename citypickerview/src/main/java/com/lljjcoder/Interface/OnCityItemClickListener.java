@@ -13,23 +13,6 @@ import com.lljjcoder.bean.ProvinceBean;
 public abstract class OnCityItemClickListener {
     
     /**
-     * 当选择只显示省份的选择器时，需要覆盖此方法
-     * @param province
-     */
-    public void onSelected(ProvinceBean province) {
-        
-    }
-    
-    /**
-     * 当选择省市两级选择器时，需要覆盖此方法
-     * @param province
-     * @param city
-     */
-    public void onSelected(ProvinceBean province, CityBean city) {
-        
-    }
-    
-    /**
      * 当选择省市区三级选择器时，需要覆盖此方法
      * @param province
      * @param city

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.lljjcoder.citypickerview">
+          package="com.lljjcoder.style.citypickerview">
 
     <application
         android:allowBackup="true"
         android:label="@string/app_name"
         android:supportsRtl="true">
-        <activity android:name="com.lljjcoder.citylist.CityListSelectActivity">
+        <activity android:name="com.lljjcoder.style.citylist.CityListSelectActivity">
         </activity>
     </application>
 

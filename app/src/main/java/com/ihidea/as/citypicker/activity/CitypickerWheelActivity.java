@@ -373,6 +373,7 @@ public class CitypickerWheelActivity extends AppCompatActivity {
                 .districtCyclic(isDistrictCyclic)
                 .itemPadding(31)
                 .setCityInfoType(mCityInfoType)
+                .setCityWheelType(mWheelType)
                 .build();
         
         CityPickerView cityPicker = new CityPickerView(cityConfig);
@@ -380,16 +381,17 @@ public class CitypickerWheelActivity extends AppCompatActivity {
         cityPicker.setOnCityItemClickListener(new OnCityItemClickListener() {
             @Override
             public void onSelected(ProvinceBean province, CityBean city, DistrictBean district) {
+
+
+                //ProvinceBean 省份信息
+                //CityBean     城市信息
+                //DistrictBean 区县信息
+
+                //当wheelType==CityConfig.WheelType.PRO时，CityBean和DistrictBean为null
+                //当wheelType==CityConfig.WheelType.PRO_CITY时， DistrictBean为null
+                //当wheelType==CityConfig.WheelType.PRO_CITY_DIS时， 可取省市区三个对象的值
                 
-                if (district != null) {
-                    //返回结果
-                    mResultTv.setText(
-                            "所选城市：\n" + province.toString() + "\n" + city.toString() + "\n" + district.toString());
-                }
-                else {
-                    //返回结果
-                    mResultTv.setText("所选城市：\n" + province.toString() + "\n" + city.toString());
-                }
+                //使用之前需判断province、city、district是否等于null
                 
             }
             

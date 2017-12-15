@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.ihidea.as.citypicker.R;
-import com.lljjcoder.citylist.CityListSelectActivity;
-import com.lljjcoder.citylist.bean.CityInfoBean;
+import com.lljjcoder.style.citylist.CityListSelectActivity;
+import com.lljjcoder.style.citylist.bean.CityInfoBean;
 
 public class CitypickerListActivity extends AppCompatActivity {
     
