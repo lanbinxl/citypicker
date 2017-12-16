@@ -57,14 +57,7 @@ public class CitypickerListActivity extends AppCompatActivity {
                     return;
                 }
                 
-                //城市名称
-                String cityName = cityInfoBean.getName();
-                //纬度
-                String latitude = cityInfoBean.getLongitude();
-                //经度
-                String longitude = cityInfoBean.getLatitude();
-                
-                mResultTv.setText("城市： " + cityName + "\n" + "经度： " + latitude + "\n" + "纬度： " + longitude);
+                mResultTv.setText("城市： " + cityInfoBean.toString());
             }
         }
     }

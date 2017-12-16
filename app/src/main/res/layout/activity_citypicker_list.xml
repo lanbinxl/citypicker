@@ -11,7 +11,7 @@
         android:id="@+id/headview"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:background="@color/c_blue"
+        android:background="#ff40c2fc"
         android:gravity="center"
         android:text="城市列表选择"
         android:textColor="@color/white"

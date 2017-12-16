@@ -11,29 +11,14 @@ import android.content.Context;
 
 public class CityConfig {
     
+    public static final Integer NONE = -1111;
+    
     private Context mContext;
-    
-    /**
-     * Default text color
-     */
-    public static final String DEFAULT_TEXT_COLOR = "#585858";
-    
-    /**
-     * Default text size
-     */
-    public static final int DEFAULT_TEXT_SIZE = 18;
-    
-    private String textColor = DEFAULT_TEXT_COLOR;
-    
-    private int textSize = DEFAULT_TEXT_SIZE;
     
     /**
      * 滚轮显示的item个数
      */
-    private static final int DEF_VISIBLE_ITEMS = 5;
-    
-    // Count of visible items
-    private int visibleItems = DEF_VISIBLE_ITEMS;
+    private int visibleItems = 5;
     
     /**
      * 省滚轮是否循环滚动
@@ -51,19 +36,36 @@ public class CityConfig {
     private boolean isDistrictCyclic = true;
     
     /**
-     * item间距
-     */
-    private int padding = 5;
-    
-    /**
      * Color.BLACK
      */
     private String cancelTextColorStr = "#000000";
     
     /**
+     * Color.BLACK
+     */
+    private String cancelText = "取消";
+    
+    private int cancelTextSize = 16;
+    
+    /**
      * Color.BLUE
      */
     private String confirmTextColorStr = "#0000FF";
+    
+    /**
+     * Color.BLUE
+     */
+    private String confirmText = "确定";
+    
+    /**
+     * Color.BLUE
+     */
+    private int confirmTextSize = 16;
+    
+    /**
+     * 标题
+     */
+    private String mTitle = "选择地区";
     
     /**
      * 标题背景颜色
@@ -76,49 +78,38 @@ public class CityConfig {
     private String titleTextColorStr = "#585858";
     
     /**
+     * 标题字体大小
+     */
+    private int titleTextSize = 18;
+    
+    /**
      * 第一次默认的显示省份，一般配合定位，使用
      */
-    private String defaultProvinceName = "江苏";
+    private String defaultProvinceName = "浙江";
     
     /**
      * 第一次默认得显示城市，一般配合定位，使用
      */
-    private String defaultCityName = "常州";
+    private String defaultCityName = "杭州";
     
     /**
      * 第一次默认得显示，一般配合定位，使用
      */
-    private String defaultDistrict = "新北区";
+    private String defaultDistrict = "滨江区";
     
     /**
-     * 标题
+     * 自定义的item布局
      */
-    private String mTitle = "选择地区";
+    private Integer customItemLayout;
     
     /**
-     * 城市数据类别
-     * BASE: 基本的城市数据信息，只包含省市区名称，不包含详细的经纬度、code、等数据
-     * DETAIL: 包含详细的经纬度、code、省市区数据名称等数据
+     * 自定义的item txt id
      */
-    public enum CityInfoType {
-        BASE, DETAIL
-    }
+    private Integer customItemTextViewId;
     
     /**
      * 默认显示的城市数据，只包含省市区名称
      */
-    private CityInfoType mCityInfoType = CityInfoType.BASE;
-    
-    public CityInfoType getCityInfoType() {
-        return mCityInfoType;
-    }
-    
-    //
-    //    /**
-    //     * 设置popwindow的背景
-    //     */
-    //    private int backgroundPop = 0xa0000000;
-    //
     /**
      * 定义显示省市区三种滚轮的显示状态
      * PRO:只显示省份的一级选择器
@@ -132,12 +123,7 @@ public class CityConfig {
     /**
      * 是否显示半透明的背景
      */
-    private boolean isShowBackground = false;
-    //
-    //    /**
-    //     * 点击外面的区域是否可以关闭选择，当没有设置半透明背景的条件下，改属性才会起作用
-    //     */
-    //    private boolean outSideTouchable = true;
+    private boolean isShowBackground = true;
     
     /**
      * 定义默认显示省市区三级联动的滚轮选择器
@@ -152,19 +138,6 @@ public class CityConfig {
         return isShowBackground;
     }
     
-    //
-    //    public void setShowBackground(boolean showBackground) {
-    //        isShowBackground = showBackground;
-    //    }
-    //
-    //    public boolean isOutSideTouchable() {
-    //        return outSideTouchable;
-    //    }
-    //
-    //    public void setOutSideTouchable(boolean outSideTouchable) {
-    //        this.outSideTouchable = outSideTouchable;
-    //    }
-    
     public Context getContext() {
         return mContext;
     }
@@ -173,72 +146,84 @@ public class CityConfig {
         mContext = context;
     }
     
-    public String getTextColor() {
-        return textColor;
-    }
-    
-    public void setTextColor(String textColor) {
-        this.textColor = textColor;
-    }
-    
-    public int getTextSize() {
-        return textSize;
-    }
-    
-    public void setTextSize(int textSize) {
-        this.textSize = textSize;
-    }
-    
     public int getVisibleItems() {
         return visibleItems;
+    }
+    
+    public void setVisibleItems(int visibleItems) {
+        this.visibleItems = visibleItems;
     }
     
     public boolean isProvinceCyclic() {
         return isProvinceCyclic;
     }
     
+    public void setProvinceCyclic(boolean provinceCyclic) {
+        isProvinceCyclic = provinceCyclic;
+    }
+    
     public boolean isCityCyclic() {
         return isCityCyclic;
+    }
+    
+    public void setCityCyclic(boolean cityCyclic) {
+        isCityCyclic = cityCyclic;
     }
     
     public boolean isDistrictCyclic() {
         return isDistrictCyclic;
     }
     
-    public int getPadding() {
-        return padding;
-    }
-    
-    public void setPadding(int padding) {
-        this.padding = padding;
+    public void setDistrictCyclic(boolean districtCyclic) {
+        isDistrictCyclic = districtCyclic;
     }
     
     public String getCancelTextColorStr() {
         return cancelTextColorStr == null ? "" : cancelTextColorStr;
     }
     
+    public void setCancelTextColorStr(String cancelTextColorStr) {
+        this.cancelTextColorStr = cancelTextColorStr;
+    }
+    
+    public String getCancelText() {
+        return cancelText == null ? "" : cancelText;
+    }
+    
+    public void setCancelText(String cancelText) {
+        this.cancelText = cancelText;
+    }
+    
+    public int getCancelTextSize() {
+        return cancelTextSize;
+    }
+    
+    public void setCancelTextSize(int cancelTextSize) {
+        this.cancelTextSize = cancelTextSize;
+    }
+    
     public String getConfirmTextColorStr() {
         return confirmTextColorStr == null ? "" : confirmTextColorStr;
     }
     
-    public String getTitleBackgroundColorStr() {
-        return titleBackgroundColorStr == null ? "" : titleBackgroundColorStr;
+    public void setConfirmTextColorStr(String confirmTextColorStr) {
+        this.confirmTextColorStr = confirmTextColorStr;
     }
     
-    public String getTitleTextColorStr() {
-        return titleTextColorStr == null ? "" : titleTextColorStr;
+    public String getConfirmText() {
+        return confirmText == null ? "" : confirmText;
     }
     
-    public String getDefaultProvinceName() {
-        return defaultProvinceName == null ? "" : defaultProvinceName;
+    public void setConfirmText(String confirmText) {
+        this.confirmText = confirmText;
     }
     
-    public String getDefaultCityName() {
-        return defaultCityName == null ? "" : defaultCityName;
+    public int getConfirmTextSize() {
+        return confirmTextSize;
     }
     
-    public String getDefaultDistrict() {
-        return defaultDistrict == null ? "" : defaultDistrict;
+    public void setConfirmTextSize(int confirmTextSize) {
+        this.confirmTextSize = confirmTextSize;
     }
     
     public String getTitle() {
@@ -249,58 +234,145 @@ public class CityConfig {
         mTitle = title;
     }
     
+    public String getTitleBackgroundColorStr() {
+        return titleBackgroundColorStr == null ? "" : titleBackgroundColorStr;
+    }
+    
+    public void setTitleBackgroundColorStr(String titleBackgroundColorStr) {
+        this.titleBackgroundColorStr = titleBackgroundColorStr;
+    }
+    
+    public String getTitleTextColorStr() {
+        return titleTextColorStr == null ? "" : titleTextColorStr;
+    }
+    
+    public void setTitleTextColorStr(String titleTextColorStr) {
+        this.titleTextColorStr = titleTextColorStr;
+    }
+    
+    public int getTitleTextSize() {
+        return titleTextSize;
+    }
+    
+    public void setTitleTextSize(int titleTextSize) {
+        this.titleTextSize = titleTextSize;
+    }
+    
+    public String getDefaultProvinceName() {
+        return defaultProvinceName == null ? "" : defaultProvinceName;
+    }
+    
+    public void setDefaultProvinceName(String defaultProvinceName) {
+        this.defaultProvinceName = defaultProvinceName;
+    }
+    
+    public String getDefaultCityName() {
+        return defaultCityName == null ? "" : defaultCityName;
+    }
+    
+    public void setDefaultCityName(String defaultCityName) {
+        this.defaultCityName = defaultCityName;
+    }
+    
+    public String getDefaultDistrict() {
+        return defaultDistrict == null ? "" : defaultDistrict;
+    }
+    
+    public void setDefaultDistrict(String defaultDistrict) {
+        this.defaultDistrict = defaultDistrict;
+    }
+    
+    public Integer getCustomItemLayout() {
+        return customItemLayout == null ? NONE : customItemLayout;
+    }
+    
+    public void setCustomItemLayout(int customItemLayout) {
+        this.customItemLayout = customItemLayout;
+    }
+    
+    public Integer getCustomItemTextViewId() {
+        return customItemTextViewId == null ? NONE : customItemTextViewId;
+    }
+    
+    public void setCustomItemTextViewId(Integer customItemTextViewId) {
+        this.customItemTextViewId = customItemTextViewId;
+    }
+    
+    public void setShowBackground(boolean showBackground) {
+        isShowBackground = showBackground;
+    }
+    
     public CityConfig(Builder builder) {
         
-        this.textColor = builder.textColor;
-        this.textSize = builder.textSize;
+        this.mContext = builder.mContext;
+        
+        /**
+         * 标题栏相关的属性：
+         * 0、标题栏背景颜色
+         * 1、标题文字、大小、颜色
+         *
+         * 2、取消字体的颜色、大小、内容
+         * 3、确认字体的颜色、大小、内容
+         */
+        this.titleBackgroundColorStr = builder.titleBackgroundColorStr;
+        
+        this.mTitle = builder.mTitle;
+        this.titleTextColorStr = builder.titleTextColorStr;
+        this.titleTextSize = builder.titleTextSize;
+        
+        this.cancelTextColorStr = builder.cancelTextColorStr;
+        this.cancelText = builder.cancelText;
+        this.cancelTextSize = builder.cancelTextSize;
+        
+        this.confirmTextColorStr = builder.confirmTextColorStr;
+        this.confirmText = builder.confirmText;
+        this.confirmTextSize = builder.confirmTextSize;
+        
+        /**
+         * 滚轮相关的属性：
+         * 1、item显示的个数
+         * 2、省份是否可以循环
+         * 3、城市是否可以循环
+         * 4、地区是否可以循环
+         */
         this.visibleItems = builder.visibleItems;
         this.isProvinceCyclic = builder.isProvinceCyclic;
         this.isDistrictCyclic = builder.isDistrictCyclic;
         this.isCityCyclic = builder.isCityCyclic;
-        this.mContext = builder.mContext;
-        this.padding = builder.padding;
-        this.mTitle = builder.mTitle;
-        this.titleBackgroundColorStr = builder.titleBackgroundColorStr;
-        this.confirmTextColorStr = builder.confirmTextColorStr;
-        this.cancelTextColorStr = builder.cancelTextColorStr;
         
+        /**
+         * 默认的省市区地址
+         */
         this.defaultDistrict = builder.defaultDistrict;
         this.defaultCityName = builder.defaultCityName;
         this.defaultProvinceName = builder.defaultProvinceName;
         
+        /**
+         * 是否显示城市和地区
+         */
         this.mWheelType = builder.mWheelType;
-        this.mCityInfoType = builder.mCityInfoType;
-        this.titleTextColorStr = builder.titleTextColorStr;
         
+        /**
+         * 是否显示半透明
+         */
         this.isShowBackground = builder.isShowBackground;
         
-        //        this.outSideTouchable = builder.outSideTouchable;
-        //        this.backgroundPop = builder.backgroundPop;
+        /**
+         * 自定义item的布局，必须制定Layout和id
+         */
+        this.customItemLayout = builder.customItemLayout;
+        this.customItemTextViewId = builder.customItemTextViewId;
         
     }
     
     public static class Builder {
-        /**
-         * Default text color
-         */
-        public static final String DEFAULT_TEXT_COLOR = "#585858";
         
-        /**
-         * Default text size
-         */
-        public static final int DEFAULT_TEXT_SIZE = 18;
-        
-        // Text settings
-        private String textColor = DEFAULT_TEXT_COLOR;
-        
-        private int textSize = DEFAULT_TEXT_SIZE;
+        private Context mContext;
         
         /**
          * 滚轮显示的item个数
          */
-        private static final int DEF_VISIBLE_ITEMS = 5;
-        
-        private int visibleItems = DEF_VISIBLE_ITEMS;
+        private int visibleItems = 5;
         
         /**
          * 省滚轮是否循环滚动
@@ -317,22 +389,37 @@ public class CityConfig {
          */
         private boolean isDistrictCyclic = true;
         
-        private Context mContext;
-        
-        /**
-         * item间距
-         */
-        private int padding = 5;
-        
         /**
          * Color.BLACK
          */
         private String cancelTextColorStr = "#000000";
         
         /**
+         * Color.BLACK
+         */
+        private String cancelText = "取消";
+        
+        private int cancelTextSize = 16;
+        
+        /**
          * Color.BLUE
          */
         private String confirmTextColorStr = "#0000FF";
+        
+        /**
+         * Color.BLUE
+         */
+        private String confirmText = "确定";
+        
+        /**
+         * Color.BLUE
+         */
+        private int confirmTextSize = 16;
+        
+        /**
+         * 标题
+         */
+        private String mTitle = "选择地区";
         
         /**
          * 标题背景颜色
@@ -345,24 +432,24 @@ public class CityConfig {
         private String titleTextColorStr = "#585858";
         
         /**
+         * 标题字体大小
+         */
+        private int titleTextSize = 18;
+        
+        /**
          * 第一次默认的显示省份，一般配合定位，使用
          */
-        private String defaultProvinceName = "江苏";
+        private String defaultProvinceName = "浙江";
         
         /**
          * 第一次默认得显示城市，一般配合定位，使用
          */
-        private String defaultCityName = "常州";
+        private String defaultCityName = "杭州";
         
         /**
          * 第一次默认得显示，一般配合定位，使用
          */
-        private String defaultDistrict = "新北区";
-        
-        /**
-         * 标题
-         */
-        private String mTitle = "选择地区";
+        private String defaultDistrict = "滨江区";
         
         /**
          * 定义默认显示省市区三级联动的滚轮选择器
@@ -370,70 +457,24 @@ public class CityConfig {
         private CityConfig.WheelType mWheelType = CityConfig.WheelType.PRO_CITY_DIS;
         
         /**
-         * 城市数据类别
-         * BASE: 基本的城市数据信息，只包含省市区名称，不包含详细的经纬度、code、等数据
-         * DETAIL: 包含详细的经纬度、code、省市区数据名称等数据
-         */
-        enum CityInfoType {
-            BASE, DETAIL
-        }
-        
-        /**
-         * 默认显示的城市数据，只包含省市区名称
-         */
-        private CityConfig.CityInfoType mCityInfoType = CityConfig.CityInfoType.BASE;
-        
-        /**
          * 是否显示半透明的背景
          */
-        private boolean isShowBackground = false;
+        private boolean isShowBackground = true;
         
-        //        /**
-        //         * 点击外面的区域是否可以关闭选择，当没有设置半透明背景的条件下，改属性才会起作用
-        //         */
-        //        private boolean outSideTouchable = true;
-        //
-        //        /**
-        //         * 设置popwindow的背景
-        //         */
-        //        private int backgroundPop = 0xa0000000;
+        /**
+         * 自定义的item布局
+         */
+        private Integer customItemLayout;
+        
+        /**
+         * 自定义的item txt id 
+         */
+        private Integer customItemTextViewId;
         
         public Builder(Context context) {
             this.mContext = context;
         }
         
-        /**
-         * 是否显示半透明的背景
-         * @param isShowBackground
-         * @return
-         */
-        public Builder showBackground(boolean isShowBackground) {
-            this.isShowBackground = isShowBackground;
-            return this;
-        }
-        
-        //        
-        //        /**
-        //         * 点击外面的区域是否可以关闭选择，当没有设置半透明背景的条件下，改属性才会起作用
-        //         * @param outSideTouchable
-        //         * @return
-        //         */
-        //        public Builder outSideTouchable(boolean outSideTouchable) {
-        //            this.outSideTouchable = outSideTouchable;
-        //            return this;
-        //        }
-        //        
-        //        /**
-        //         * 设置popwindow的背景
-        //         *
-        //         * @param backgroundPopColor
-        //         * @return
-        //         */
-        //        public Builder backgroundPop(int backgroundPopColor) {
-        //            this.backgroundPop = backgroundPopColor;
-        //            return this;
-        //        }
-        //        
         /**
          * 设置标题背景颜色
          *
@@ -446,13 +487,24 @@ public class CityConfig {
         }
         
         /**
-         * 设置标题背景颜色
+         * 设置标题字体颜色
          *
          * @param titleTextColorStr
          * @return
          */
         public Builder titleTextColor(String titleTextColorStr) {
             this.titleTextColorStr = titleTextColorStr;
+            return this;
+        }
+        
+        /**
+         * 设置标题字体大小
+         *
+         * @param titleTextSize
+         * @return
+         */
+        public Builder titleTextSize(int titleTextSize) {
+            this.titleTextSize = titleTextSize;
             return this;
         }
         
@@ -467,8 +519,113 @@ public class CityConfig {
             return this;
         }
         
-        public Builder setCityInfoType(CityConfig.CityInfoType infoType) {
-            this.mCityInfoType = infoType;
+        /**
+         * 确认按钮文字
+         *
+         * @param confirmTextSize
+         * @return
+         */
+        public Builder confirmTextSize(int confirmTextSize) {
+            this.confirmTextSize = confirmTextSize;
+            return this;
+        }
+        
+        /**
+         * 确认按钮文字
+         *
+         * @param confirmText
+         * @return
+         */
+        public Builder confirmText(String confirmText) {
+            this.confirmText = confirmText;
+            return this;
+        }
+        
+        /**
+         * 确认按钮文字颜色
+         *
+         * @param color
+         * @return
+         */
+        public Builder confirTextColor(String color) {
+            this.confirmTextColorStr = color;
+            return this;
+        }
+        
+        /**
+         * 取消按钮文字颜色
+         *
+         * @param color
+         * @return
+         */
+        public Builder cancelTextColor(String color) {
+            this.cancelTextColorStr = color;
+            return this;
+        }
+        
+        /**
+         * 取消按钮文字大小
+         *
+         * @param cancelTextSize
+         * @return
+         */
+        public Builder cancelTextSize(int cancelTextSize) {
+            this.cancelTextSize = cancelTextSize;
+            return this;
+        }
+        
+        /**
+         * 取消按钮文字
+         *
+         * @param cancelText
+         * @return
+         */
+        public Builder cancelText(String cancelText) {
+            this.cancelText = cancelText;
+            return this;
+        }
+        
+        /**
+         * 滚轮显示的item个数
+         *
+         * @param visibleItems
+         * @return
+         */
+        public Builder visibleItemsCount(int visibleItems) {
+            this.visibleItems = visibleItems;
+            return this;
+        }
+        
+        /**
+         * 省滚轮是否循环滚动
+         *
+         * @param isProvinceCyclic
+         * @return
+         */
+        public Builder provinceCyclic(boolean isProvinceCyclic) {
+            this.isProvinceCyclic = isProvinceCyclic;
+            return this;
+        }
+        
+        /**
+         * 市滚轮是否循环滚动
+         *
+         * @param isCityCyclic
+         * @return
+         */
+        public Builder cityCyclic(boolean isCityCyclic) {
+            this.isCityCyclic = isCityCyclic;
+            return this;
+        }
+        
+        /**
+         * 区滚轮是否循环滚动
+         *
+         * @param isDistrictCyclic
+         * @return
+         */
+        public Builder districtCyclic(boolean isDistrictCyclic) {
+            this.isDistrictCyclic = isDistrictCyclic;
             return this;
         }
         
@@ -519,101 +676,32 @@ public class CityConfig {
         }
         
         /**
-         * 确认按钮文字颜色
-         *
-         * @param color
+         * 是否显示半透明的背景
+         * @param isShowBackground
          * @return
          */
-        public Builder confirTextColor(String color) {
-            this.confirmTextColorStr = color;
+        public Builder showBackground(boolean isShowBackground) {
+            this.isShowBackground = isShowBackground;
             return this;
         }
         
         /**
-         * 取消按钮文字颜色
-         *
-         * @param color
+         * 自定义item布局
+         * @param itemLayout
          * @return
          */
-        public Builder cancelTextColor(String color) {
-            this.cancelTextColorStr = color;
+        public Builder setCustomItemLayout(Integer itemLayout) {
+            this.customItemLayout = itemLayout;
             return this;
         }
         
         /**
-         * item文字颜色
-         *
-         * @param textColor
+         * 自定义item布局中的id
+         * @param setCustomItemTextViewId
          * @return
          */
-        public Builder textColor(String textColor) {
-            this.textColor = textColor;
-            return this;
-        }
-        
-        /**
-         * item文字大小
-         *
-         * @param textSize
-         * @return
-         */
-        public Builder textSize(int textSize) {
-            this.textSize = textSize;
-            return this;
-        }
-        
-        /**
-         * 滚轮显示的item个数
-         *
-         * @param visibleItems
-         * @return
-         */
-        public Builder visibleItemsCount(int visibleItems) {
-            this.visibleItems = visibleItems;
-            return this;
-        }
-        
-        /**
-         * 省滚轮是否循环滚动
-         *
-         * @param isProvinceCyclic
-         * @return
-         */
-        public Builder provinceCyclic(boolean isProvinceCyclic) {
-            this.isProvinceCyclic = isProvinceCyclic;
-            return this;
-        }
-        
-        /**
-         * 市滚轮是否循环滚动
-         *
-         * @param isCityCyclic
-         * @return
-         */
-        public Builder cityCyclic(boolean isCityCyclic) {
-            this.isCityCyclic = isCityCyclic;
-            return this;
-        }
-        
-        /**
-         * 区滚轮是否循环滚动
-         *
-         * @param isDistrictCyclic
-         * @return
-         */
-        public Builder districtCyclic(boolean isDistrictCyclic) {
-            this.isDistrictCyclic = isDistrictCyclic;
-            return this;
-        }
-        
-        /**
-         * item间距
-         *
-         * @param itemPadding
-         * @return
-         */
-        public Builder itemPadding(int itemPadding) {
-            this.padding = itemPadding;
+        public Builder setCustomItemTextViewId(Integer setCustomItemTextViewId) {
+            this.customItemTextViewId = setCustomItemTextViewId;
             return this;
         }
         

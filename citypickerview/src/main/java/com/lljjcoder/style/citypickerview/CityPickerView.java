@@ -1,5 +1,6 @@
-package com.lljjcoder.citywheel;
+package com.lljjcoder.style.citypickerview;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.text.TextUtils;
@@ -15,7 +16,8 @@ import com.lljjcoder.Interface.OnCityItemClickListener;
 import com.lljjcoder.bean.CityBean;
 import com.lljjcoder.bean.DistrictBean;
 import com.lljjcoder.bean.ProvinceBean;
-import com.lljjcoder.style.citypickerview.R;
+import com.lljjcoder.citywheel.CityConfig;
+import com.lljjcoder.citywheel.CityParseHelper;
 import com.lljjcoder.style.citypickerview.widget.CanShow;
 import com.lljjcoder.style.citypickerview.widget.wheel.OnWheelChangedListener;
 import com.lljjcoder.style.citypickerview.widget.wheel.WheelView;
@@ -59,9 +61,59 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
         mBaseListener = listener;
     }
     
-    public CityPickerView(final CityConfig config) {
+    private volatile static CityPickerView instance;
+    
+    private CityPickerView() {
+        
+    }
+    
+    /**
+     * 单例模式
+     * @return
+     */
+    public static CityPickerView getInstance() {
+        if (instance == null) {
+            synchronized (CityPickerView.class) {
+                if (instance == null) {
+                    instance = new CityPickerView();
+                }
+            }
+        }
+        return instance;
+    }
+    
+    /**
+     * 设置属性
+     * @param config
+     */
+    public void setConfig(final CityConfig config) {
         this.config = config;
-        parseHelper = new CityParseHelper(config);
+        
+    }
+    
+    /**
+     * 初始化，默认解析城市数据，提交加载速度
+     */
+    public void init(Context context) {
+        
+        parseHelper = new CityParseHelper();
+        
+        //解析初始数据
+        if (parseHelper == null || parseHelper.getProvinceBeanArrayList().isEmpty()) {
+            parseHelper.initData(context);
+        }
+        
+    }
+    
+    /**
+     * 初始化popWindow
+     */
+    private void initCityPickerPopwindow(Context context) {
+        
+        if (config == null) {
+            throw new IllegalArgumentException("please set config first...");
+        }
+        
         LayoutInflater layoutInflater = LayoutInflater.from(config.getContext());
         popview = layoutInflater.inflate(R.layout.pop_citypicker, null);
         
@@ -93,7 +145,13 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
          * 设置标题背景颜色
          */
         if (!TextUtils.isEmpty(config.getTitleBackgroundColorStr())) {
-            mRelativeTitleBg.setBackgroundColor(Color.parseColor(config.getTitleBackgroundColorStr()));
+            if (config.getTitleBackgroundColorStr().startsWith("#")) {
+                mRelativeTitleBg.setBackgroundColor(Color.parseColor(config.getTitleBackgroundColorStr()));
+            }
+            else {
+                mRelativeTitleBg.setBackgroundColor(Color.parseColor("#" + config.getTitleBackgroundColorStr()));
+                
+            }
         }
         
         //标题
@@ -101,19 +159,55 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
             mTvTitle.setText(config.getTitle());
         }
         
-        //标题文字颜色
-        if (!TextUtils.isEmpty(config.getTitleTextColorStr())) {
-            mTvTitle.setTextColor(Color.parseColor(config.getTitleTextColorStr()));
+        //标题文字大小
+        if (config.getTitleTextSize() > 0) {
+            mTvTitle.setTextSize(config.getTitleTextSize());
         }
         
-        //设置确认按钮文字颜色
+        //标题文字颜色
+        if (!TextUtils.isEmpty(config.getTitleTextColorStr())) {
+            if (config.getTitleTextColorStr().startsWith("#")) {
+                mTvTitle.setTextColor(Color.parseColor(config.getTitleTextColorStr()));
+            }
+            else {
+                mTvTitle.setTextColor(Color.parseColor("#" + config.getTitleTextColorStr()));
+            }
+        }
+        
+        //设置确认按钮文字大小颜色
         if (!TextUtils.isEmpty(config.getConfirmTextColorStr())) {
-            mTvOK.setTextColor(Color.parseColor(config.getConfirmTextColorStr()));
+            if (config.getConfirmTextColorStr().startsWith("#")) {
+                mTvOK.setTextColor(Color.parseColor(config.getConfirmTextColorStr()));
+            }
+            else {
+                mTvOK.setTextColor(Color.parseColor("#" + config.getConfirmTextColorStr()));
+            }
+        }
+        
+        if (!TextUtils.isEmpty(config.getConfirmText())) {
+            mTvOK.setText(config.getConfirmText());
+        }
+        
+        if ((config.getConfirmTextSize() > 0)) {
+            mTvOK.setTextSize(config.getConfirmTextSize());
         }
         
         //设置取消按钮文字颜色
         if (!TextUtils.isEmpty(config.getCancelTextColorStr())) {
-            mTvCancel.setTextColor(Color.parseColor(config.getCancelTextColorStr()));
+            if (config.getCancelTextColorStr().startsWith("#")) {
+                mTvCancel.setTextColor(Color.parseColor(config.getCancelTextColorStr()));
+            }
+            else {
+                mTvCancel.setTextColor(Color.parseColor("#" + config.getCancelTextColorStr()));
+            }
+        }
+        
+        if (!TextUtils.isEmpty(config.getCancelText())) {
+            mTvCancel.setText(config.getCancelText());
+        }
+        
+        if ((config.getCancelTextSize() > 0)) {
+            mTvCancel.setTextSize(config.getCancelTextSize());
         }
         
         //只显示省市两级联动
@@ -128,11 +222,6 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
             mViewProvince.setVisibility(View.VISIBLE);
             mViewCity.setVisibility(View.VISIBLE);
             mViewDistrict.setVisibility(View.VISIBLE);
-        }
-        
-        //解析初始数据
-        if (parseHelper == null || parseHelper.getProvinceBeanArrayList().isEmpty()) {
-            parseHelper.initData(config.getContext());
         }
         
         // 添加change事件
@@ -156,10 +245,12 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
             public void onClick(View v) {
                 if (parseHelper != null) {
                     if (config.getWheelType() == CityConfig.WheelType.PRO) {
-                        mBaseListener.onSelected(parseHelper.getProvinceBean(), null, null);
+                        mBaseListener.onSelected(parseHelper.getProvinceBean(), new CityBean(), new DistrictBean());
                     }
                     else if (config.getWheelType() == CityConfig.WheelType.PRO_CITY) {
-                        mBaseListener.onSelected(parseHelper.getProvinceBean(), parseHelper.getCityBean(), null);
+                        mBaseListener.onSelected(parseHelper.getProvinceBean(),
+                                parseHelper.getCityBean(),
+                                new DistrictBean());
                     }
                     else {
                         mBaseListener.onSelected(parseHelper.getProvinceBean(),
@@ -168,9 +259,20 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
                     }
                     
                 }
+                else {
+                    mBaseListener.onSelected(new ProvinceBean(), new CityBean(), new DistrictBean());
+                }
                 hide();
             }
         });
+        
+        //显示省市区数据
+        setUpData();
+        
+        //背景半透明
+        if (config != null && config.isShowBackground()) {
+            utils.setBackgroundAlpha(context, 0.5f);
+        }
         
     }
     
@@ -196,10 +298,22 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
         ArrayWheelAdapter arrayWheelAdapter = new ArrayWheelAdapter<ProvinceBean>(config.getContext(),
                 parseHelper.getProvinceBeenArray());
         mViewProvince.setViewAdapter(arrayWheelAdapter);
+        
+        //自定义item
+        if (config.getCustomItemLayout() != CityConfig.NONE && config.getCustomItemTextViewId() != CityConfig.NONE) {
+            arrayWheelAdapter.setItemResource(config.getCustomItemLayout());
+            arrayWheelAdapter.setItemTextResource(config.getCustomItemTextViewId());
+        }
+        else {
+            arrayWheelAdapter.setItemResource(R.layout.item_city);
+            arrayWheelAdapter.setItemTextResource(R.id.item_city_name_tv);
+        }
+        
         //获取所设置的省的位置，直接定位到该位置
         if (-1 != provinceDefault) {
             mViewProvince.setCurrentItem(provinceDefault);
         }
+        
         // 设置可见条目数量
         mViewProvince.setVisibleItems(config.getVisibleItems());
         mViewCity.setVisibleItems(config.getVisibleItems());
@@ -207,9 +321,6 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
         mViewProvince.setCyclic(config.isProvinceCyclic());
         mViewCity.setCyclic(config.isCityCyclic());
         mViewDistrict.setCyclic(config.isDistrictCyclic());
-        arrayWheelAdapter.setPadding(config.getPadding());
-        arrayWheelAdapter.setTextColor(Color.parseColor(config.getTextColor()));
-        arrayWheelAdapter.setTextSize(config.getTextSize());
         
         updateCities();
         
@@ -253,9 +364,17 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
         }
         
         ArrayWheelAdapter cityWheel = new ArrayWheelAdapter<CityBean>(config.getContext(), cities);
-        // 设置可见条目数量
-        cityWheel.setTextColor(Color.parseColor(config.getTextColor()));
-        cityWheel.setTextSize(config.getTextSize());
+        
+        //自定义item
+        if (config.getCustomItemLayout() != CityConfig.NONE && config.getCustomItemTextViewId() != CityConfig.NONE) {
+            cityWheel.setItemResource(config.getCustomItemLayout());
+            cityWheel.setItemTextResource(config.getCustomItemTextViewId());
+        }
+        else {
+            cityWheel.setItemResource(R.layout.item_city);
+            cityWheel.setItemTextResource(R.id.item_city_name_tv);
+        }
+        
         mViewCity.setViewAdapter(cityWheel);
         if (-1 != cityDefault) {
             mViewCity.setCurrentItem(cityDefault);
@@ -263,9 +382,6 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
         else {
             mViewCity.setCurrentItem(0);
         }
-        
-        cityWheel.setPadding(config.getPadding());
-        
         updateAreas();
     }
     
@@ -305,9 +421,18 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
                 }
                 
                 ArrayWheelAdapter districtWheel = new ArrayWheelAdapter<DistrictBean>(config.getContext(), areas);
-                // 设置可见条目数量
-                districtWheel.setTextColor(Color.parseColor(config.getTextColor()));
-                districtWheel.setTextSize(config.getTextSize());
+                
+                //自定义item
+                if (config.getCustomItemLayout() != CityConfig.NONE
+                        && config.getCustomItemTextViewId() != CityConfig.NONE) {
+                    districtWheel.setItemResource(config.getCustomItemLayout());
+                    districtWheel.setItemTextResource(config.getCustomItemTextViewId());
+                }
+                else {
+                    districtWheel.setItemResource(R.layout.item_city);
+                    districtWheel.setItemTextResource(R.id.item_city_name_tv);
+                }
+                
                 mViewDistrict.setViewAdapter(districtWheel);
                 
                 DistrictBean mDistrictBean = null;
@@ -329,22 +454,14 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
                 }
                 
                 parseHelper.setDistrictBean(mDistrictBean);
-                districtWheel.setPadding(config.getPadding());
                 
             }
         }
-        
     }
     
-    @Override
-    public void setType(int type) {
-        
-    }
-    
-    @Override
-    public void show() {
+    public void showCityPicker(Context context) {
+        initCityPickerPopwindow(context);
         if (!isShow()) {
-            setUpData();
             popwindow.showAtLocation(popview, Gravity.BOTTOM, 0, 0);
         }
     }
@@ -358,9 +475,6 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
     
     @Override
     public boolean isShow() {
-        if (config.isShowBackground()) {
-            utils.setBackgroundAlpha(config.getContext(), 0.5f);
-        }
         return popwindow.isShowing();
     }
     

@@ -15,19 +15,10 @@ import com.lljjcoder.bean.CityBean;
 import com.lljjcoder.bean.DistrictBean;
 import com.lljjcoder.bean.ProvinceBean;
 import com.lljjcoder.citywheel.CityConfig;
-import com.lljjcoder.citywheel.CityPickerView;
+import com.lljjcoder.style.citypickerview.CityPickerView;
+import com.lljjcoder.style.citylist.Toast.ToastUtils;
 
 public class CitypickerWheelActivity extends AppCompatActivity {
-    
-    EditText mTitleEt;
-    
-    EditText mTitleColorEt;
-    
-    EditText mTitleBgEt;
-    
-    EditText mItemTextSizeEt;
-    
-    EditText mItemTextColorEt;
     
     EditText mProEt;
     
@@ -35,13 +26,7 @@ public class CitypickerWheelActivity extends AppCompatActivity {
     
     EditText mAreaEt;
     
-    EditText mConfirmTextColorEt;
-    
-    EditText mCancelTextColorEt;
-    
     EditText mProVisibleCountEt;
-    
-    EditText mItemPaddingEt;
     
     CheckBox mProCyclicCk;
     
@@ -57,19 +42,11 @@ public class CitypickerWheelActivity extends AppCompatActivity {
     
     TextView mResultTv;
     
-    TextView mBaseTv;
-    
-    TextView mDetailTv;
-    
     TextView mOneTv;
     
     TextView mTwoTv;
     
     TextView mThreeTv;
-    
-    private String textColor = "0xFF585858";
-    
-    private int textSize = 18;
     
     private int visibleItems = 5;
     
@@ -81,25 +58,11 @@ public class CitypickerWheelActivity extends AppCompatActivity {
     
     private boolean isShowBg = true;
     
-    private int padding = 5;
-    
-    private String cancelTextColorStr = "#000000";
-    
-    private String confirmTextColorStr = "#0000FF";
-    
-    private String titleBackgroundColorStr = "#E9E9E9";
-    
-    private String titleTextColorStr = "#585858";
-    
     private String defaultProvinceName = "江苏";
     
     private String defaultCityName = "常州";
     
     private String defaultDistrict = "新北区";
-    
-    private String mTitle = "选择地区";
-    
-    private CityConfig.CityInfoType mCityInfoType = CityConfig.CityInfoType.BASE;
     
     public CityConfig.WheelType mWheelType = CityConfig.WheelType.PRO_CITY_DIS;
     
@@ -114,26 +77,16 @@ public class CitypickerWheelActivity extends AppCompatActivity {
     private void findView() {
         
         mResultTv = (TextView) findViewById(R.id.result_tv);
-        mTitleEt = (EditText) findViewById(R.id.title_et);
-        mTitleColorEt = (EditText) findViewById(R.id.title_text_color_et);
-        mTitleBgEt = (EditText) findViewById(R.id.title_bg_et);
-        mItemTextSizeEt = (EditText) findViewById(R.id.item_text_size_et);
-        mItemTextColorEt = (EditText) findViewById(R.id.item_text_color_et);
         mProEt = (EditText) findViewById(R.id.pro_et);
         mCityEt = (EditText) findViewById(R.id.city_et);
         mAreaEt = (EditText) findViewById(R.id.area_et);
-        mConfirmTextColorEt = (EditText) findViewById(R.id.confirm_text_color_et);
-        mCancelTextColorEt = (EditText) findViewById(R.id.cancel_text_color_et);
         mProVisibleCountEt = (EditText) findViewById(R.id.pro_visible_count_et);
-        mItemPaddingEt = (EditText) findViewById(R.id.item_padding_et);
         mProCyclicCk = (CheckBox) findViewById(R.id.pro_cyclic_ck);
         mCityCyclicCk = (CheckBox) findViewById(R.id.city_cyclic_ck);
         mAreaCyclicCk = (CheckBox) findViewById(R.id.area_cyclic_ck);
         mHalfBgCk = (CheckBox) findViewById(R.id.half_bg_ck);
         mResetSettingTv = (TextView) findViewById(R.id.reset_setting_tv);
         mSubmitTv = (TextView) findViewById(R.id.submit_tv);
-        mBaseTv = (TextView) findViewById(R.id.base_tv);
-        mDetailTv = (TextView) findViewById(R.id.detail_tv);
         mOneTv = (TextView) findViewById(R.id.one_tv);
         mTwoTv = (TextView) findViewById(R.id.two_tv);
         mThreeTv = (TextView) findViewById(R.id.three_tv);
@@ -181,25 +134,6 @@ public class CitypickerWheelActivity extends AppCompatActivity {
             }
         });
         
-        //显示基础信息
-        mBaseTv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mCityInfoType = CityConfig.CityInfoType.BASE;
-                setCityInfoType(mCityInfoType);
-            }
-        });
-        
-        //显示详细的城市数据信息
-        mDetailTv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mCityInfoType = CityConfig.CityInfoType.DETAIL;
-                setCityInfoType(mCityInfoType);
-                
-            }
-        });
-        
         //省份是否循环显示
         mProCyclicCk.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -232,7 +166,6 @@ public class CitypickerWheelActivity extends AppCompatActivity {
             }
         });
         
-        setCityInfoType(mCityInfoType);
         setWheelType(mWheelType);
     }
     
@@ -240,46 +173,28 @@ public class CitypickerWheelActivity extends AppCompatActivity {
      * 重置属性
      */
     private void reset() {
-        textColor = "#585858";
-        textSize = 18;
         visibleItems = 5;
         isProvinceCyclic = true;
         isCityCyclic = true;
         isDistrictCyclic = true;
         isShowBg = true;
         
-        padding = 5;
-        cancelTextColorStr = "#000000";
-        confirmTextColorStr = "#0000FF";
-        titleBackgroundColorStr = "#E9E9E9";
-        titleTextColorStr = "#585858";
         defaultProvinceName = "江苏";
         defaultCityName = "常州";
         defaultDistrict = "新北区";
-        mTitle = "选择地区";
         
-        mCityInfoType = CityConfig.CityInfoType.BASE;
         mWheelType = CityConfig.WheelType.PRO_CITY_DIS;
         
-        setCityInfoType(mCityInfoType);
         setWheelType(mWheelType);
         
         mProCyclicCk.setChecked(true);
         mCityCyclicCk.setChecked(true);
         mAreaCyclicCk.setChecked(true);
         
-        mTitleEt.setText("" + mTitle);
-        mTitleColorEt.setText("" + titleTextColorStr);
-        mTitleBgEt.setText("" + titleBackgroundColorStr);
-        mItemTextSizeEt.setText("" + textSize);
-        mItemTextColorEt.setText("" + textColor);
         mProEt.setText("" + defaultProvinceName);
         mCityEt.setText("" + defaultCityName);
         mAreaEt.setText("" + defaultDistrict);
-        mConfirmTextColorEt.setText("" + confirmTextColorStr);
-        mCancelTextColorEt.setText("" + cancelTextColorStr);
         mProVisibleCountEt.setText("" + visibleItems);
-        mItemPaddingEt.setText("" + padding);
         
         mHalfBgCk.setChecked(isShowBg);
         mProCyclicCk.setChecked(isProvinceCyclic);
@@ -288,23 +203,6 @@ public class CitypickerWheelActivity extends AppCompatActivity {
         
         setWheelType(mWheelType);
         
-        setCityInfoType(mCityInfoType);
-        
-    }
-    
-    private void setCityInfoType(CityConfig.CityInfoType infoType) {
-        if (infoType == CityConfig.CityInfoType.BASE) {
-            mBaseTv.setBackgroundResource(R.drawable.city_wheeltype_selected);
-            mDetailTv.setBackgroundResource(R.drawable.city_wheeltype_normal);
-            mBaseTv.setTextColor(Color.parseColor("#ffffff"));
-            mDetailTv.setTextColor(Color.parseColor("#333333"));
-        }
-        else {
-            mBaseTv.setBackgroundResource(R.drawable.city_wheeltype_normal);
-            mDetailTv.setBackgroundResource(R.drawable.city_wheeltype_selected);
-            mBaseTv.setTextColor(Color.parseColor("#333333"));
-            mDetailTv.setTextColor(Color.parseColor("#ffffff"));
-        }
     }
     
     /**
@@ -343,62 +241,66 @@ public class CitypickerWheelActivity extends AppCompatActivity {
      */
     private void wheel() {
         
-        mTitle = mTitleEt.getText().toString();
-        titleBackgroundColorStr = mTitleBgEt.getText().toString();
-        textSize = Integer.parseInt(mItemTextSizeEt.getText().toString());
-        titleTextColorStr = mTitleColorEt.getText().toString();
-        textColor = mItemTextColorEt.getText().toString();
-        
         defaultProvinceName = mProEt.getText().toString();
         defaultCityName = mCityEt.getText().toString();
         defaultDistrict = mAreaEt.getText().toString();
         
-        confirmTextColorStr = mConfirmTextColorEt.getText().toString();
-        cancelTextColorStr = mCancelTextColorEt.getText().toString();
         visibleItems = (Integer.parseInt(mProVisibleCountEt.getText().toString()));
-        padding = (Integer.parseInt(mItemPaddingEt.getText().toString()));
         
-        CityConfig cityConfig = new CityConfig.Builder(CitypickerWheelActivity.this).title(mTitle)
-                .titleBackgroundColor(titleBackgroundColorStr)
-                .textSize(textSize)
-                .titleTextColor(titleTextColorStr)
-                .textColor(textColor)
-                .confirTextColor(confirmTextColorStr)
-                .cancelTextColor(cancelTextColorStr)
+        CityConfig cityConfig = new CityConfig.Builder(CitypickerWheelActivity.this).title("选择城市")
+                .titleTextSize(18)
+                .titleTextColor("#585858")
+                .titleBackgroundColor("#E9E9E9")
+                .confirTextColor("#585858")
+                .confirmText("ok")
+                .confirmTextSize(16)
+                .cancelTextColor("#585858")
+                .cancelText("cancel")
+                .cancelTextSize(16)
                 .setCityWheelType(mWheelType)
                 .showBackground(isShowBg)
-                .visibleItemsCount(5)
+                .visibleItemsCount(visibleItems)
+                .province(defaultProvinceName)
+                .city(defaultCityName)
+                .district(defaultDistrict)
                 .provinceCyclic(isProvinceCyclic)
                 .cityCyclic(isCityCyclic)
                 .districtCyclic(isDistrictCyclic)
-                .itemPadding(31)
-                .setCityInfoType(mCityInfoType)
                 .setCityWheelType(mWheelType)
+                .setCustomItemLayout(R.layout.item_city)
+                .setCustomItemTextViewId(R.id.item_city_name_tv)
                 .build();
         
-        CityPickerView cityPicker = new CityPickerView(cityConfig);
-        cityPicker.show();
-        cityPicker.setOnCityItemClickListener(new OnCityItemClickListener() {
+        CityPickerView.getInstance().setConfig(cityConfig);
+        CityPickerView.getInstance().setOnCityItemClickListener(new OnCityItemClickListener() {
             @Override
             public void onSelected(ProvinceBean province, CityBean city, DistrictBean district) {
-
-
-                //ProvinceBean 省份信息
-                //CityBean     城市信息
-                //DistrictBean 区县信息
-
-                //当wheelType==CityConfig.WheelType.PRO时，CityBean和DistrictBean为null
-                //当wheelType==CityConfig.WheelType.PRO_CITY时， DistrictBean为null
-                //当wheelType==CityConfig.WheelType.PRO_CITY_DIS时， 可取省市区三个对象的值
+                StringBuilder sb = new StringBuilder();
+                sb.append("选择的结果：\n");
+                if (province != null) {
+                    sb.append(province.getName() + " " + province.getId() + " " + province.getGisBd09Lat() + " "
+                            + province.getGisBd09Lng()).append("\n");
+                }
                 
-                //使用之前需判断province、city、district是否等于null
+                if (city != null) {
+                    sb.append(city.getName() + " " + city.getId() + " " + city.getGisBd09Lat() + " "
+                            + city.getGisBd09Lng()).append("\n");
+                }
+                
+                if (district != null) {
+                    sb.append(district.getName() + " " + district.getId() + " " + district.getGisBd09Lat() + " "
+                            + district.getGisBd09Lng()).append("\n");
+                }
+                
+                mResultTv.setText("" + sb.toString());
                 
             }
             
             @Override
             public void onCancel() {
-                
+                ToastUtils.showLongToast(CitypickerWheelActivity.this, "已取消");
             }
         });
+        CityPickerView.getInstance().showCityPicker(this);
     }
 }

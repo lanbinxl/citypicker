@@ -5,11 +5,7 @@ package com.lljjcoder.style.citypickerview.widget;
  * 邮箱：lijiwork@sina.com
  */
 public interface CanShow {
-    void setType(int var1);
-
-    void show();
-
     void hide();
-
+    
     boolean isShow();
 }

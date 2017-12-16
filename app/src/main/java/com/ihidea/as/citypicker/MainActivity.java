@@ -12,18 +12,21 @@ import com.ihidea.as.citypicker.adapter.CityPickerAdapter;
 import com.ihidea.as.citypicker.model.CityPickerStyleBean;
 import com.ihidea.as.citypicker.utils.ActivityUtils;
 import com.ihidea.as.citypicker.widget.DividerGridItemDecoration;
+import com.lljjcoder.style.citythreelist.ProvinceActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
     
     RecyclerView mCitypickerRv;
     
     CityPickerAdapter mCityPickerAdapter;
     
-    String[] mTitle = new String[] { "城市列表", "滚轮实现" };
+    String[] mTitle = new String[] { "城市列表", "ios选择器", "三级列表"/*, "仿京东"*/ };
     
-    Integer[] mIcon = new Integer[] { R.drawable.ic_list, R.drawable.ic_wheel };
+    Integer[] mIcon = new Integer[] { R.drawable.ic_citypicker_onecity, R.drawable.ic_citypicker_ios,
+            R.drawable.ic_citypicker_three_city/*, R.drawable.ic_citypicker_jingdong*/ };
     
     private List<CityPickerStyleBean> mCityPickerStyleBeanList = new ArrayList<>();
     
@@ -35,13 +38,12 @@ public class MainActivity extends AppCompatActivity {
         setData();
         initRecyclerView();
         
-
     }
-
+    
     private void findView() {
-        mCitypickerRv=(RecyclerView)findViewById(R.id.citypicker_rv);
+        mCitypickerRv = (RecyclerView) findViewById(R.id.citypicker_rv);
     }
-
+    
     private void setData() {
         for (int i = 0; i < mTitle.length; i++) {
             CityPickerStyleBean cityPickerStyleBean = new CityPickerStyleBean();
@@ -55,14 +57,15 @@ public class MainActivity extends AppCompatActivity {
         
         mCitypickerRv.addItemDecoration(new DividerGridItemDecoration(this));
         mCitypickerRv.setLayoutManager(new GridLayoutManager(this, 3));
-
+        
         mCityPickerAdapter = new CityPickerAdapter(MainActivity.this, mCityPickerStyleBeanList);
         mCitypickerRv.setAdapter(mCityPickerAdapter);
         mCityPickerAdapter.setmOnItemClickListener(new CityPickerAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 
-                if (null != mCityPickerAdapter && null != mCityPickerAdapter.getData() && !mCityPickerAdapter.getData().isEmpty()
+                if (null != mCityPickerAdapter && null != mCityPickerAdapter.getData()
+                        && !mCityPickerAdapter.getData().isEmpty()
                         && null != mCityPickerAdapter.getData().get(position)) {
                     gotoDetail(mCityPickerAdapter.getData().get(position).getResourId());
                 }
@@ -77,18 +80,25 @@ public class MainActivity extends AppCompatActivity {
      */
     private void gotoDetail(int resourId) {
         switch (resourId) {
-            case R.drawable.ic_list:
+            case R.drawable.ic_citypicker_onecity:
                 ActivityUtils.getInstance().showActivity(MainActivity.this, CitypickerListActivity.class);
                 break;
             
-            case R.drawable.ic_wheel:
+            case R.drawable.ic_citypicker_ios:
                 ActivityUtils.getInstance().showActivity(MainActivity.this, CitypickerWheelActivity.class);
                 break;
             
+            case R.drawable.ic_citypicker_three_city:
+                ActivityUtils.getInstance().showActivity(MainActivity.this, ProvinceActivity.class);
+                break;
+            /*
+            case R.drawable.ic_citypicker_jingdong:
+                ActivityUtils.getInstance().showActivity(MainActivity.this, ProvinceActivity.class);
+                break;
+            */
             default:
                 break;
         }
     }
-
     
 }
