@@ -39,13 +39,14 @@ compile 'liji.library.dev:citypickerview:3.0.0'
 	*;
 }
 ```
+#### **列表样式使用代码**
 
-[城市一级列表样式使用方法及demo](https://github.com/crazyandcoder/citypicker/wiki/%E6%A0%B7%E5%BC%8F%E4%BA%8C%EF%BC%88%E5%9F%8E%E5%B8%82%E4%B8%80%E7%BA%A7%E5%88%97%E8%A1%A8%E5%B1%95%E7%A4%BA%EF%BC%89)
-[省市区三级列表使用方法及demo](https://github.com/crazyandcoder/citypicker/wiki/%E6%A0%B7%E5%BC%8F%E4%B8%89%EF%BC%88%E7%9C%81%E5%B8%82%E5%8C%BA%E4%B8%89%E7%BA%A7%E5%88%97%E8%A1%A8%EF%BC%89)
+ 1. [城市一级列表样式使用方法及demo](https://github.com/crazyandcoder/citypicker/wiki/%E6%A0%B7%E5%BC%8F%E4%BA%8C%EF%BC%88%E5%9F%8E%E5%B8%82%E4%B8%80%E7%BA%A7%E5%88%97%E8%A1%A8%E5%B1%95%E7%A4%BA%EF%BC%89)
+ 2. [省市区三级列表使用方法及demo](https://github.com/crazyandcoder/citypicker/wiki/%E6%A0%B7%E5%BC%8F%E4%B8%89%EF%BC%88%E7%9C%81%E5%B8%82%E5%8C%BA%E4%B8%89%E7%BA%A7%E5%88%97%E8%A1%A8%EF%BC%89)
 
 #### **仿iOS滚轮样式使用代码**
 
-首先需要预加载数据，我们可以在自定义的Application中写入以下代码：
+首先需要预加载数据，我们可以在自定义的Application中写入以下代码（选择其中一个即可，三个不必都写）：
 
 ```
 
@@ -76,10 +77,11 @@ public class MyApp extends Application {
 
 ```
 
-//添加配置
+//添加默认的配置，不需要自己定义
 CityPickerView.getInstance().setConfig(new CityConfig.Builder(this).build();
 
-//监听选择点击事件   CityPickerView.getInstance().setOnCityItemClickListener(new OnCityItemClickListener() {
+//监听选择点击事件及返回结果
+CityPickerView.getInstance().setOnCityItemClickListener(new OnCityItemClickListener() {
             @Override
             public void onSelected(ProvinceBean province, CityBean city, DistrictBean district) {
                  
@@ -125,15 +127,15 @@ CityConfig cityConfig = new CityConfig.Builder(CitypickerWheelActivity.this).tit
                 .cancelTextColor("#585858")//取消按钮文字颜色
                 .cancelText("cancel")//取消按钮文字
                 .cancelTextSize(16)//取消按钮文字大小
-                .setCityWheelType(mWheelType)//显示类，只显示省份一级，显示省市两级还是显示省市区三级
-                .showBackground(isShowBg)//是否显示半透明背景
-                .visibleItemsCount(visibleItems)//显示item的数量
-                .province(defaultProvinceName)//默认显示的省份
-                .city(defaultCityName)//默认显示省份下面的城市
-                .district(defaultDistrict)//默认显示省市下面的区县数据
-                .provinceCyclic(isProvinceCyclic)//省份滚轮是否可以循环滚动
-                .cityCyclic(isCityCyclic)//城市滚轮是否可以循环滚动
-                .districtCyclic(isDistrictCyclic)//区县滚轮是否循环滚动
+                .setCityWheelType(CityConfig.WheelType.PRO_CITY_DIS)//显示类，只显示省份一级，显示省市两级还是显示省市区三级
+                .showBackground(true)//是否显示半透明背景
+                .visibleItemsCount(7)//显示item的数量
+                .province("浙江省")//默认显示的省份
+                .city("杭州市")//默认显示省份下面的城市
+                .district("滨江区")//默认显示省市下面的区县数据
+                .provinceCyclic(true)//省份滚轮是否可以循环滚动
+                .cityCyclic(true)//城市滚轮是否可以循环滚动
+                .districtCyclic(true)//区县滚轮是否循环滚动
                 .setCustomItemLayout(R.layout.item_city)//自定义item的布局
                 .setCustomItemTextViewId(R.id.item_city_name_tv)
                 .build();//自定义item布局里面的textViewid
@@ -143,7 +145,7 @@ CityPickerView.getInstance().setConfig(cityConfig);
                 
 ```
 
-以上若是使用了自定义的item布局的话，可以自定义item里面的背景、文字大小颜色等属性，下面展示默认的布局：
+以上若是使用了自定义的item布局的话，可以自定义item里面的背景、文字大小颜色等属性，下面是展示默认的布局。**使用自定义的布局时需要注意的是，里面需要包含一个TextView控件，同时控件id需要一致，否则不显示结果。**
 
 ```
 //自定义的item_city.xml布局
