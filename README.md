@@ -137,8 +137,8 @@ CityConfig cityConfig = new CityConfig.Builder(CitypickerWheelActivity.this).tit
                 .cityCyclic(true)//城市滚轮是否可以循环滚动
                 .districtCyclic(true)//区县滚轮是否循环滚动
                 .setCustomItemLayout(R.layout.item_city)//自定义item的布局
-                .setCustomItemTextViewId(R.id.item_city_name_tv)
-                .build();//自定义item布局里面的textViewid
+                .setCustomItemTextViewId(R.id.item_city_name_tv)//自定义item布局里面的textViewid
+                .build();
 
 //设置自定义的属性配置
 CityPickerView.getInstance().setConfig(cityConfig);
