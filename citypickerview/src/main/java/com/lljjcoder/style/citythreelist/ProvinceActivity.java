@@ -28,9 +28,7 @@ public class ProvinceActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_citylist);
-        
         initView();
-        
         setData();
         
     }
