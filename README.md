@@ -27,7 +27,7 @@
 #### **gradle引用**
 
 ```
-compile 'liji.library.dev:citypickerview:3.0.0'
+compile 'liji.library.dev:citypickerview:3.0.1'
 ```
 
 #### **代码混淆**
@@ -185,6 +185,13 @@ gisBd09Lng //百度坐标系-经度
 
 ### **更新说明**
 
+#### **V3.0.1版本更新内容（2017.12.23）**
+
+ 1. [修复重庆后面出现空白的bug](https://github.com/crazyandcoder/citypicker/issues/53)
+ 2. [更新中山市和东莞市的数据源](https://github.com/crazyandcoder/citypicker/issues/82)
+
+ 
+ 
 #### **V3.0.0版本更新内容（2017.12.17）**
 
  1. 增加预先解析本地城市数据功能，提高加载效率
