@@ -196,7 +196,10 @@ gisBd09Lng //百度坐标系-经度
 
 如果你喜欢 citypicker 的设计，感觉 citypicker 帮助到了你，可以点右上角 "Star" 支持一下 谢谢！,你也还可以扫描下面的二维码~ 请作者喝一杯牛奶，让作者更有动力写出更好的开源库服务大家。^_^
 
+
  ![](http://img.blog.csdn.net/20180102115819490?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)              ![](http://img.blog.csdn.net/20180102115834628?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+ 
+**赞赏的伙计，请留下你们的联系方式(最好是GitHub地址)，我好扶你们上墙。**
  
  
 ### **赞赏人员列表**
