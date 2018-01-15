@@ -199,17 +199,9 @@ gisBd09Lng //百度坐标系-经度
  ![](http://img.blog.csdn.net/20180102115819490?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)              ![](http://img.blog.csdn.net/20180102115834628?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
  
  
-### **赞赏的人**
-
-| 昵称        | GitHub    |  金额(元)  |
-| --------   | -----:   | :----: |
-| 雷锋1        |        |   1    |
-| 雷锋2        |        |   1.68    |
-| 雷锋3        |        |   1    |
-| He-Jin        | https://github.com/He-Jin      |   20    |
+### **赞赏人员列表**
+[赞赏的人](https://github.com/crazyandcoder/citypicker/wiki/%E8%B5%9E%E8%B5%8F%E7%9A%84%E4%BA%BA)
 
 
-
-注:排名不分先后，感谢各位赞赏的伙计，你们的赞赏是我最大的动力，当然没有赞赏我也会再接再厉，写出更好的开源库服务大家，谢谢！
 
  
