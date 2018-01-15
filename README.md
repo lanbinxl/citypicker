@@ -190,15 +190,6 @@ gisBd09Lng //百度坐标系-经度
  1. [修复重庆后面出现空白的bug](https://github.com/crazyandcoder/citypicker/issues/53)
  2. [更新中山市和东莞市的数据源](https://github.com/crazyandcoder/citypicker/issues/82)
 
- 
- 
-#### **V3.0.0版本更新内容（2017.12.17）**
-
- 1. 增加预先解析本地城市数据功能，提高加载效率
- 2. 去掉设置item里面文字等属性，增加自定义item的布局及文字属性
- 3. 代码重构、优化，修复已知issue。
-
-
 [历史更新说明](https://github.com/crazyandcoder/citypicker/wiki/%E5%8E%86%E5%8F%B2%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95)
 
 ### **赞赏**
@@ -206,3 +197,19 @@ gisBd09Lng //百度坐标系-经度
 如果你喜欢 citypicker 的设计，感觉 citypicker 帮助到了你，可以点右上角 "Star" 支持一下 谢谢！,你也还可以扫描下面的二维码~ 请作者喝一杯牛奶，让作者更有动力写出更好的开源库服务大家。^_^
 
  ![](http://img.blog.csdn.net/20180102115819490?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)              ![](http://img.blog.csdn.net/20180102115834628?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+ 
+ 
+### **赞赏的人**
+
+| 昵称        | GitHub    |  金额(元)  |
+| --------   | -----:   | :----: |
+| 雷锋1        |        |   1    |
+| 雷锋2        |        |   1.68    |
+| 雷锋3        |        |   1    |
+| He-Jin        | https://github.com/He-Jin      |   20    |
+
+
+
+注:排名不分先后，感谢各位赞赏的伙计，你们的赞赏是我最大的动力，当然没有赞赏我也会再接再厉，写出更好的开源库服务大家，谢谢！
+
+ 
