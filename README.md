@@ -122,7 +122,9 @@ CityPickerView.getInstance().setOnCityItemClickListener(new OnCityItemClickListe
         CityPickerView.getInstance().showCityPicker( );
 ```
 
-以上加载是默认属性设置下的选择器，当然我们也可以设置我们自己的样式，详细的属性设置，请看[《详细样式设置属性大全》](https://github.com/crazyandcoder/citypicker/wiki/%E6%A0%B7%E5%BC%8F%E4%B8%80%EF%BC%88%E4%BB%BFiOS%E6%BB%9A%E8%BD%AE%E5%AE%9E%E7%8E%B0%EF%BC%89)
+以上加载是默认属性设置下的选择器，当然我们也可以设置我们自己的样式，详细的属性设置，请看
+
+[《详细样式设置属性大全》](https://github.com/crazyandcoder/citypicker/wiki/%E6%A0%B7%E5%BC%8F%E4%B8%80%EF%BC%88%E4%BB%BFiOS%E6%BB%9A%E8%BD%AE%E5%AE%9E%E7%8E%B0%EF%BC%89)
         
 #### **返回结果的数据接口**
 
