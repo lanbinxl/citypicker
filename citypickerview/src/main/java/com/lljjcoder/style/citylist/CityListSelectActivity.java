@@ -22,6 +22,7 @@ import com.lljjcoder.style.citylist.sortlistview.SortModel;
 import com.lljjcoder.style.citylist.utils.CityListLoader;
 import com.lljjcoder.style.citylist.widget.CleanableEditView;
 import com.lljjcoder.style.citypickerview.R;
+import com.lljjcoder.utils.PinYinUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -69,6 +70,8 @@ public class CityListSelectActivity extends AppCompatActivity {
     public static final int CITY_SELECT_RESULT_FRAG = 0x0000032;
     
     public static List<CityInfoBean> sCityInfoBeanList = new ArrayList<>();
+    
+    public PinYinUtils mPinYinUtils = new PinYinUtils();
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -135,26 +138,30 @@ public class CityListSelectActivity extends AppCompatActivity {
                 
                 String cityName = result.getName();
                 //汉字转换成拼音
-                String pinyin = result.getPinYin();
-                
-                if (!TextUtils.isEmpty(cityName) && !TextUtils.isEmpty(pinyin)) {
+                if (!TextUtils.isEmpty(cityName) && cityName.length() > 0) {
                     
-                    sortModel.setName(cityName);
+                    String pinyin = mPinYinUtils.getStringPinYin(cityName.substring(0, 1));
                     
-                    String sortString = pinyin.substring(0, 1).toUpperCase();
-                    
-                    // 正则表达式，判断首字母是否是英文字母
-                    if (sortString.matches("[A-Z]")) {
-                        sortModel.setSortLetters(sortString.toUpperCase());
+                    if (!TextUtils.isEmpty(pinyin)) {
+                        
+                        sortModel.setName(cityName);
+                        
+                        String sortString = pinyin.substring(0, 1).toUpperCase();
+                        
+                        // 正则表达式，判断首字母是否是英文字母
+                        if (sortString.matches("[A-Z]")) {
+                            sortModel.setSortLetters(sortString.toUpperCase());
+                        }
+                        else {
+                            sortModel.setSortLetters("#");
+                        }
+                        
+                        mSortList.add(sortModel);
                     }
                     else {
-                        sortModel.setSortLetters("#");
+                        Log.d("citypicker_log", "null,cityName:-> " + cityName + "       pinyin:-> " + pinyin);
                     }
                     
-                    mSortList.add(sortModel);
-                }
-                else {
-                    Log.d("citypicker_log", "null,cityName:-> " + cityName + "       pinyin:-> " + pinyin);
                 }
                 
             }

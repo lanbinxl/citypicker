@@ -1,7 +1,5 @@
 package com.lljjcoder.citywheel;
 
-import android.content.Context;
-
 /**
  * 城市选择器样式配置
  * 作者：liji on 2017/11/4 10:31
@@ -13,7 +11,7 @@ public class CityConfig {
     
     public static final Integer NONE = -1111;
     
-    private Context mContext;
+    //    private Context mContext;
     
     /**
      * 滚轮显示的item个数
@@ -108,6 +106,21 @@ public class CityConfig {
     private Integer customItemTextViewId;
     
     /**
+     * 是否显示滚轮上面的模糊阴影效果
+     */
+    private boolean drawShadows = true;
+    
+    /**
+     * 中间线的颜色
+     */
+    private String lineColor = "#C7C7C7";
+    
+    /**
+     * 中间线的宽度
+     */
+    private int lineHeigh = 3;
+    
+    /**
      * 默认显示的城市数据，只包含省市区名称
      */
     /**
@@ -138,12 +151,37 @@ public class CityConfig {
         return isShowBackground;
     }
     
-    public Context getContext() {
-        return mContext;
+    //    public Context getContext() {
+    //        return mContext;
+    //    }
+    
+    //    public void setContext(Context context) {
+    //        mContext = context;
+    //    }
+
+
+    public String getLineColor() {
+        return lineColor == null ? "" : lineColor;
+    }
+
+    public void setLineColor(String lineColor) {
+        this.lineColor = lineColor;
+    }
+
+    public int getLineHeigh() {
+        return lineHeigh;
+    }
+
+    public void setLineHeigh(int lineHeigh) {
+        this.lineHeigh = lineHeigh;
+    }
+
+    public boolean isDrawShadows() {
+        return drawShadows;
     }
     
-    public void setContext(Context context) {
-        mContext = context;
+    public void setDrawShadows(boolean drawShadows) {
+        this.drawShadows = drawShadows;
     }
     
     public int getVisibleItems() {
@@ -304,7 +342,7 @@ public class CityConfig {
     
     public CityConfig(Builder builder) {
         
-        this.mContext = builder.mContext;
+        //        this.mContext = builder.mContext;
         
         /**
          * 标题栏相关的属性：
@@ -363,11 +401,20 @@ public class CityConfig {
         this.customItemLayout = builder.customItemLayout;
         this.customItemTextViewId = builder.customItemTextViewId;
         
+        /**
+         * 是否显示滚轮上面的模糊阴影效果
+         */
+        this.drawShadows = builder.drawShadows;
+        this.lineColor = builder.lineColor;
+        this.lineHeigh = builder.lineHeigh;
+
+
+
     }
     
     public static class Builder {
         
-        private Context mContext;
+        //        private Context mContext;
         
         /**
          * 滚轮显示的item个数
@@ -471,8 +518,53 @@ public class CityConfig {
          */
         private Integer customItemTextViewId;
         
-        public Builder(Context context) {
-            this.mContext = context;
+        /**
+         * 是否显示滚轮上面的模糊阴影效果
+         */
+        private boolean drawShadows = true;
+        
+        /**
+         * 中间线的颜色
+         */
+        private String lineColor = "#C7C7C7";
+        
+        /**
+         * 中间线的宽度
+         */
+        private int lineHeigh = 3;
+        
+        public Builder(/*Context context*/) {
+            //            this.mContext = context;
+        }
+        
+        /**
+         *  中间线的宽度
+         * @param lineHeigh
+         * @return
+         */
+        public Builder setLineHeigh(int lineHeigh) {
+            this.lineHeigh = lineHeigh;
+            return this;
+        }
+        /**
+         *  中间线的颜色
+         * @param lineColor
+         * @return
+         */
+        public Builder setLineColor(String lineColor) {
+            this.lineColor = lineColor;
+            return this;
+        }
+        
+        /**
+         * 是否显示滚轮上面的模糊阴影效果
+         *
+         * @param drawShadows
+         * @return
+         */
+        public Builder drawShadows(boolean drawShadows) {
+            this.drawShadows = drawShadows;
+            return this;
         }
         
         /**

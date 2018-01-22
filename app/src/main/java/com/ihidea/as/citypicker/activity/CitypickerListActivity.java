@@ -15,7 +15,8 @@ public class CitypickerListActivity extends AppCompatActivity {
     TextView mListTv;
     
     TextView mResultTv;
-    
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +58,7 @@ public class CitypickerListActivity extends AppCompatActivity {
                     return;
                 }
                 
-                mResultTv.setText("城市： " + cityInfoBean.toString());
+                mResultTv.setText("城市： " + cityInfoBean.getName()+"  "+cityInfoBean.getId());
             }
         }
     }

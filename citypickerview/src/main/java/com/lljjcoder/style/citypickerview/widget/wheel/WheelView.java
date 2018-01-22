@@ -19,18 +19,15 @@
 
 package com.lljjcoder.style.citypickerview.widget.wheel;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import android.content.Context;
 import android.database.DataSetObserver;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.GradientDrawable.Orientation;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
@@ -39,6 +36,9 @@ import android.widget.LinearLayout;
 
 import com.lljjcoder.style.citypickerview.R;
 import com.lljjcoder.style.citypickerview.widget.wheel.adapters.WheelViewAdapter;
+
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Numeric wheel view.
@@ -124,6 +124,16 @@ public class WheelView extends View {
     private List<OnWheelClickedListener> clickingListeners = new LinkedList<OnWheelClickedListener>();
     
     /**
+     * 中间线的颜色
+     */
+    private String lineColorStr = "#C7C7C7";
+    
+    /**
+     * 中间线的宽度
+     */
+    private int lineWidth = 3;
+    
+    /**
      * Constructor
      */
     public WheelView(Context context, AttributeSet attrs, int defStyle) {
@@ -197,6 +207,22 @@ public class WheelView extends View {
             }
         }
     };
+    
+    public String getLineColorStr() {
+        return lineColorStr == null ? "" : lineColorStr;
+    }
+    
+    public void setLineColorStr(String lineColorStr) {
+        this.lineColorStr = lineColorStr;
+    }
+    
+    public int getLineWidth() {
+        return lineWidth;
+    }
+    
+    public void setLineWidth(int lineWidth) {
+        this.lineWidth = lineWidth;
+    }
     
     /**
      * Set the the specified scrolling interpolator
@@ -681,11 +707,6 @@ public class WheelView extends View {
         bottomShadow.setBounds(0, getHeight() - height, getWidth(), getHeight());
         bottomShadow.draw(canvas);
         
-        Log.d("liji.wheel", "getItemHeight(): " + getItemHeight());
-        Log.d("liji.wheel", "height: " + height);
-        Log.d("liji.wheel", "getWidth: " + getWidth());
-        Log.d("liji.wheel", "getHeight():" + getHeight());
-        Log.d("liji.wheel", "visibleItems:" + visibleItems);
     }
     
     /**
@@ -719,9 +740,21 @@ public class WheelView extends View {
         centerDrawable.draw(canvas);
         //*/
         Paint paint = new Paint();
-        paint.setColor(getResources().getColor(R.color.province_line_border));
+        if (getLineColorStr().startsWith("#")) {
+            paint.setColor(Color.parseColor(getLineColorStr()));
+        }
+        else {
+            paint.setColor(Color.parseColor("#" + getLineColorStr()));
+        }
         // 设置线宽
-        paint.setStrokeWidth((float) 3);
+        if (getLineWidth() > 3) {
+            paint.setStrokeWidth((float) getLineWidth());
+        }
+        else {
+            paint.setStrokeWidth((float) 3);
+            
+        }
+        
         // 绘制上边直线
         canvas.drawLine(0, center - offset, getWidth(), center - offset, paint);
         // 绘制下边直线

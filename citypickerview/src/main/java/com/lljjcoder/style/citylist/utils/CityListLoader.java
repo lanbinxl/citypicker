@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.lljjcoder.Constant;
 import com.lljjcoder.style.citylist.bean.CityInfoBean;
 import com.lljjcoder.utils.utils;
 
@@ -60,15 +61,13 @@ public class CityListLoader {
         return instance;
     }
     
-    private String cityJsonDataType = "simple_cities_pro_city_dis.json";
-    
     /**
      * 解析357个城市数据
      * @param context
      */
     public void loadCityData(Context context) {
         
-        String cityJson = utils.getJson(context, cityJsonDataType);
+        String cityJson = utils.getJson(context, Constant.CITY_DATA);
         Type type = new TypeToken<ArrayList<CityInfoBean>>() {
         }.getType();
         
@@ -99,7 +98,7 @@ public class CityListLoader {
      * @param context
      */
     public void loadProData(Context context) {
-        String cityJson = utils.getJson(context, cityJsonDataType);
+        String cityJson = utils.getJson(context, Constant.CITY_DATA);
         Type type = new TypeToken<ArrayList<CityInfoBean>>() {
         }.getType();
         

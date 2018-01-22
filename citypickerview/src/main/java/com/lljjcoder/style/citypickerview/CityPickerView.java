@@ -57,6 +57,8 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
     
     private CityConfig config;
     
+    private Context context;
+    
     public void setOnCityItemClickListener(OnCityItemClickListener listener) {
         mBaseListener = listener;
     }
@@ -95,11 +97,11 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
      * 初始化，默认解析城市数据，提交加载速度
      */
     public void init(Context context) {
-        
+        this.context = context;
         parseHelper = new CityParseHelper();
         
         //解析初始数据
-        if (parseHelper == null || parseHelper.getProvinceBeanArrayList().isEmpty()) {
+        if (parseHelper.getProvinceBeanArrayList().isEmpty()) {
             parseHelper.initData(context);
         }
         
@@ -108,13 +110,21 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
     /**
      * 初始化popWindow
      */
-    private void initCityPickerPopwindow(Context context) {
+    private void initCityPickerPopwindow() {
         
         if (config == null) {
             throw new IllegalArgumentException("please set config first...");
         }
         
-        LayoutInflater layoutInflater = LayoutInflater.from(config.getContext());
+        //解析初始数据
+        if (parseHelper == null) {
+            parseHelper = new CityParseHelper();
+            if (parseHelper.getProvinceBeanArrayList().isEmpty()) {
+                throw new IllegalArgumentException("请在Activity中增加init操作");
+            }
+        }
+        
+        LayoutInflater layoutInflater = LayoutInflater.from(context);
         popview = layoutInflater.inflate(R.layout.pop_citypicker, null);
         
         mViewProvince = (WheelView) popview.findViewById(R.id.id_province);
@@ -137,7 +147,7 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
             @Override
             public void onDismiss() {
                 if (config.isShowBackground()) {
-                    utils.setBackgroundAlpha(config.getContext(), 1.0f);
+                    utils.setBackgroundAlpha(context, 1.0f);
                 }
             }
         });
@@ -295,7 +305,7 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
             }
         }
         
-        ArrayWheelAdapter arrayWheelAdapter = new ArrayWheelAdapter<ProvinceBean>(config.getContext(),
+        ArrayWheelAdapter arrayWheelAdapter = new ArrayWheelAdapter<ProvinceBean>(context,
                 parseHelper.getProvinceBeenArray());
         mViewProvince.setViewAdapter(arrayWheelAdapter);
         
@@ -321,6 +331,19 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
         mViewProvince.setCyclic(config.isProvinceCyclic());
         mViewCity.setCyclic(config.isCityCyclic());
         mViewDistrict.setCyclic(config.isDistrictCyclic());
+        
+        //显示滚轮模糊效果
+        mViewProvince.setDrawShadows(config.isDrawShadows());
+        mViewCity.setDrawShadows(config.isDrawShadows());
+        mViewDistrict.setDrawShadows(config.isDrawShadows());
+        
+        //中间线的颜色及高度
+        mViewProvince.setLineColorStr(config.getLineColor());
+        mViewProvince.setLineWidth(config.getLineHeigh());
+        mViewCity.setLineColorStr(config.getLineColor());
+        mViewCity.setLineWidth(config.getLineHeigh());
+        mViewDistrict.setLineColorStr(config.getLineColor());
+        mViewDistrict.setLineWidth(config.getLineHeigh());
         
         updateCities();
         
@@ -363,7 +386,7 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
             }
         }
         
-        ArrayWheelAdapter cityWheel = new ArrayWheelAdapter<CityBean>(config.getContext(), cities);
+        ArrayWheelAdapter cityWheel = new ArrayWheelAdapter<CityBean>(context, cities);
         
         //自定义item
         if (config.getCustomItemLayout() != CityConfig.NONE && config.getCustomItemTextViewId() != CityConfig.NONE) {
@@ -420,7 +443,7 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
                     }
                 }
                 
-                ArrayWheelAdapter districtWheel = new ArrayWheelAdapter<DistrictBean>(config.getContext(), areas);
+                ArrayWheelAdapter districtWheel = new ArrayWheelAdapter<DistrictBean>(context, areas);
                 
                 //自定义item
                 if (config.getCustomItemLayout() != CityConfig.NONE
@@ -459,8 +482,8 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
         }
     }
     
-    public void showCityPicker(Context context) {
-        initCityPickerPopwindow(context);
+    public void showCityPicker() {
+        initCityPickerPopwindow();
         if (!isShow()) {
             popwindow.showAtLocation(popview, Gravity.BOTTOM, 0, 0);
         }

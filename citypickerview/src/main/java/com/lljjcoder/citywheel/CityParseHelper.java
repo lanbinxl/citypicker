@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.lljjcoder.Constant;
 import com.lljjcoder.bean.CityBean;
 import com.lljjcoder.bean.DistrictBean;
 import com.lljjcoder.bean.ProvinceBean;
@@ -63,12 +64,7 @@ public class CityParseHelper {
      * key - 区 values - 邮编
      */
     private Map<String, DistrictBean> mDisMap = new HashMap<String, DistrictBean>();
-    
-    /**
-     * 默认加载的城市数据type，只包含基本的省市区名称，不包含code、经纬度、拼音等数据
-     */
-    private String cityJsonDataType = "simple_cities_pro_city_dis.json";
-    
+
     public ArrayList<ProvinceBean> getProvinceBeanArrayList() {
         return mProvinceBeanArrayList;
     }
@@ -158,9 +154,7 @@ public class CityParseHelper {
      */
     public void initData(Context context) {
         
-        cityJsonDataType = "simple_cities_pro_city_dis.json";
-
-        String cityJson = utils.getJson(context, cityJsonDataType);
+        String cityJson = utils.getJson(context, Constant.CITY_DATA);
         Type type = new TypeToken<ArrayList<ProvinceBean>>() {
         }.getType();
         
