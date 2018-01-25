@@ -37,7 +37,7 @@
 #### **gradle引用**
 
 ```
-compile 'liji.library.dev:citypickerview:3.1.0'
+compile 'liji.library.dev:citypickerview:3.1.1'
 ```
 
 #### **代码混淆**
@@ -67,13 +67,17 @@ compile 'liji.library.dev:citypickerview:3.1.0'
 ```
 
 public class AddNewAddressActivity extends Activity {
+
+	//申明对象
+	CityPickerView mPicker=new CityPickerView();
+
     @Override
     public void onCreate() {
         super.onCreate();
         /**
          * 预先加载仿iOS滚轮实现的全部数据
          */
-        CityPickerView.getInstance().init(this);
+        mPicker.init(this);
         
         //其他初始化操作...
         
@@ -88,10 +92,10 @@ public class AddNewAddressActivity extends Activity {
 
 //添加默认的配置，不需要自己定义
 CityConfig cityConfig = new CityConfig.Builder().build();
-CityPickerView.getInstance().setConfig(cityConfig);
+mPicker.setConfig(cityConfig);
 
 //监听选择点击事件及返回结果
-CityPickerView.getInstance().setOnCityItemClickListener(new OnCityItemClickListener() {
+mPicker.setOnCityItemClickListener(new OnCityItemClickListener() {
             @Override
             public void onSelected(ProvinceBean province, CityBean city, DistrictBean district) {
                  
@@ -119,7 +123,7 @@ CityPickerView.getInstance().setOnCityItemClickListener(new OnCityItemClickListe
         });
 
 		//显示
-        CityPickerView.getInstance().showCityPicker( );
+        mPicker.showCityPicker( );
 ```
 
 以上加载是默认属性设置下的选择器，当然我们也可以设置我们自己的样式，详细的属性设置，请看
@@ -137,12 +141,11 @@ name //城市名称
 
 ### **更新说明**
 
-#### **V3.1.0版本更新内容（2018.01.22）**
+#### **V3.1.1版本更新内容（2018.01.25）**
 
- 1. [新增部分样式属性](https://github.com/crazyandcoder/citypicker/wiki/%E6%A0%B7%E5%BC%8F%E4%B8%80%EF%BC%88%E4%BB%BFiOS%E6%BB%9A%E8%BD%AE%E5%AE%9E%E7%8E%B0%EF%BC%89)
- 2. [更新城市数据，使用国家统计局数据，准确完整同时提供城市id](http://www.stats.gov.cn/tjsj/tjbz/xzqhdm/201703/t20170310_1471429.html)
- 3. 修复[#94](https://github.com/crazyandcoder/citypicker/issues/94)、[#96](https://github.com/crazyandcoder/citypicker/issues/96)问题
- 4. 其他细节调整优化。
+ 1. [新增是否显示港澳台数据的属性](https://github.com/crazyandcoder/citypicker/wiki/%E6%A0%B7%E5%BC%8F%E4%B8%80%EF%BC%88%E4%BB%BFiOS%E6%BB%9A%E8%BD%AE%E5%AE%9E%E7%8E%B0%EF%BC%89)
+ 2. 修复内存泄漏bug
+
 
 [历史更新说明](https://github.com/crazyandcoder/citypicker/wiki/%E5%8E%86%E5%8F%B2%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95)
 
