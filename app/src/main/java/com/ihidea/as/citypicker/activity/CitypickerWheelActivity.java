@@ -65,7 +65,9 @@ public class CitypickerWheelActivity extends AppCompatActivity {
     private String defaultDistrict = "新北区";
     
     public CityConfig.WheelType mWheelType = CityConfig.WheelType.PRO_CITY_DIS;
-
+    
+    CityPickerView mCityPickerView = new CityPickerView();
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,8 +76,8 @@ public class CitypickerWheelActivity extends AppCompatActivity {
         /**
          * 预先加载仿iOS滚轮实现的全部数据
          */
-        CityPickerView.getInstance().init(this);
-
+        mCityPickerView.init(this);
+        
     }
     
     private void findView() {
@@ -251,8 +253,7 @@ public class CitypickerWheelActivity extends AppCompatActivity {
         
         visibleItems = (Integer.parseInt(mProVisibleCountEt.getText().toString()));
         
-        CityConfig cityConfig = new CityConfig.Builder()
-                .title("选择城市")//标题
+        CityConfig cityConfig = new CityConfig.Builder().title("选择城市")//标题
                 .titleTextSize(18)//标题文字大小
                 .titleTextColor("#585858")//标题文字颜色
                 .titleBackgroundColor("#E9E9E9")//标题栏背景色
@@ -276,10 +277,11 @@ public class CitypickerWheelActivity extends AppCompatActivity {
                 .drawShadows(false)//滚轮不显示模糊效果
                 .setLineColor("#03a9f4")//中间横线的颜色
                 .setLineHeigh(5)//中间横线的高度
+                .setShowGAT(true)//是否显示港澳台数据
                 .build();
         
-        CityPickerView.getInstance().setConfig(cityConfig);
-        CityPickerView.getInstance().setOnCityItemClickListener(new OnCityItemClickListener() {
+        mCityPickerView.setConfig(cityConfig);
+        mCityPickerView.setOnCityItemClickListener(new OnCityItemClickListener() {
             @Override
             public void onSelected(ProvinceBean province, CityBean city, DistrictBean district) {
                 StringBuilder sb = new StringBuilder();
@@ -305,6 +307,6 @@ public class CitypickerWheelActivity extends AppCompatActivity {
                 ToastUtils.showLongToast(CitypickerWheelActivity.this, "已取消");
             }
         });
-        CityPickerView.getInstance().showCityPicker();
+        mCityPickerView.showCityPicker();
     }
 }

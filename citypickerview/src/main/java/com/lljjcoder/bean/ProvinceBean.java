@@ -18,7 +18,6 @@ public class ProvinceBean implements Parcelable {
   private String name; /*东城区*/
 
 
-
   private ArrayList<CityBean> cityList;
 
 

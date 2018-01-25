@@ -64,7 +64,7 @@ public class CityParseHelper {
      * key - 区 values - 邮编
      */
     private Map<String, DistrictBean> mDisMap = new HashMap<String, DistrictBean>();
-
+    
     public ArrayList<ProvinceBean> getProvinceBeanArrayList() {
         return mProvinceBeanArrayList;
     }
@@ -187,7 +187,6 @@ public class CityParseHelper {
             
             //遍历每个省份
             ProvinceBean itemProvince = mProvinceBeanArrayList.get(p);
-            
             //当现实二级或者三级联动时，才会解析该数据
             //            if (config.getWheelType() == CityConfig.WheelType.PRO_CITY
             //                    || config.getWheelType() == CityConfig.WheelType.PRO_CITY_DIS) {

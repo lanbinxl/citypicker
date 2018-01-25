@@ -111,6 +111,11 @@ public class CityConfig {
     private boolean drawShadows = true;
     
     /**
+     * 是否显示港澳台城市数据
+     */
+    private boolean showGAT = false;
+    
+    /**
      * 中间线的颜色
      */
     private String lineColor = "#C7C7C7";
@@ -151,31 +156,30 @@ public class CityConfig {
         return isShowBackground;
     }
     
-    //    public Context getContext() {
-    //        return mContext;
-    //    }
+    public boolean isShowGAT() {
+        return showGAT;
+    }
     
-    //    public void setContext(Context context) {
-    //        mContext = context;
-    //    }
-
-
+    public void setShowGAT(boolean showGAT) {
+        this.showGAT = showGAT;
+    }
+    
     public String getLineColor() {
         return lineColor == null ? "" : lineColor;
     }
-
+    
     public void setLineColor(String lineColor) {
         this.lineColor = lineColor;
     }
-
+    
     public int getLineHeigh() {
         return lineHeigh;
     }
-
+    
     public void setLineHeigh(int lineHeigh) {
         this.lineHeigh = lineHeigh;
     }
-
+    
     public boolean isDrawShadows() {
         return drawShadows;
     }
@@ -407,14 +411,11 @@ public class CityConfig {
         this.drawShadows = builder.drawShadows;
         this.lineColor = builder.lineColor;
         this.lineHeigh = builder.lineHeigh;
-
-
+        this.showGAT = builder.showGAT;
 
     }
     
     public static class Builder {
-        
-        //        private Context mContext;
         
         /**
          * 滚轮显示的item个数
@@ -529,12 +530,26 @@ public class CityConfig {
         private String lineColor = "#C7C7C7";
         
         /**
+         * 是否显示港澳台城市数据
+         */
+        private boolean showGAT = false;
+        
+        /**
          * 中间线的宽度
          */
         private int lineHeigh = 3;
         
-        public Builder(/*Context context*/) {
-            //            this.mContext = context;
+        public Builder() {
+        }
+        
+        /**
+         *  是否显示港澳台城市数据，默认不显示
+         * @param showGAT
+         * @return
+         */
+        public Builder setShowGAT(boolean showGAT) {
+            this.showGAT = showGAT;
+            return this;
         }
         
         /**
@@ -546,6 +561,7 @@ public class CityConfig {
             this.lineHeigh = lineHeigh;
             return this;
         }
+        
         /**
          *  中间线的颜色
          * @param lineColor

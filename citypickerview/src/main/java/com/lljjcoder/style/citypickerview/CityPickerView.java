@@ -24,6 +24,9 @@ import com.lljjcoder.style.citypickerview.widget.wheel.WheelView;
 import com.lljjcoder.style.citypickerview.widget.wheel.adapters.ArrayWheelAdapter;
 import com.lljjcoder.utils.utils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 省市区三级选择
  * 作者：liji on 2015/12/17 10:40
@@ -59,29 +62,14 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
     
     private Context context;
     
+    private ProvinceBean[] proArra;
+    
     public void setOnCityItemClickListener(OnCityItemClickListener listener) {
         mBaseListener = listener;
     }
     
-    private volatile static CityPickerView instance;
-    
-    private CityPickerView() {
+    public CityPickerView() {
         
-    }
-    
-    /**
-     * 单例模式
-     * @return
-     */
-    public static CityPickerView getInstance() {
-        if (instance == null) {
-            synchronized (CityPickerView.class) {
-                if (instance == null) {
-                    instance = new CityPickerView();
-                }
-            }
-        }
-        return instance;
     }
     
     /**
@@ -287,6 +275,33 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
     }
     
     /**
+     * 根据是否显示港澳台数据来初始化最新的数据
+     * @param array
+     * @return
+     */
+    private ProvinceBean[] getProArrData(ProvinceBean[] array) {
+        
+        List<ProvinceBean> provinceBeanList = new ArrayList<>();
+        for (int i = 0; i < array.length; i++) {
+            provinceBeanList.add(array[i]);
+        }
+        
+        //不需要港澳台数据
+        if (!config.isShowGAT()) {
+            provinceBeanList.remove(provinceBeanList.size() - 1);
+            provinceBeanList.remove(provinceBeanList.size() - 1);
+            provinceBeanList.remove(provinceBeanList.size() - 1);
+        }
+        
+        proArra = new ProvinceBean[provinceBeanList.size()];
+        for (int i = 0; i < provinceBeanList.size(); i++) {
+            proArra[i] = provinceBeanList.get(i);
+        }
+        
+        return proArra;
+    }
+    
+    /**
      * 加载数据
      */
     private void setUpData() {
@@ -295,18 +310,20 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
             return;
         }
         
+        //根据是否显示港澳台数据来初始化最新的数据
+        getProArrData(parseHelper.getProvinceBeenArray());
+        
         int provinceDefault = -1;
-        if (!TextUtils.isEmpty(config.getDefaultProvinceName()) && parseHelper.getProvinceBeenArray().length > 0) {
-            for (int i = 0; i < parseHelper.getProvinceBeenArray().length; i++) {
-                if (parseHelper.getProvinceBeenArray()[i].getName().contains(config.getDefaultProvinceName())) {
+        if (!TextUtils.isEmpty(config.getDefaultProvinceName()) && proArra.length > 0) {
+            for (int i = 0; i < proArra.length; i++) {
+                if (proArra[i].getName().contains(config.getDefaultProvinceName())) {
                     provinceDefault = i;
                     break;
                 }
             }
         }
         
-        ArrayWheelAdapter arrayWheelAdapter = new ArrayWheelAdapter<ProvinceBean>(context,
-                parseHelper.getProvinceBeenArray());
+        ArrayWheelAdapter arrayWheelAdapter = new ArrayWheelAdapter<ProvinceBean>(context, proArra);
         mViewProvince.setViewAdapter(arrayWheelAdapter);
         
         //自定义item
@@ -363,7 +380,7 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
         int pCurrent = mViewProvince.getCurrentItem();
         
         //省份选中的名称
-        ProvinceBean mProvinceBean = parseHelper.getProvinceBeenArray()[pCurrent];
+        ProvinceBean mProvinceBean = proArra[pCurrent];
         parseHelper.setProvinceBean(mProvinceBean);
         
         if (parseHelper.getPro_CityMap() == null) {
