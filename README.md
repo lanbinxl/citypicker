@@ -48,6 +48,14 @@ compile 'liji.library.dev:citypickerview:3.1.2'
 -keep class com.lljjcoder.**{
 	*;
 }
+
+-dontwarn demo.**
+-keep class demo.**{*;}
+-dontwarn net.sourceforge.pinyin4j.**
+-keep class net.sourceforge.pinyin4j.**{*;}
+-keep class net.sourceforge.pinyin4j.format.**{*;}
+-keep class net.sourceforge.pinyin4j.format.exception.**{*;}
+
 ```
 #### **列表样式使用代码**
 
