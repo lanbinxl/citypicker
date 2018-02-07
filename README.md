@@ -37,7 +37,7 @@
 #### **gradle引用**
 
 ```
-compile 'liji.library.dev:citypickerview:3.1.3'
+compile 'liji.library.dev:citypickerview:3.1.4'
 ```
 
 #### **代码混淆**
@@ -165,7 +165,7 @@ name //城市名称
 
 ### **更新说明**
 
-#### **V3.1.3版本更新内容（2018.02.07）**
+#### **V3.1.4版本更新内容（2018.02.07）**
 1. 默认样式细节调整
 
 
