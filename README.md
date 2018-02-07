@@ -67,11 +67,15 @@ compile 'liji.library.dev:citypickerview:3.1.3'
 #### **注意点**
 
 **一定要提前在Activity的onCreate里面预先加载本地城市数据，重要的事情说三遍！！！**
+
 **一定要提前在Activity的onCreate里面预先加载本地城市数据，重要的事情说三遍！！！**
+
 **一定要提前在Activity的onCreate里面预先加载本地城市数据，重要的事情说三遍！！！**
 
 **3.1.0以后的版本跟以前版本有点区别，默认加载数据放在需要使用到该选择器的Activity中的onCreate方法中！！！**
+
 **3.1.0以后的版本跟以前版本有点区别，默认加载数据放在需要使用到该选择器的Activity中的onCreate方法中！！！**
+
 **3.1.0以后的版本跟以前版本有点区别，默认加载数据放在需要使用到该选择器的Activity中的onCreate方法中！！！**
 
 
