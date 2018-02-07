@@ -37,7 +37,7 @@
 #### **gradle引用**
 
 ```
-compile 'liji.library.dev:citypickerview:3.1.2'
+compile 'liji.library.dev:citypickerview:3.1.3'
 ```
 
 #### **代码混淆**
@@ -152,6 +152,9 @@ name //城市名称
  1. 完成仿京东格式的选择器样式
 
 ### **更新说明**
+
+#### **V3.1.3版本更新内容（2018.02.07）**
+1. 默认样式细节调整
 
 
 #### **V3.1.2版本更新内容（2018.01.30）**
