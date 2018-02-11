@@ -166,20 +166,8 @@ name //城市名称
 ### **更新说明**
 
 
-#### **V3.1.5版本更新内容（2018.02.011）**
+#### **V3.1.5版本更新内容（2018.02.11）**
 1. 修复选中新疆部分地区出现崩溃的bug
-
-#### **V3.1.4版本更新内容（2018.02.07）**
-1. 默认样式细节调整
-
-
-#### **V3.1.2版本更新内容（2018.01.30）**
-1. 去掉一级城市列表选择器的当前城市功能
-
-#### **V3.1.1版本更新内容（2018.01.25）**
-
- 1. [新增是否显示港澳台数据的属性](https://github.com/crazyandcoder/citypicker/wiki/%E6%A0%B7%E5%BC%8F%E4%B8%80%EF%BC%88%E4%BB%BFiOS%E6%BB%9A%E8%BD%AE%E5%AE%9E%E7%8E%B0%EF%BC%89)
- 2. [修复内存泄漏bug](https://github.com/crazyandcoder/citypicker/issues/96)
 
 
 [历史更新说明](https://github.com/crazyandcoder/citypicker/wiki/%E5%8E%86%E5%8F%B2%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95)
