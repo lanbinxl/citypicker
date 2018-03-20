@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.lljjcoder.style.citylist.Toast.ToastUtils;
 import com.lljjcoder.style.citylist.bean.CityInfoBean;
 import com.lljjcoder.style.citypickerview.R;
 import com.lljjcoder.widget.RecycleViewDividerForList;
@@ -17,14 +16,21 @@ import com.lljjcoder.widget.RecycleViewDividerForList;
 import java.util.List;
 
 import static com.lljjcoder.style.citylist.utils.CityListLoader.BUNDATA;
+import static com.lljjcoder.style.citythreelist.ProvinceActivity.RESULT_DATA;
 
 public class CityActivity extends Activity {
     
     private TextView mCityNameTv;
+    
     private ImageView mImgBack;
+    
     private RecyclerView mCityRecyclerView;
     
     private CityInfoBean mProInfo = null;
+    
+    private String cityName = "";
+    
+    private CityBean cityBean = new CityBean();
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,10 +58,13 @@ public class CityActivity extends Activity {
             cityAdapter.setOnItemClickListener(new CityAdapter.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(View view, int position) {
-                    ToastUtils.showLongToast(CityActivity.this, "" + cityList.get(position).getName());
+                    
+                    cityBean.setId(cityList.get(position).getId());
+                    cityBean.setName(cityList.get(position).getName());
+                    
                     Intent intent = new Intent(CityActivity.this, AreaActivity.class);
                     intent.putExtra(BUNDATA, cityList.get(position));
-                    startActivity(intent);
+                    startActivityForResult(intent, RESULT_DATA);
                 }
             });
             
@@ -77,6 +86,19 @@ public class CityActivity extends Activity {
         mCityRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mCityRecyclerView.addItemDecoration(new RecycleViewDividerForList(this, LinearLayoutManager.HORIZONTAL, true));
         
+    }
+    
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_DATA) {
+            CityBean area = data.getParcelableExtra("area");
+            Intent intent = new Intent();
+            intent.putExtra("city", cityBean);
+            intent.putExtra("area", area);
+            setResult(RESULT_OK, intent);
+            finish();
+        }
     }
     
 }

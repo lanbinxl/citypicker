@@ -332,8 +332,8 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
             arrayWheelAdapter.setItemTextResource(config.getCustomItemTextViewId());
         }
         else {
-            arrayWheelAdapter.setItemResource(R.layout.item_city);
-            arrayWheelAdapter.setItemTextResource(R.id.item_city_name_tv);
+            arrayWheelAdapter.setItemResource(R.layout.default_item_city);
+            arrayWheelAdapter.setItemTextResource(R.id.default_item_city_name_tv);
         }
         
         //获取所设置的省的位置，直接定位到该位置
@@ -411,10 +411,10 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
             cityWheel.setItemTextResource(config.getCustomItemTextViewId());
         }
         else {
-            cityWheel.setItemResource(R.layout.item_city);
-            cityWheel.setItemTextResource(R.id.item_city_name_tv);
+            cityWheel.setItemResource(R.layout.default_item_city);
+            cityWheel.setItemTextResource(R.id.default_item_city_name_tv);
         }
-        
+
         mViewCity.setViewAdapter(cityWheel);
         if (-1 != cityDefault) {
             mViewCity.setCurrentItem(cityDefault);
@@ -469,8 +469,8 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
                     districtWheel.setItemTextResource(config.getCustomItemTextViewId());
                 }
                 else {
-                    districtWheel.setItemResource(R.layout.item_city);
-                    districtWheel.setItemTextResource(R.id.item_city_name_tv);
+                    districtWheel.setItemResource(R.layout.default_item_city);
+                    districtWheel.setItemTextResource(R.id.default_item_city_name_tv);
                 }
                 
                 mViewDistrict.setViewAdapter(districtWheel);

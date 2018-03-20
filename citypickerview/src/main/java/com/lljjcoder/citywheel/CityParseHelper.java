@@ -187,10 +187,7 @@ public class CityParseHelper {
             
             //遍历每个省份
             ProvinceBean itemProvince = mProvinceBeanArrayList.get(p);
-            //当现实二级或者三级联动时，才会解析该数据
-            //            if (config.getWheelType() == CityConfig.WheelType.PRO_CITY
-            //                    || config.getWheelType() == CityConfig.WheelType.PRO_CITY_DIS) {
-            
+
             //每个省份对应下面的市
             ArrayList<CityBean> cityList = itemProvince.getCityList();
             

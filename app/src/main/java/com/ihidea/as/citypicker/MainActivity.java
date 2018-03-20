@@ -7,12 +7,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.ihidea.as.citypicker.activity.CitypickerListActivity;
+import com.ihidea.as.citypicker.activity.CitypickerThreeListActivity;
 import com.ihidea.as.citypicker.activity.CitypickerWheelActivity;
 import com.ihidea.as.citypicker.adapter.CityPickerAdapter;
 import com.ihidea.as.citypicker.model.CityPickerStyleBean;
 import com.ihidea.as.citypicker.utils.ActivityUtils;
 import com.ihidea.as.citypicker.widget.DividerGridItemDecoration;
-import com.lljjcoder.style.citythreelist.ProvinceActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             
             case R.drawable.ic_citypicker_three_city:
-                ActivityUtils.getInstance().showActivity(MainActivity.this, ProvinceActivity.class);
+                ActivityUtils.getInstance().showActivity(MainActivity.this, CitypickerThreeListActivity.class);
                 break;
             /*
             case R.drawable.ic_citypicker_jingdong:

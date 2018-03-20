@@ -11,9 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@color/sort_catagory"
+        android:background="#ff40c2fc"
         android:padding="10dp"
-        android:textColor="@color/text_color_02"
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"/>
 

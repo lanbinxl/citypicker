@@ -76,7 +76,7 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.MyViewHolder> 
         
         public MyViewHolder(View view) {
             super(view);
-            tv = (TextView) view.findViewById(R.id.item_city_name_tv);
+            tv = (TextView) view.findViewById(R.id.default_item_city_name_tv);
         }
     }
 }

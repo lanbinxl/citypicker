@@ -140,7 +140,19 @@ public class CityListSelectActivity extends AppCompatActivity {
                 //汉字转换成拼音
                 if (!TextUtils.isEmpty(cityName) && cityName.length() > 0) {
                     
-                    String pinyin = mPinYinUtils.getStringPinYin(cityName.substring(0, 1));
+                    String pinyin = "";
+                    if (cityName.equals("重庆市")) {
+                        pinyin = "chong";
+                    }
+                    else if (cityName.equals("长沙市")) {
+                        pinyin = "chang";
+                    }
+                    else if (cityName.equals("长春市")) {
+                        pinyin = "chang";
+                    }
+                    else {
+                        pinyin = mPinYinUtils.getStringPinYin(cityName.substring(0, 1));
+                    }
                     
                     if (!TextUtils.isEmpty(pinyin)) {
                         
@@ -155,7 +167,6 @@ public class CityListSelectActivity extends AppCompatActivity {
                         else {
                             sortModel.setSortLetters("#");
                         }
-                        
                         mSortList.add(sortModel);
                     }
                     else {

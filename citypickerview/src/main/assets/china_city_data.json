@@ -76,7 +76,7 @@
     "id": "110000"
   },
   {
-    "name": " 上海市",
+    "name": "上海市",
     "cityList": [
       {
         "name": "上海市",
@@ -228,7 +228,7 @@
     "id": "120000"
   },
   {
-    "name": " 重庆市",
+    "name": "重庆市",
     "cityList": [
       {
         "name": "重庆市",
@@ -398,7 +398,7 @@
     "id": "500000"
   },
   {
-    "name": " 河北省",
+    "name": "河北省",
     "cityList": [
       {
         "name": "石家庄市",
@@ -1196,7 +1196,7 @@
     "id": "130000"
   },
   {
-    "name": " 山西省",
+    "name": "山西省",
     "cityList": [
       {
         "name": "太原市",
@@ -1788,7 +1788,7 @@
     "id": "140000"
   },
   {
-    "name": " 内蒙古自治区",
+    "name": "内蒙古自治区",
     "cityList": [
       {
         "name": "呼和浩特市",
@@ -2314,7 +2314,7 @@
     "id": "150000"
   },
   {
-    "name": " 辽宁省",
+    "name": "辽宁省",
     "cityList": [
       {
         "name": "沈阳市",
@@ -2860,7 +2860,7 @@
     "id": "210000"
   },
   {
-    "name": " 吉林省",
+    "name": "吉林省",
     "cityList": [
       {
         "name": "长春市",
@@ -3192,7 +3192,7 @@
     "id": "220000"
   },
   {
-    "name": " 黑龙江省",
+    "name": "黑龙江省",
     "cityList": [
       {
         "name": "哈尔滨市",
@@ -3836,7 +3836,7 @@
     "id": "230000"
   },
   {
-    "name": " 江苏省",
+    "name": "江苏省",
     "cityList": [
       {
         "name": "南京市",
@@ -4356,7 +4356,7 @@
     "id": "320000"
   },
   {
-    "name": " 浙江省",
+    "name": "浙江省",
     "cityList": [
       {
         "name": "杭州市",
@@ -4832,7 +4832,7 @@
     "id": "330000"
   },
   {
-    "name": " 安徽省",
+    "name": "安徽省",
     "cityList": [
       {
         "name": "合肥市",
@@ -5418,7 +5418,7 @@
     "id": "340000"
   },
   {
-    "name": " 福建省",
+    "name": "福建省",
     "cityList": [
       {
         "name": "福州市",
@@ -5854,7 +5854,7 @@
     "id": "350000"
   },
   {
-    "name": " 江西省",
+    "name": "江西省",
     "cityList": [
       {
         "name": "南昌市",
@@ -6370,7 +6370,7 @@
     "id": "360000"
   },
   {
-    "name": " 山东省",
+    "name": "山东省",
     "cityList": [
       {
         "name": "济南市",
@@ -7094,7 +7094,7 @@
     "id": "370000"
   },
   {
-    "name": " 河南省",
+    "name": "河南省",
     "cityList": [
       {
         "name": "郑州市",
@@ -7912,7 +7912,7 @@
     "id": "410000"
   },
   {
-    "name": " 湖北省",
+    "name": "湖北省",
     "cityList": [
       {
         "name": "武汉市",
@@ -8462,7 +8462,7 @@
     "id": "420000"
   },
   {
-    "name": " 湖南省",
+    "name": "湖南省",
     "cityList": [
       {
         "name": "长沙市",
@@ -9092,7 +9092,7 @@
     "id": "430000"
   },
   {
-    "name": " 广东省",
+    "name": "广东省",
     "cityList": [
       {
         "name": "广州市",
@@ -9680,12 +9680,254 @@
       },
       {
         "name": "东莞市",
-        "cityList": [],
+        "cityList": [
+          {
+            "name": "市辖区",
+            "id": "000000"
+          },
+          {
+            "name": "东城街道办事处",
+            "id": "441900"
+          },
+          {
+            "name": "南城街道办事处",
+            "id": "441900"
+          },
+          {
+            "name": "万江街道办事处",
+            "id": "441900"
+          },
+          {
+            "name": "莞城街道办事处",
+            "id": "441900"
+          },
+          {
+            "name": "石碣镇",
+            "id": "441900"
+          },
+          {
+            "name": "石龙镇",
+            "id": "441900"
+          },
+          {
+            "name": "茶山镇",
+            "id": "441900"
+          },
+          {
+            "name": "石排镇",
+            "id": "441900"
+          },
+          {
+            "name": "企石镇",
+            "id": "441900"
+          },
+          {
+            "name": "横沥镇",
+            "id": "441900"
+          },
+          {
+            "name": "桥头镇",
+            "id": "441900"
+          },
+          {
+            "name": "谢岗镇",
+            "id": "441900"
+          },
+          {
+            "name": "东坑镇",
+            "id": "441900"
+          },
+          {
+            "name": "常平镇",
+            "id": "441900"
+          },
+          {
+            "name": "寮步镇",
+            "id": "441900"
+          },
+          {
+            "name": "樟木头镇",
+            "id": "441900"
+          },
+          {
+            "name": "大朗镇",
+            "id": "441900"
+          },
+          {
+            "name": "黄江镇",
+            "id": "441900"
+          },
+          {
+            "name": "清溪镇",
+            "id": "441900"
+          },
+          {
+            "name": "塘厦镇",
+            "id": "441900"
+          },
+          {
+            "name": "凤岗镇",
+            "id": "441900"
+          },
+          {
+            "name": "大岭山镇",
+            "id": "441900"
+          },
+          {
+            "name": "长安镇",
+            "id": "441900"
+          },
+          {
+            "name": "虎门镇",
+            "id": "441900"
+          },
+          {
+            "name": "厚街镇",
+            "id": "441900"
+          },
+          {
+            "name": "沙田镇",
+            "id": "441900"
+          },
+          {
+            "name": "道滘镇",
+            "id": "441900"
+          },
+          {
+            "name": "洪梅镇",
+            "id": "441900"
+          },
+          {
+            "name": "麻涌镇",
+            "id": "441900"
+          },
+          {
+            "name": "望牛墩镇",
+            "id": "441900"
+          },
+          {
+            "name": "中堂镇",
+            "id": "441900"
+          },
+          {
+            "name": "高埗镇",
+            "id": "441900"
+          },
+          {
+            "name": "松山湖管委会",
+            "id": "441900"
+          },
+          {
+            "name": "虎门港管委会",
+            "id": "441900"
+          },
+          {
+            "name": "东莞生态园",
+            "id": "441900"
+          }
+        ],
         "id": "441900"
       },
       {
         "name": "中山市",
-        "cityList": [],
+        "cityList": [
+          {
+            "name": "火炬高技术产业开发区",
+            "id": "442000"
+          },
+          {
+            "name": "石岐区办事处",
+            "id": "442000"
+          },
+          {
+            "name": "东区办事处",
+            "id": "442000"
+          },
+          {
+            "name": "西区办事处",
+            "id": "442000"
+          },
+          {
+            "name": "南区办事处",
+            "id": "442000"
+          },
+          {
+            "name": "五桂山办事处",
+            "id": "442000"
+          },
+          {
+            "name": "黄圃镇",
+            "id": "442000"
+          },
+          {
+            "name": "南头镇",
+            "id": "442000"
+          },
+          {
+            "name": "东凤镇",
+            "id": "442000"
+          },
+          {
+            "name": "阜沙镇",
+            "id": "442000"
+          },
+          {
+            "name": "小榄镇",
+            "id": "442000"
+          },
+          {
+            "name": "东升镇",
+            "id": "442000"
+          },
+          {
+            "name": "古镇镇",
+            "id": "442000"
+          },
+          {
+            "name": "横栏镇",
+            "id": "442000"
+          },
+          {
+            "name": "三角镇",
+            "id": "442000"
+          },
+          {
+            "name": "民众镇",
+            "id": "442000"
+          },
+          {
+            "name": "南朗镇",
+            "id": "442000"
+          },
+          {
+            "name": "港口镇",
+            "id": "442000"
+          },
+          {
+            "name": "大涌镇",
+            "id": "442000"
+          },
+          {
+            "name": "沙溪镇",
+            "id": "442000"
+          },
+          {
+            "name": "三乡镇",
+            "id": "442000"
+          },
+          {
+            "name": "板芙镇",
+            "id": "442000"
+          },
+          {
+            "name": "神湾镇",
+            "id": "442000"
+          },
+          {
+            "name": "坦洲镇",
+            "id": "442000"
+          }
+        ],
         "id": "442000"
       },
       {
@@ -9774,7 +10016,7 @@
     "id": "440000"
   },
   {
-    "name": " 广西壮族自治区",
+    "name": "广西壮族自治区",
     "cityList": [
       {
         "name": "南宁市",
@@ -10364,7 +10606,7 @@
     "id": "450000"
   },
   {
-    "name": " 海南省",
+    "name": "海南省",
     "cityList": [
       {
         "name": "海口市",
@@ -10498,7 +10740,7 @@
     "id": "460000"
   },
   {
-    "name": " 四川省",
+    "name": "四川省",
     "cityList": [
       {
         "name": "成都市",
@@ -11434,7 +11676,7 @@
     "id": "510000"
   },
   {
-    "name": " 贵州省",
+    "name": "贵州省",
     "cityList": [
       {
         "name": "贵阳市",
@@ -11866,7 +12108,7 @@
     "id": "520000"
   },
   {
-    "name": " 云南省",
+    "name": "云南省",
     "cityList": [
       {
         "name": "昆明市",
@@ -12516,7 +12758,7 @@
     "id": "530000"
   },
   {
-    "name": " 西藏自治区",
+    "name": "西藏自治区",
     "cityList": [
       {
         "name": "拉萨市",
@@ -12868,7 +13110,7 @@
     "id": "540000"
   },
   {
-    "name": " 陕西省",
+    "name": "陕西省",
     "cityList": [
       {
         "name": "西安市",
@@ -13402,7 +13644,7 @@
     "id": "610000"
   },
   {
-    "name": " 甘肃省",
+    "name": "甘肃省",
     "cityList": [
       {
         "name": "兰州市",
@@ -13884,7 +14126,7 @@
     "id": "620000"
   },
   {
-    "name": " 青海省",
+    "name": "青海省",
     "cityList": [
       {
         "name": "西宁市",
@@ -14114,7 +14356,7 @@
     "id": "630000"
   },
   {
-    "name": " 宁夏回族自治区",
+    "name": "宁夏回族自治区",
     "cityList": [
       {
         "name": "银川市",
@@ -14258,7 +14500,7 @@
     "id": "640000"
   },
   {
-    "name": " 新疆维吾尔自治区",
+    "name": "新疆维吾尔自治区",
     "cityList": [
       {
         "name": "乌鲁木齐市",
@@ -14738,7 +14980,29 @@
       },
       {
         "name": "自治区直辖县级行政区划",
-        "id": "659000"
+        "id": "659000",
+        "cityList": [
+          {
+            "name": "石河子市",
+            "id": "659001"
+          },
+          {
+            "name": "阿拉尔市",
+            "id": "659002"
+          },
+          {
+            "name": "图木舒克市",
+            "id": "659003"
+          },
+          {
+            "name": "五家渠市",
+            "id": "659004"
+          },
+          {
+            "name": "铁门关市",
+            "id": "659006"
+          }
+        ]
       }
     ],
     "id": "650000"
@@ -15437,225 +15701,6 @@
         "gisGcj02Lng": 116.843,
         "id": "999079",
         "name": "新北市",
-        "pinYin": null
-      },
-      {
-        "cityList": [
-          {
-            "createAccount": null,
-            "createTime": null,
-            "gisBd09Lat": 0.0,
-            "gisBd09Lng": 0.0,
-            "gisGcj02Lat": 0.0,
-            "gisGcj02Lng": 0.0,
-            "id": "999079",
-            "modifyAccount": null,
-            "modifyTime": null,
-            "name": "桃园区",
-            "orderId": null,
-            "pinYin": "",
-            "status": 0,
-            "stubGroupCnt": null
-          },
-          {
-            "createAccount": null,
-            "createTime": null,
-            "gisBd09Lat": 0.0,
-            "gisBd09Lng": 0.0,
-            "gisGcj02Lat": 0.0,
-            "gisGcj02Lng": 0.0,
-            "id": "999079",
-            "modifyAccount": null,
-            "modifyTime": null,
-            "name": "中坜区",
-            "orderId": null,
-            "pinYin": "",
-            "status": 0,
-            "stubGroupCnt": null
-          },
-          {
-            "createAccount": null,
-            "createTime": null,
-            "gisBd09Lat": 0.0,
-            "gisBd09Lng": 0.0,
-            "gisGcj02Lat": 0.0,
-            "gisGcj02Lng": 0.0,
-            "id": "999079",
-            "modifyAccount": null,
-            "modifyTime": null,
-            "name": "平镇区",
-            "orderId": null,
-            "pinYin": "",
-            "status": 0,
-            "stubGroupCnt": null
-          },
-          {
-            "createAccount": null,
-            "createTime": null,
-            "gisBd09Lat": 0.0,
-            "gisBd09Lng": 0.0,
-            "gisGcj02Lat": 0.0,
-            "gisGcj02Lng": 0.0,
-            "id": "999079",
-            "modifyAccount": null,
-            "modifyTime": null,
-            "name": "八德区",
-            "orderId": null,
-            "pinYin": "",
-            "status": 0,
-            "stubGroupCnt": null
-          },
-          {
-            "createAccount": null,
-            "createTime": null,
-            "gisBd09Lat": 0.0,
-            "gisBd09Lng": 0.0,
-            "gisGcj02Lat": 0.0,
-            "gisGcj02Lng": 0.0,
-            "id": "999079",
-            "modifyAccount": null,
-            "modifyTime": null,
-            "name": "杨梅区",
-            "orderId": null,
-            "pinYin": "",
-            "status": 0,
-            "stubGroupCnt": null
-          },
-          {
-            "createAccount": null,
-            "createTime": null,
-            "gisBd09Lat": 0.0,
-            "gisBd09Lng": 0.0,
-            "gisGcj02Lat": 0.0,
-            "gisGcj02Lng": 0.0,
-            "id": "999079",
-            "modifyAccount": null,
-            "modifyTime": null,
-            "name": "大溪区",
-            "orderId": null,
-            "pinYin": "",
-            "status": 0,
-            "stubGroupCnt": null
-          },
-          {
-            "createAccount": null,
-            "createTime": null,
-            "gisBd09Lat": 0.0,
-            "gisBd09Lng": 0.0,
-            "gisGcj02Lat": 0.0,
-            "gisGcj02Lng": 0.0,
-            "id": "999079",
-            "modifyAccount": null,
-            "modifyTime": null,
-            "name": "芦竹区",
-            "orderId": null,
-            "pinYin": "",
-            "status": 0,
-            "stubGroupCnt": null
-          },
-          {
-            "createAccount": null,
-            "createTime": null,
-            "gisBd09Lat": 0.0,
-            "gisBd09Lng": 0.0,
-            "gisGcj02Lat": 0.0,
-            "gisGcj02Lng": 0.0,
-            "id": "999079",
-            "modifyAccount": null,
-            "modifyTime": null,
-            "name": "龙潭区",
-            "orderId": null,
-            "pinYin": "",
-            "status": 0,
-            "stubGroupCnt": null
-          },
-          {
-            "createAccount": null,
-            "createTime": null,
-            "gisBd09Lat": 0.0,
-            "gisBd09Lng": 0.0,
-            "gisGcj02Lat": 0.0,
-            "gisGcj02Lng": 0.0,
-            "id": "999079",
-            "modifyAccount": null,
-            "modifyTime": null,
-            "name": "龟山区",
-            "orderId": null,
-            "pinYin": "",
-            "status": 0,
-            "stubGroupCnt": null
-          },
-          {
-            "createAccount": null,
-            "createTime": null,
-            "gisBd09Lat": 0.0,
-            "gisBd09Lng": 0.0,
-            "gisGcj02Lat": 0.0,
-            "gisGcj02Lng": 0.0,
-            "id": "999079",
-            "modifyAccount": null,
-            "modifyTime": null,
-            "name": "大园区",
-            "orderId": null,
-            "pinYin": "",
-            "status": 0,
-            "stubGroupCnt": null
-          },
-          {
-            "createAccount": null,
-            "createTime": null,
-            "gisBd09Lat": 0.0,
-            "gisBd09Lng": 0.0,
-            "gisGcj02Lat": 0.0,
-            "gisGcj02Lng": 0.0,
-            "id": "999079",
-            "modifyAccount": null,
-            "modifyTime": null,
-            "name": "观音区",
-            "orderId": null,
-            "pinYin": "",
-            "status": 0,
-            "stubGroupCnt": null
-          },
-          {
-            "createAccount": null,
-            "createTime": null,
-            "gisBd09Lat": 0.0,
-            "gisBd09Lng": 0.0,
-            "gisGcj02Lat": 0.0,
-            "gisGcj02Lng": 0.0,
-            "id": "999079",
-            "modifyAccount": null,
-            "modifyTime": null,
-            "name": "新屋区",
-            "orderId": null,
-            "pinYin": "",
-            "status": 0,
-            "stubGroupCnt": null
-          },
-          {
-            "createAccount": null,
-            "createTime": null,
-            "gisBd09Lat": 0.0,
-            "gisBd09Lng": 0.0,
-            "gisGcj02Lat": 0.0,
-            "gisGcj02Lng": 0.0,
-            "id": "999079",
-            "modifyAccount": null,
-            "modifyTime": null,
-            "name": "复兴区",
-            "orderId": null,
-            "pinYin": "",
-            "status": 0,
-            "stubGroupCnt": null
-          }
-        ],
-        "gisBd09Lat": 0,
-        "gisBd09Lng": 0,
-        "gisGcj02Lat": 0,
-        "gisGcj02Lng": 0,
-        "id": "999079",
-        "name": "桃园市",
         "pinYin": null
       },
       {

@@ -16,7 +16,6 @@
 package com.lljjcoder.style.citypickerview.widget.wheel.adapters;
 
 import android.content.Context;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -239,8 +238,8 @@ public abstract class AbstractWheelTextAdapter extends AbstractWheelAdapter {
         view.setGravity(Gravity.CENTER);
         view.setPadding(0, padding, 0, padding);
         view.setTextSize(textSize);
-        view.setEllipsize(TextUtils.TruncateAt.END);
-        view.setLines(1);
+//        view.setEllipsize(TextUtils.TruncateAt.END);
+//        view.setLines(1);
         //        view.setCompoundDrawablePadding(20);
         //        view.setTypeface(Typeface.SANS_SERIF, Typeface.BOLD);
     }

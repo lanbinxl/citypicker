@@ -8,7 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.lljjcoder.style.citylist.Toast.ToastUtils;
 import com.lljjcoder.style.citylist.bean.CityInfoBean;
 import com.lljjcoder.style.citylist.utils.CityListLoader;
 import com.lljjcoder.style.citypickerview.R;
@@ -23,6 +22,10 @@ public class ProvinceActivity extends Activity {
     private TextView mCityNameTv;
     
     private RecyclerView mCityRecyclerView;
+    
+    public static final int RESULT_DATA = 1001;
+    
+    private CityBean provinceBean = new CityBean();
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +48,12 @@ public class ProvinceActivity extends Activity {
         cityAdapter.setOnItemClickListener(new CityAdapter.OnItemSelectedListener() {
             @Override
             public void onItemSelected(View view, int position) {
-                ToastUtils.showLongToast(ProvinceActivity.this, "" + cityList.get(position).getName());
+                
+                provinceBean.setId(cityList.get(position).getId());
+                provinceBean.setName(cityList.get(position).getName());
                 Intent intent = new Intent(ProvinceActivity.this, CityActivity.class);
                 intent.putExtra(BUNDATA, cityList.get(position));
-                startActivity(intent);
+                startActivityForResult(intent, RESULT_DATA);
                 
             }
         });
@@ -62,6 +67,21 @@ public class ProvinceActivity extends Activity {
         mCityRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mCityRecyclerView.addItemDecoration(new RecycleViewDividerForList(this, LinearLayoutManager.HORIZONTAL, true));
         
+    }
+    
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == RESULT_DATA) {
+            CityBean area = data.getParcelableExtra("area");
+            CityBean city = data.getParcelableExtra("city");
+            Intent intent = new Intent();
+            intent.putExtra("province", provinceBean);
+            intent.putExtra("city", city);
+            intent.putExtra("area", area);
+            setResult(RESULT_OK, intent);
+            finish();
+        }
     }
     
 }

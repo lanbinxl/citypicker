@@ -1,6 +1,7 @@
 package com.lljjcoder.style.citythreelist;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -8,7 +9,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.lljjcoder.style.citylist.Toast.ToastUtils;
 import com.lljjcoder.style.citylist.bean.CityInfoBean;
 import com.lljjcoder.style.citypickerview.R;
 import com.lljjcoder.widget.RecycleViewDividerForList;
@@ -16,6 +16,7 @@ import com.lljjcoder.widget.RecycleViewDividerForList;
 import java.util.List;
 
 import static com.lljjcoder.style.citylist.utils.CityListLoader.BUNDATA;
+import static com.lljjcoder.style.citythreelist.ProvinceActivity.RESULT_DATA;
 
 public class AreaActivity extends Activity {
     
@@ -27,6 +28,8 @@ public class AreaActivity extends Activity {
     
     private CityInfoBean mProCityInfo = null;
     
+    private CityBean areaBean = new CityBean();
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +38,7 @@ public class AreaActivity extends Activity {
         initView();
         
         setData();
-
+        
     }
     
     private void setData() {
@@ -53,7 +56,17 @@ public class AreaActivity extends Activity {
             cityAdapter.setOnItemClickListener(new CityAdapter.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(View view, int position) {
-                    ToastUtils.showLongToast(AreaActivity.this, "" + cityList.get(position).getName());
+                    
+                    areaBean.setName(cityList.get(position).getName());
+                    areaBean.setId(cityList.get(position).getId());
+                    
+                    //将计算的结果回传给第一个Activity
+                    Intent reReturnIntent = new Intent();
+                    reReturnIntent.putExtra("area", areaBean);
+                    setResult(RESULT_DATA, reReturnIntent);
+                    //退出第二个Activity
+                    AreaActivity.this.finish();
+                    
                 }
             });
             
