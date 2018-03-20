@@ -35,6 +35,7 @@ public class CitypickerThreeListActivity extends AppCompatActivity {
     }
     
     public void list() {
+
         Intent intent = new Intent(CitypickerThreeListActivity.this, ProvinceActivity.class);
         startActivityForResult(intent, ProvinceActivity.RESULT_DATA);
         
