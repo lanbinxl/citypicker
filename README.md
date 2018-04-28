@@ -9,9 +9,6 @@
 [《中华人民共和国国家统计局-最新县及县以上行政区划代码（截止2016年7月31日）》](http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/index.html)
 
 
-![](http://img.blog.csdn.net/20180117170913580?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
-
-#### **CityPicker 城市选择器问题解决专属QQ群，欢迎加入！**
 
 
 ### **效果展示**
