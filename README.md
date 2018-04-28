@@ -8,8 +8,10 @@
 #### **数据来源**
 [《中华人民共和国国家统计局-最新县及县以上行政区划代码（截止2016年7月31日）》](http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/index.html)
 
+#### **CityPicker 城市选择器专属QQ群，欢迎加入！**
 
 
+点击此处进入---------> [qq群问答](https://github.com/crazyandcoder/citypicker/issues/95)
 
 ### **效果展示**
 
