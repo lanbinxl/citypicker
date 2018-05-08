@@ -21,7 +21,8 @@
         </activity>
         <activity android:name=".activity.CitypickerListActivity">
         </activity>
-        <activity android:name=".activity.CitypickerWheelActivity">
+        <activity android:name=".activity.CitypickerWheelActivity"
+            >
         </activity>
         <activity android:name=".test.TestActivity">
         </activity>
