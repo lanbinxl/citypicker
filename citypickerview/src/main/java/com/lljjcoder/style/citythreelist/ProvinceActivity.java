@@ -72,7 +72,7 @@ public class ProvinceActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RESULT_DATA) {
+        if (requestCode == RESULT_DATA && data != null) {
             CityBean area = data.getParcelableExtra("area");
             CityBean city = data.getParcelableExtra("city");
             Intent intent = new Intent();

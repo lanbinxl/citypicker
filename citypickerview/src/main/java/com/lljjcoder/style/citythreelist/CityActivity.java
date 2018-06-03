@@ -32,6 +32,8 @@ public class CityActivity extends Activity {
     
     private CityBean cityBean = new CityBean();
     
+    private CityBean area = new CityBean();
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,8 +93,8 @@ public class CityActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_DATA) {
-            CityBean area = data.getParcelableExtra("area");
+        if (resultCode == RESULT_DATA && data != null) {
+            area = data.getParcelableExtra("area");
             Intent intent = new Intent();
             intent.putExtra("city", cityBean);
             intent.putExtra("area", area);
@@ -101,4 +103,8 @@ public class CityActivity extends Activity {
         }
     }
     
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }
