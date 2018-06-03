@@ -44,7 +44,7 @@
 #### **gradle引用**
 
 ```
-compile 'liji.library.dev:citypickerview:3.1.7'
+compile 'liji.library.dev:citypickerview:3.1.8'
 ```
 
 #### **代码混淆**
@@ -172,16 +172,9 @@ name //城市名称
 
 ### **更新说明**
 
-#### **V3.1.7版本更新内容（2018.05.08）**
+#### **V3.1.8版本更新内容（2018.06.03）**
 
-1. 细节修改
-
-#### **V3.1.6版本更新内容（2018.03.20）**
-
-1. 修复 重庆、长沙、长春多音字问题
-2. 东莞和中山市下面的区改成镇
-3. [三级城市列表选择器增加选择结果返回功能](https://github.com/crazyandcoder/citypicker/wiki/%E6%A0%B7%E5%BC%8F%E4%B8%89%EF%BC%88%E7%9C%81%E5%B8%82%E5%8C%BA%E4%B8%89%E7%BA%A7%E5%88%97%E8%A1%A8%EF%BC%89)
-
+1. 发布3.1.8版本，修复三级城市列表市返回省出现的崩溃的问题
 
 
 [历史更新说明](https://github.com/crazyandcoder/citypicker/wiki/%E5%8E%86%E5%8F%B2%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95)
