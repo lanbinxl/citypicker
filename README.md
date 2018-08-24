@@ -12,7 +12,17 @@
  3. 简单的几行代码即可实现城市选择器功能
 
 #### **数据来源**
+
 [《中华人民共和国国家统计局-最新县及县以上行政区划代码（截止2016年7月31日）》](http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/index.html)
+
+
+
+[台湾数据（维基百科）](https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E8%A1%8C%E6%94%BF%E5%8C%BA%E5%88%92%E4%BB%A3%E7%A0%81_(7%E5%8C%BA))
+
+
+[港澳数据（维基百科）](https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E8%A1%8C%E6%94%BF%E5%8C%BA%E5%88%92%E4%BB%A3%E7%A0%81_(8%E5%8C%BA))
+
+
 
 #### **CityPicker 城市选择器专属QQ群，欢迎加入！**
 
@@ -42,7 +52,7 @@
 #### **gradle引用**
 
 ```
-compile 'liji.library.dev:citypickerview:3.1.8'
+compile 'liji.library.dev:citypickerview:3.1.10'
 ```
 
 #### **代码混淆**
@@ -170,9 +180,9 @@ name //城市名称
 
 ### **更新说明**
 
-#### **V3.1.8版本更新内容（2018.06.03）**
+#### **V3.1.10版本更新内容（2018.08.24）**
 
-1. 发布3.1.8版本，修复三级城市列表市返回省出现的崩溃的问题
+1. 修正港澳台的行政区域数据
 
 
 [历史更新说明](https://github.com/crazyandcoder/citypicker/wiki/%E5%8E%86%E5%8F%B2%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95)
