@@ -52,7 +52,7 @@
 #### **gradle引用**
 
 ```
-compile 'liji.library.dev:citypickerview:3.1.10'
+compile 'liji.library.dev:citypickerview:3.1.11'
 ```
 
 #### **代码混淆**
@@ -180,9 +180,8 @@ name //城市名称
 
 ### **更新说明**
 
-#### **V3.1.10版本更新内容（2018.08.24）**
-
-1. 修正港澳台的行政区域数据
+#### **V3.1.11版本更新内容（2018.08.27）**
+1. 发布3.1.11版本，修复城市列表选择马鞍山市返回鞍山市的bug
 
 
 [历史更新说明](https://github.com/crazyandcoder/citypicker/wiki/%E5%8E%86%E5%8F%B2%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95)
