@@ -36,8 +36,8 @@ public class CityInfoBean implements Parcelable {
         try {
             for (int i = 0; i < list.size(); i++) {
                 CityInfoBean city = list.get(i);
-                if (cityName.equals(city.getName()) || cityName.contains(city.getName())
-                        || city.getName().contains(cityName)) {
+                if (cityName.equals(city.getName()) /*|| cityName.contains(city.getName())
+                        || city.getName().contains(cityName)*/) {
                     return city;
                 }
             }
