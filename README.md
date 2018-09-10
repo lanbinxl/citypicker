@@ -52,7 +52,7 @@
 #### **gradle引用**
 
 ```
-compile 'liji.library.dev:citypickerview:3.1.12'
+compile 'liji.library.dev:citypickerview:3.1.13'
 ```
 
 #### **代码混淆**
@@ -181,8 +181,8 @@ name //城市名称
 
 ### **更新说明**
 
-#### **V3.1.12版本更新内容（2018.08.29）**
-1. 发布3.1.12版本，修复城市列表搜索城市弹出键盘，右侧的A-Z压缩的问题
+#### **V3.1.13版本更新内容（2018.09.10）**
+1. 发布3.1.13版本，修复[#112,#113](https://github.com/crazyandcoder/citypicker/issues/112)bug
 
 
 [历史更新说明](https://github.com/crazyandcoder/citypicker/wiki/%E5%8E%86%E5%8F%B2%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95)
