@@ -1,4 +1,3 @@
-
 ### **CityPicker 城市选择器**
 
 #### **说明**
@@ -25,7 +24,6 @@
 
 
 #### **CityPicker 城市选择器专属QQ群，欢迎加入！**
-
 
 点击此处进入---------> [qq群问答](https://github.com/crazyandcoder/citypicker/issues/95)
 
