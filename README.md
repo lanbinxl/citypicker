@@ -1,17 +1,17 @@
+
 ### **CityPicker 城市选择器**
+---------------------------
+ 
+**在实际的项目中一般情况下都需要使用到省市区三级联动地址选择的功能，有的公司是提供接口获取，有的公司则不是，需要自己实现。一开始，我也深受其扰，每次都是要复制一遍，就想能不能打个包出来，供大伙使用。所以自己就封装了一个，不需要自己添加数据源，直接引用即可。这就是CityPicker城市选择器的由来！**
 
-#### **说明**
-
-在实际的项目中一般情况下都需要使用到省市区三级联动地址选择的功能，有的公司是提供接口获取，有的公司则不是，需要自己实现。一开始，我也深受其扰，每次都是要复制一遍，就想能不能打个包出来，供大伙使用。所以自己就封装了一个，不需要自己添加数据源，直接引用即可。这就是CityPicker城市选择器的由来！
-
-#### **功能点**
-
+### **功能点**
+---------------------------
  1. 支持仿iOS滚轮实现、一级城市列表、三级城市列表
  2. 支持多种自定义属性来满足你的需求
  3. 简单的几行代码即可实现城市选择器功能
 
-#### **数据来源**
-
+### **数据来源**
+---------------------------
 [《中华人民共和国国家统计局-最新县及县以上行政区划代码（截止2016年7月31日）》](http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/index.html)
 
 
@@ -23,12 +23,10 @@
 
 
 
-#### **CityPicker 城市选择器专属QQ群，欢迎加入！**
 
-点击此处进入---------> [qq群问答](https://github.com/crazyandcoder/citypicker/issues/95)
 
 ### **效果展示**
-
+---------------------------
 
 ![](http://img.blog.csdn.net/20171217104511214?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)  
 
@@ -45,8 +43,8 @@
 ![](http://img.blog.csdn.net/20171217112838613?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast) ![](http://img.blog.csdn.net/20171217112850749?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast) ![](http://img.blog.csdn.net/20171217112902207?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
 
-### **使用方法**
-
+### **CityPicker使用方法**
+---------------------------
 #### **gradle引用**
 
 ```
@@ -70,26 +68,7 @@ compile 'liji.library.dev:citypickerview:3.1.13'
 -keep class net.sourceforge.pinyin4j.format.exception.**{*;}
 
 ```
-#### **列表样式使用代码**
 
- 1. [城市一级列表样式使用方法及demo](https://github.com/crazyandcoder/citypicker/wiki/%E6%A0%B7%E5%BC%8F%E4%BA%8C%EF%BC%88%E5%9F%8E%E5%B8%82%E4%B8%80%E7%BA%A7%E5%88%97%E8%A1%A8%E5%B1%95%E7%A4%BA%EF%BC%89)
- 2. [省市区三级列表使用方法及demo](https://github.com/crazyandcoder/citypicker/wiki/%E6%A0%B7%E5%BC%8F%E4%B8%89%EF%BC%88%E7%9C%81%E5%B8%82%E5%8C%BA%E4%B8%89%E7%BA%A7%E5%88%97%E8%A1%A8%EF%BC%89)
-
-### **仿iOS滚轮样式使用代码**
-
-#### **注意点**
-
-**一定要提前在Activity的onCreate里面预先加载本地城市数据，重要的事情说三遍！！！**
-
-**一定要提前在Activity的onCreate里面预先加载本地城市数据，重要的事情说三遍！！！**
-
-**一定要提前在Activity的onCreate里面预先加载本地城市数据，重要的事情说三遍！！！**
-
-**3.1.0以后的版本跟以前版本有点区别，默认加载数据放在需要使用到该选择器的Activity中的onCreate方法中！！！**
-
-**3.1.0以后的版本跟以前版本有点区别，默认加载数据放在需要使用到该选择器的Activity中的onCreate方法中！！！**
-
-**3.1.0以后的版本跟以前版本有点区别，默认加载数据放在需要使用到该选择器的Activity中的onCreate方法中！！！**
 
 
 #### **举个栗子：**
@@ -107,13 +86,11 @@ public class AddNewAddressActivity extends Activity {
     @Override
     public void onCreate() {
         super.onCreate();
-        /**
-         * 预先加载仿iOS滚轮实现的全部数据
-         */
+        
+        //预先加载仿iOS滚轮实现的全部数据
         mPicker.init(this);
         
-        //其他初始化操作...
-        
+       
     }
 }
 
@@ -123,7 +100,7 @@ public class AddNewAddressActivity extends Activity {
 
 ```
 
-//添加默认的配置，不需要自己定义
+//添加默认的配置，不需要自己定义，当然也可以自定义相关熟悉，详细属性请看demo
 CityConfig cityConfig = new CityConfig.Builder().build();
 mPicker.setConfig(cityConfig);
 
@@ -132,21 +109,9 @@ mPicker.setOnCityItemClickListener(new OnCityItemClickListener() {
             @Override
             public void onSelected(ProvinceBean province, CityBean city, DistrictBean district) {
                  
-                //省份
-                if (province != null) {
-                    
-                }
-                
-                //城市
-                if (city != null) {
-                    
-                }
-                
-                //地区
-                if (district != null) {
-                    
-                }
-        
+                //省份province               
+                //城市city
+                //地区district 
             }
             
             @Override
@@ -172,21 +137,32 @@ name //城市名称
 
 ```
 
-### **下个版本要做的**
+### **其他列表样式使用代码**
+---------------------------
+ 1. [城市一级列表样式使用方法及demo](https://github.com/crazyandcoder/citypicker/wiki/%E6%A0%B7%E5%BC%8F%E4%BA%8C%EF%BC%88%E5%9F%8E%E5%B8%82%E4%B8%80%E7%BA%A7%E5%88%97%E8%A1%A8%E5%B1%95%E7%A4%BA%EF%BC%89)
+ 2. [省市区三级列表使用方法及demo](https://github.com/crazyandcoder/citypicker/wiki/%E6%A0%B7%E5%BC%8F%E4%B8%89%EF%BC%88%E7%9C%81%E5%B8%82%E5%8C%BA%E4%B8%89%E7%BA%A7%E5%88%97%E8%A1%A8%EF%BC%89)
 
+### **下个大版本要做的**
+---------------------------
  1. 完成仿京东格式的选择器样式
  2. 更新数据源2017版
 
 ### **更新说明**
-
+---------------------------
 #### **V3.1.13版本更新内容（2018.09.10）**
 1. 发布3.1.13版本，修复[#112,#113](https://github.com/crazyandcoder/citypicker/issues/112)bug
 
 
 [历史更新说明](https://github.com/crazyandcoder/citypicker/wiki/%E5%8E%86%E5%8F%B2%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95)
 
-### **赞赏**
+### **专属QQ群，欢迎加入！**
+---------------------------
+QQ群：417846442
 
+
+
+### **赞赏**
+---------------------------
 如果你喜欢 citypicker 这个开源库，感觉 citypicker 帮助到了你，可以点右上角 "Star" 支持一下 谢谢！,你也还可以扫描下面的二维码~ 请作者喝一杯牛奶，让作者更有动力写出更好的开源库服务大家。^_^ 
 
 
@@ -198,6 +174,7 @@ name //城市名称
  
  
 ### **赞赏人员列表**
+---------------------------
 [赞赏的人](https://github.com/crazyandcoder/citypicker/wiki/%E8%B5%9E%E8%B5%8F%E7%9A%84%E4%BA%BA)
 
 
