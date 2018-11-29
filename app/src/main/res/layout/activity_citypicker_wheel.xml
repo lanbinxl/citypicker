@@ -216,6 +216,26 @@
 
             </LinearLayout>
 
+            <!--区循环显示-->
+            <LinearLayout
+                style="@style/linearlayout_style">
+
+                <TextView
+                    style="@style/linearlayout_text_style"
+                    android:text="港澳台数据显示 :"
+                    />
+
+                <CheckBox
+                    android:id="@+id/gat_ck"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/city_cyclic"
+                    android:button="@null"
+                    android:checked="true"
+                    />
+
+            </LinearLayout>
+
 
             <!--区循环显示-->
             <LinearLayout
