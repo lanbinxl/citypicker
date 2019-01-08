@@ -17,6 +17,8 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+
+        google()//新增的
         maven { url "https://jitpack.io" }
     }
 }
