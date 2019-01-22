@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.CitypickerJDActivity">
+
+    <Button
+        android:id="@+id/jd_btn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="仿京东城市选择器"
+        android:textColor="@color/color_text_02" />
+
+
+    <TextView
+        android:id="@+id/result_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:text="result:" />
+</LinearLayout>

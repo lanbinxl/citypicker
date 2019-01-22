@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.lljjcoder.bean.ProvinceBean;
+import com.lljjcoder.bean.DistrictBean;
 import com.lljjcoder.style.citypickerview.R;
 
 import java.util.List;
@@ -21,41 +21,42 @@ import static com.lljjcoder.style.cityjd.JDConst.INDEX_INVALID;
  * QQ ：275137657
  */
 
-public class ProvinceAdapter extends BaseAdapter {
+public class AreaAdapter extends BaseAdapter {
 
     Context context;
 
-    List<ProvinceBean> mProList;
+    List<DistrictBean> mDistrictList;
 
-    private int provinceIndex = INDEX_INVALID;
+    private int districtIndex = INDEX_INVALID;
 
-    public ProvinceAdapter(Context context, List<ProvinceBean> mProList) {
+    public AreaAdapter(Context context, List<DistrictBean> mDistrictList) {
         this.context = context;
-        this.mProList = mProList;
+        this.mDistrictList = mDistrictList;
+    }
+
+
+    public int getSelectedPosition() {
+        return this.districtIndex;
     }
 
     public void updateSelectedPosition(int index) {
-        this.provinceIndex = index;
-    }
-
-    public int getSelectedPosition() {
-        return this.provinceIndex;
+        this.districtIndex = index;
     }
 
     @Override
     public int getCount() {
-        return mProList.size();
+        return mDistrictList.size();
     }
 
     @Override
-    public ProvinceBean getItem(int position) {
-        return mProList.get(position);
+    public DistrictBean getItem(int position) {
+        return mDistrictList.get(position);
     }
 
 
     @Override
     public long getItemId(int position) {
-        return Long.parseLong(mProList.get(position).getId());
+        return Long.parseLong(mDistrictList.get(position).getId());
     }
 
     @Override
@@ -74,10 +75,10 @@ public class ProvinceAdapter extends BaseAdapter {
             holder = (Holder) convertView.getTag();
         }
 
-        ProvinceBean item = getItem(position);
+        DistrictBean item = getItem(position);
         holder.name.setText(item.getName());
 
-        boolean checked = provinceIndex != INDEX_INVALID && mProList.get(provinceIndex).getId().equals(item.getId());
+        boolean checked = districtIndex != INDEX_INVALID && mDistrictList.get(districtIndex).getId().equals(item.getId());
         holder.name.setEnabled(!checked);
         holder.selectImg.setVisibility(checked ? View.VISIBLE : View.GONE);
 
