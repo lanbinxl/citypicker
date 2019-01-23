@@ -6,7 +6,7 @@
 
 ### **功能点**
 ---------------------------
- 1. 支持仿iOS滚轮实现、一级城市列表、三级城市列表
+ 1. 支持仿iOS滚轮实现、仿京东样式、一级城市列表、三级城市列表
  2. 支持多种自定义属性来满足你的需求
  3. 简单的几行代码即可实现城市选择器功能
 
@@ -28,27 +28,37 @@
 ### **效果展示**
 ---------------------------
 
-![](http://img.blog.csdn.net/20171217104511214?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)  
 
-#### **仿iOS滚轮实现**
+| 样式说明 | 图片效果    |
+|:--------:| :--------:|
+| 样式选择 | ![](https://img-blog.csdnimg.cn/20190123143912941.png)  |
+| 仿iOS滚轮实现 |![8.11x16.19-1080x2050](https://img-blog.csdnimg.cn/20190123144159879.png) ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144219666.png)|
+| 仿京东样式实现 | ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144403951.png) ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144413329.png)|
+| 一级列表展示 | ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144423843.png) ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144432482.png)|
+| 三级列表展示 | ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144441529.png) ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144449550.png)![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144507182.png)|
 
-![](http://img.blog.csdn.net/20171217113122669?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast) ![](http://img.blog.csdn.net/20171217113133546?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
-
-#### **城市一级列表展示效果图**
-
- ![](http://img.blog.csdn.net/20171217110803599?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)     ![](http://img.blog.csdn.net/20171217112213023?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
-
-#### **省市区三级列表展示效果图**
-
-![](http://img.blog.csdn.net/20171217112838613?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast) ![](http://img.blog.csdn.net/20171217112850749?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast) ![](http://img.blog.csdn.net/20171217112902207?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlqaV94Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
-
-
+ 
+ 
 ### **CityPicker使用方法**
 ---------------------------
+
+#### **一. 仿iOS样式使用方法**
+[样式一链接-（仿iOS滚轮实现)](https://github.com/crazyandcoder/citypicker/wiki/%E6%A0%B7%E5%BC%8F%E4%B8%80%EF%BC%88%E4%BB%BFiOS%E6%BB%9A%E8%BD%AE%E5%AE%9E%E7%8E%B0%EF%BC%89)
+
+#### **二. 仿京东样式使用方法**
+[样式二链接-（仿京东样式)](https://github.com/crazyandcoder/citypicker/wiki/%E6%A0%B7%E5%BC%8F%E5%9B%9B%EF%BC%88%E4%BB%BF%E4%BA%AC%E4%B8%9C%E6%A0%B7%E5%BC%8F%EF%BC%89)
+
+#### **三. 一级城市列表使用方法**
+[样式三链接-一级城市列表使用方法](https://github.com/crazyandcoder/citypicker/wiki/%E6%A0%B7%E5%BC%8F%E4%BA%8C%EF%BC%88%E5%9F%8E%E5%B8%82%E4%B8%80%E7%BA%A7%E5%88%97%E8%A1%A8%E5%B1%95%E7%A4%BA%EF%BC%89)
+
+#### **四. 三级城市列表使用方法**
+[样式四链接-三级城市列表使用方法](https://github.com/crazyandcoder/citypicker/wiki/%E6%A0%B7%E5%BC%8F%E4%B8%89%EF%BC%88%E7%9C%81%E5%B8%82%E5%8C%BA%E4%B8%89%E7%BA%A7%E5%88%97%E8%A1%A8%EF%BC%89)
+
+
 #### **gradle引用**
 
 ```
-compile 'liji.library.dev:citypickerview:3.1.13'
+compile 'liji.library.dev:citypickerview:4.0.0'
 ```
 
 #### **代码混淆**
@@ -69,88 +79,11 @@ compile 'liji.library.dev:citypickerview:3.1.13'
 
 ```
 
-
-
-#### **举个栗子：**
-
-首先需要预加载数据，如我们在AddNewAddressActivity中使用到省市区选择器的话，那么我们需要提前解析本地数据，这样在弹出来的时候不会卡顿，因为本地城市数据很多。
-
-
-```
-
-public class AddNewAddressActivity extends Activity {
-
-	//申明对象
-	CityPickerView mPicker=new CityPickerView();
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        
-        //预先加载仿iOS滚轮实现的全部数据
-        mPicker.init(this);
-        
-       
-    }
-}
-
-```
-
-然后在需要弹出的地方如点击地区选择button时弹出它，
-
-```
-
-//添加默认的配置，不需要自己定义，当然也可以自定义相关熟悉，详细属性请看demo
-CityConfig cityConfig = new CityConfig.Builder().build();
-mPicker.setConfig(cityConfig);
-
-//监听选择点击事件及返回结果
-mPicker.setOnCityItemClickListener(new OnCityItemClickListener() {
-            @Override
-            public void onSelected(ProvinceBean province, CityBean city, DistrictBean district) {
-                 
-                //省份province               
-                //城市city
-                //地区district 
-            }
-            
-            @Override
-            public void onCancel() {
-                ToastUtils.showLongToast(this, "已取消");
-            }
-        });
-
-		//显示
-        mPicker.showCityPicker( );
-```
-
-以上加载是默认属性设置下的选择器，当然我们也可以设置我们自己的样式，详细的属性设置，请看
-
-[《详细样式设置属性大全》](https://github.com/crazyandcoder/citypicker/wiki/%E6%A0%B7%E5%BC%8F%E4%B8%80%EF%BC%88%E4%BB%BFiOS%E6%BB%9A%E8%BD%AE%E5%AE%9E%E7%8E%B0%EF%BC%89)
-        
-#### **返回结果的数据接口**
-
-ProvinceBean province, CityBean city, DistrictBean district都是一样的数据结构。
-```
-id  //城市code
-name //城市名称
-
-```
-
-### **其他列表样式使用代码**
----------------------------
- 1. [城市一级列表样式使用方法及demo](https://github.com/crazyandcoder/citypicker/wiki/%E6%A0%B7%E5%BC%8F%E4%BA%8C%EF%BC%88%E5%9F%8E%E5%B8%82%E4%B8%80%E7%BA%A7%E5%88%97%E8%A1%A8%E5%B1%95%E7%A4%BA%EF%BC%89)
- 2. [省市区三级列表使用方法及demo](https://github.com/crazyandcoder/citypicker/wiki/%E6%A0%B7%E5%BC%8F%E4%B8%89%EF%BC%88%E7%9C%81%E5%B8%82%E5%8C%BA%E4%B8%89%E7%BA%A7%E5%88%97%E8%A1%A8%EF%BC%89)
-
-### **下个大版本要做的**
----------------------------
- 1. 完成仿京东格式的选择器样式
- 2. 更新数据源2017版
-
 ### **更新说明**
 ---------------------------
-#### **V3.1.13版本更新内容（2018.09.10）**
-1. 发布3.1.13版本，修复[#112,#113](https://github.com/crazyandcoder/citypicker/issues/112)bug
+
+#### **V4.0.0版本更新内容（2019.01.23）**
+1. 发布4.0.0版本,新增仿京东的地址选择器样式
 
 
 [历史更新说明](https://github.com/crazyandcoder/citypicker/wiki/%E5%8E%86%E5%8F%B2%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95)
@@ -159,6 +92,10 @@ name //城市名称
 ---------------------------
 QQ群：417846442
 
+
+### **其他问题wiki**
+---------------------------
+https://github.com/crazyandcoder/citypicker/wiki
 
 ### **赞赏**
 ---------------------------
