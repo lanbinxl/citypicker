@@ -7,6 +7,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.ihidea.as.citypicker.R;
+import com.lljjcoder.Interface.OnCityItemClickListener;
+import com.lljjcoder.bean.CityBean;
+import com.lljjcoder.bean.DistrictBean;
+import com.lljjcoder.bean.ProvinceBean;
 import com.lljjcoder.style.cityjd.JDCityPicker;
 
 public class CitypickerJDActivity extends AppCompatActivity {
@@ -34,6 +38,18 @@ public class CitypickerJDActivity extends AppCompatActivity {
     private void showJD() {
         JDCityPicker cityPicker = new JDCityPicker();
         cityPicker.init(this);
+        cityPicker.setOnCityItemClickListener(new OnCityItemClickListener() {
+            @Override
+            public void onSelected(ProvinceBean province, CityBean city, DistrictBean district) {
+                resultV.setText("城市选择结果：\n" + province.getName() + "(" + province.getId() + ")\n"
+                        + city.getName() + "(" + city.getId() + ")\n"
+                        + district.getName() + "(" + district.getId() + ")");
+            }
+
+            @Override
+            public void onCancel() {
+            }
+        });
         cityPicker.showCityPicker();
     }
 }

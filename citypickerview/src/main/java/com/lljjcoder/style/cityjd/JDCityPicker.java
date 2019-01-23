@@ -20,6 +20,7 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.lljjcoder.Interface.OnCityItemClickListener;
 import com.lljjcoder.bean.CityBean;
 import com.lljjcoder.bean.DistrictBean;
 import com.lljjcoder.bean.ProvinceBean;
@@ -43,7 +44,7 @@ import static com.lljjcoder.style.cityjd.JDConst.INDEX_TAB_PROVINCE;
  * QQ ：275137657
  */
 
-public class JDCityPicker implements CanShow, View.OnClickListener, AdapterView.OnItemClickListener {
+public class JDCityPicker {
 
     private ListView mCityListView;
 
@@ -71,6 +72,13 @@ public class JDCityPicker implements CanShow, View.OnClickListener, AdapterView.
     private Context context;
     private String colorSelected = "#ff181c20";
     private String colorAlert = "#ffff4444";
+
+    private OnCityItemClickListener mBaseListener;
+
+    public void setOnCityItemClickListener(OnCityItemClickListener listener) {
+        mBaseListener = listener;
+    }
+
 
     private void initJDCityPickerPop() {
 
@@ -112,17 +120,112 @@ public class JDCityPicker implements CanShow, View.OnClickListener, AdapterView.
         });
 
 
-        mCloseImg.setOnClickListener(this);
-        mProTv.setOnClickListener(this);
-        mCityTv.setOnClickListener(this);
-        mAreaTv.setOnClickListener(this);
-        mCityListView.setOnItemClickListener(this);
+        mCloseImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hidePop();
+                utils.setBackgroundAlpha(context, 1.0f);
+                if (mBaseListener != null) {
+                    mBaseListener.onCancel();
+                }
+            }
+        });
+
+        mProTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tabIndex = INDEX_TAB_PROVINCE;
+                if (mProvinceAdapter != null) {
+                    mCityListView.setAdapter(mProvinceAdapter);
+                    if (mProvinceAdapter.getSelectedPosition() != INDEX_INVALID) {
+                        mCityListView.setSelection(mProvinceAdapter.getSelectedPosition());
+                    }
+                }
+                updateTabVisible();
+                updateIndicator();
+            }
+        });
+        mCityTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tabIndex = INDEX_TAB_CITY;
+                if (mCityAdapter != null) {
+                    mCityListView.setAdapter(mCityAdapter);
+                    if (mCityAdapter.getSelectedPosition() != INDEX_INVALID) {
+                        mCityListView.setSelection(mCityAdapter.getSelectedPosition());
+                    }
+                }
+                updateTabVisible();
+                updateIndicator();
+            }
+        });
+        mAreaTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tabIndex = INDEX_TAB_AREA;
+                if (mAreaAdapter != null) {
+                    mCityListView.setAdapter(mAreaAdapter);
+                    if (mAreaAdapter.getSelectedPosition() != INDEX_INVALID) {
+                        mCityListView.setSelection(mAreaAdapter.getSelectedPosition());
+                    }
+                }
+                updateTabVisible();
+                updateIndicator();
+            }
+        });
+        mCityListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                selectedList(position);
+            }
+        });
 
         utils.setBackgroundAlpha(context, 0.5f);
         updateIndicator();
         updateTabsStyle(INDEX_INVALID);
         setProvinceListData();
 
+    }
+
+    private void selectedList(int position) {
+        switch (tabIndex) {
+            case INDEX_TAB_PROVINCE:
+                ProvinceBean provinceBean = mProvinceAdapter.getItem(position);
+                if (provinceBean != null) {
+                    mProTv.setText("" + provinceBean.getName());
+                    mCityTv.setText("请选择");
+                    mProvinceAdapter.updateSelectedPosition(position);
+                    mProvinceAdapter.notifyDataSetChanged();
+                    mCityAdapter = new CityAdapter(context, provinceBean.getCityList());
+                    //选中省份数据后更新市数据
+                    mHandler.sendMessage(Message.obtain(mHandler, INDEX_TAB_CITY, provinceBean.getCityList()));
+
+                }
+
+                break;
+
+
+            case INDEX_TAB_CITY:
+                CityBean cityBean = mCityAdapter.getItem(position);
+                if (cityBean != null) {
+                    mCityTv.setText("" + cityBean.getName());
+                    mAreaTv.setText("请选择");
+                    mCityAdapter.updateSelectedPosition(position);
+                    mCityAdapter.notifyDataSetChanged();
+                    mAreaAdapter = new AreaAdapter(context, cityBean.getCityList());
+                    //选中省份数据后更新市数据
+                    mHandler.sendMessage(Message.obtain(mHandler, INDEX_TAB_AREA, cityBean.getCityList()));
+                }
+                break;
+
+            case INDEX_TAB_AREA:
+                //返回选中的省市区数据
+                DistrictBean districtBean = mAreaAdapter.getItem(position);
+                if (districtBean != null) {
+                    callback(districtBean);
+                }
+                break;
+        }
     }
 
     /**
@@ -164,7 +267,6 @@ public class JDCityPicker implements CanShow, View.OnClickListener, AdapterView.
             @Override
             public void run() {
                 switch (tabIndex) {
-
                     case INDEX_TAB_PROVINCE:
                         tabSelectedIndicatorAnimation(mProTv).start();
                         break;
@@ -213,107 +315,47 @@ public class JDCityPicker implements CanShow, View.OnClickListener, AdapterView.
         }
     }
 
-    @Override
-    public void hide() {
+
+    private void hidePop() {
         if (isShow()) {
             popwindow.dismiss();
         }
     }
 
-    @Override
-    public boolean isShow() {
+    private boolean isShow() {
         return popwindow.isShowing();
     }
 
-    @Override
-    public void onClick(View v) {
 
-        int id = v.getId();
-        if (id == R.id.close_img) {
-            hide();
-            utils.setBackgroundAlpha(context, 1.0f);
-
-        }
-
-        if (id == R.id.province_tv) {
-            tabIndex = INDEX_TAB_PROVINCE;
-            if (mProvinceAdapter != null) {
-                mCityListView.setAdapter(mProvinceAdapter);
-                if (mProvinceAdapter.getSelectedPosition() != INDEX_INVALID) {
-                    mCityListView.setSelection(mProvinceAdapter.getSelectedPosition());
-                }
-            }
-            updateTabsStyle(tabIndex);
-            updateIndicator();
-
-        }
-        if (id == R.id.city_tv) {
-            tabIndex = INDEX_TAB_CITY;
-            if (mCityAdapter != null) {
-                mCityListView.setAdapter(mCityAdapter);
-                if (mCityAdapter.getSelectedPosition() != INDEX_INVALID) {
-                    mCityListView.setSelection(mCityAdapter.getSelectedPosition());
-                }
-            }
-            updateTabsStyle(tabIndex);
-            updateIndicator();
-        }
-        if (id == R.id.area_tv) {
-            tabIndex = INDEX_TAB_AREA;
-            if (mAreaAdapter != null) {
-                mCityListView.setAdapter(mAreaAdapter);
-                if (mAreaAdapter.getSelectedPosition() != INDEX_INVALID) {
-                    mCityListView.setSelection(mAreaAdapter.getSelectedPosition());
-                }
-            }
-            updateTabsStyle(tabIndex);
-            updateIndicator();
-        }
-
+    private void updateTabVisible() {
+        mProTv.setVisibility(provinceList.isEmpty() ? View.GONE : View.VISIBLE);
+        mCityTv.setVisibility(cityList.isEmpty() ? View.GONE : View.VISIBLE);
+        mAreaTv.setVisibility(areaList.isEmpty() ? View.GONE : View.VISIBLE);
     }
 
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+    /**
+     * 选择回调
+     *
+     * @param districtBean
+     */
+    private void callback(DistrictBean districtBean) {
 
-        switch (tabIndex) {
+        ProvinceBean provinceBean = provinceList != null &&
+                !provinceList.isEmpty() &&
+                mProvinceAdapter != null &&
+                mProvinceAdapter.getSelectedPosition() != INDEX_INVALID ?
+                provinceList.get(mProvinceAdapter.getSelectedPosition()) : null;
 
-            case INDEX_TAB_PROVINCE:
-                ProvinceBean provinceBean = mProvinceAdapter.getItem(position);
-                if (provinceBean != null) {
-                    mProTv.setText("" + provinceBean.getName());
-                    mProvinceAdapter.updateSelectedPosition(position);
-                    mProvinceAdapter.notifyDataSetChanged();
-                    mCityAdapter = new CityAdapter(context, provinceBean.getCityList());
-                    //选中省份数据后更新市数据
-                    mHandler.sendMessage(Message.obtain(mHandler, INDEX_TAB_CITY, provinceBean.getCityList()));
+        CityBean cityBean = cityList != null &&
+                !cityList.isEmpty() &&
+                mCityAdapter != null &&
+                mCityAdapter.getSelectedPosition() != INDEX_INVALID ?
+                cityList.get(mCityAdapter.getSelectedPosition()) : null;
 
-                }
+        mBaseListener.onSelected(provinceBean, cityBean, districtBean);
+        hidePop();
 
-                break;
-
-
-            case INDEX_TAB_CITY:
-                CityBean cityBean = mCityAdapter.getItem(position);
-                if (cityBean != null) {
-                    mCityTv.setText("" + cityBean.getName());
-                    mCityAdapter.updateSelectedPosition(position);
-                    mCityAdapter.notifyDataSetChanged();
-                    mAreaAdapter = new AreaAdapter(context, cityBean.getCityList());
-                    //选中省份数据后更新市数据
-                    mHandler.sendMessage(Message.obtain(mHandler, INDEX_TAB_AREA, cityBean.getCityList()));
-                }
-                break;
-
-            case INDEX_TAB_AREA:
-                //返回选中的省市区数据
-                break;
-
-            default:
-                break;
-        }
-        updateTabsStyle(tabIndex);
-        updateIndicator();
     }
 
     private Handler mHandler = new Handler(new Handler.Callback() {
@@ -338,9 +380,7 @@ public class JDCityPicker implements CanShow, View.OnClickListener, AdapterView.
                     cityList = (List<CityBean>) msg.obj;
                     mCityAdapter.notifyDataSetChanged();
                     if (cityList != null && !cityList.isEmpty()) {
-                        // 以次级内容更新列表
                         mCityListView.setAdapter(mCityAdapter);
-                        // 更新索引为次级
                         tabIndex = INDEX_TAB_CITY;
                     }
                     break;
@@ -349,14 +389,15 @@ public class JDCityPicker implements CanShow, View.OnClickListener, AdapterView.
                     areaList = (List<DistrictBean>) msg.obj;
                     mAreaAdapter.notifyDataSetChanged();
                     if (areaList != null && !areaList.isEmpty()) {
-                        // 以次级内容更新列表
                         mCityListView.setAdapter(mAreaAdapter);
-                        // 更新索引为次级
                         tabIndex = INDEX_TAB_AREA;
                     }
                     break;
 
             }
+
+            updateTabsStyle(tabIndex);
+            updateIndicator();
             return true;
         }
     });
@@ -375,6 +416,14 @@ public class JDCityPicker implements CanShow, View.OnClickListener, AdapterView.
                 break;
 
             case INDEX_TAB_PROVINCE:
+                mProTv.setTextColor(Color.parseColor(colorAlert));
+                mProTv.setVisibility(View.VISIBLE);
+                mCityTv.setVisibility(View.GONE);
+                mAreaTv.setVisibility(View.GONE);
+                break;
+
+
+            case INDEX_TAB_CITY:
                 mProTv.setTextColor(Color.parseColor(colorSelected));
                 mCityTv.setTextColor(Color.parseColor(colorAlert));
                 mProTv.setVisibility(View.VISIBLE);
@@ -382,8 +431,7 @@ public class JDCityPicker implements CanShow, View.OnClickListener, AdapterView.
                 mAreaTv.setVisibility(View.GONE);
                 break;
 
-
-            case INDEX_TAB_CITY:
+            case INDEX_TAB_AREA:
                 mProTv.setTextColor(Color.parseColor(colorSelected));
                 mCityTv.setTextColor(Color.parseColor(colorSelected));
                 mAreaTv.setTextColor(Color.parseColor(colorAlert));
@@ -391,33 +439,9 @@ public class JDCityPicker implements CanShow, View.OnClickListener, AdapterView.
                 mCityTv.setVisibility(View.VISIBLE);
                 mAreaTv.setVisibility(View.VISIBLE);
                 break;
-
-            case INDEX_TAB_AREA:
-
-                break;
         }
 
     }
 
 
-    /**
-     * 选中省份数据后更新市数据
-     *
-     * @param provinceBean
-     */
-    private void updateCityDataAfterSelectedProvince(ProvinceBean provinceBean) {
-        if (cityList != null && !cityList.isEmpty()) {
-            cityList.clear();
-            cityList = null;
-        }
-        cityList = provinceBean.getCityList();
-        if (mCityAdapter == null) {
-            mCityAdapter = new CityAdapter(context, cityList);
-            mCityListView.setAdapter(mCityAdapter);
-        } else {
-            mCityAdapter.notifyDataSetChanged();
-        }
-        mCityAdapter.updateSelectedPosition(INDEX_INVALID);
-        mCityTv.setText("请选择");
-    }
 }
