@@ -33,7 +33,7 @@
 |:--------:| :--------:|
 | 样式选择 | ![](https://img-blog.csdnimg.cn/20190123143912941.png)  |
 | 仿iOS滚轮实现]|![8.11x16.19-1080x2050](https://img-blog.csdnimg.cn/20190123144159879.png) ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144219666.png)|
-|仿京东样式]| ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144403951.png) ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144413329.png)|
+|仿京东样式| ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144403951.png) ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144413329.png)|
 | 一级城市列表| ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144423843.png) ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144432482.png)|
 | 三级城市列表| ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144441529.png) ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144449550.png)![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144507182.png)|
 
