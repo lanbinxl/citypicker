@@ -36,6 +36,7 @@ public class CitypickerJDActivity extends AppCompatActivity {
 
 
     private void showJD() {
+
         JDCityPicker cityPicker = new JDCityPicker();
         cityPicker.init(this);
         cityPicker.setOnCityItemClickListener(new OnCityItemClickListener() {
