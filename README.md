@@ -32,10 +32,11 @@
 | 样式说明 | 图片效果    |
 |:--------:| :--------:|
 | 样式选择 | ![](https://img-blog.csdnimg.cn/20190123143912941.png)  |
-| 仿iOS滚轮实现 |![8.11x16.19-1080x2050](https://img-blog.csdnimg.cn/20190123144159879.png) ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144219666.png)|
-| 仿京东样式实现 | ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144403951.png) ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144413329.png)|
-| 一级列表展示 | ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144423843.png) ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144432482.png)|
-| 三级列表展示 | ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144441529.png) ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144449550.png)![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144507182.png)|
+| [样式一链接-（仿iOS滚轮实现)](https://github.com/crazyandcoder/citypicker/wiki/%E6%A0%B7%E5%BC%8F%E4%B8%80%EF%BC%88%E4%BB%BFiOS%E6%BB%9A%E8%BD%AE%E5%AE%9E%E7%8E%B0%EF%BC%89) |![8.11x16.19-1080x2050](https://img-blog.csdnimg.cn/20190123144159879.png) ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144219666.png)|
+| [样式二链接-（仿京东样式)](https://github.com/crazyandcoder/citypicker/wiki/%E6%A0%B7%E5%BC%8F%E5%9B%9B%EF%BC%88%E4%BB%BF%E4%BA%AC%E4%B8%9C%E6%A0%B7%E5%BC%8F%EF%BC%89) | ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144403951.png) ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144413329.png)|
+| [样式三链接-一级城市列表使用方法](https://github.com/crazyandcoder/citypicker/wiki/%E6%A0%B7%E5%BC%8F%E4%BA%8C%EF%BC%88%E5%9F%8E%E5%B8%82%E4%B8%80%E7%BA%A7%E5%88%97%E8%A1%A8%E5%B1%95%E7%A4%BA%EF%BC%89) | ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144423843.png) ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144432482.png)|
+| [样式四链接-三级城市列表使用方法](https://github.com/crazyandcoder/citypicker/wiki/%E6%A0%B7%E5%BC%8F%E4%B8%89%EF%BC%88%E7%9C%81%E5%B8%82%E5%8C%BA%E4%B8%89%E7%BA%A7%E5%88%97%E8%A1%A8%EF%BC%89)
+ | ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144441529.png) ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144449550.png)![在这里插入图片描述](https://img-blog.csdnimg.cn/20190123144507182.png)|
 
  
  
