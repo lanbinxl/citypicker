@@ -58,7 +58,7 @@
 #### **gradle引用**
 
 ```
-compile 'liji.library.dev:citypickerview:4.0.0'
+compile 'liji.library.dev:citypickerview:4.0.1'
 ```
 
 #### **代码混淆**
@@ -81,6 +81,8 @@ compile 'liji.library.dev:citypickerview:4.0.0'
 
 ### **更新说明**
 
+#### **V4.0.1版本更新内容（2019.01.24）**
+1. 发布4.0.1版本,修复仿京东样式中出现的崩溃bug
 
 #### **V4.0.0版本更新内容（2019.01.23）**
 1. 发布4.0.0版本,新增仿京东的地址选择器样式
