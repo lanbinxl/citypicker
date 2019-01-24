@@ -328,9 +328,9 @@ public class JDCityPicker {
 
 
     private void updateTabVisible() {
-        mProTv.setVisibility(provinceList.isEmpty() ? View.GONE : View.VISIBLE);
-        mCityTv.setVisibility(cityList.isEmpty() ? View.GONE : View.VISIBLE);
-        mAreaTv.setVisibility(areaList.isEmpty() ? View.GONE : View.VISIBLE);
+        mProTv.setVisibility(provinceList == null || provinceList.isEmpty() ? View.GONE : View.VISIBLE);
+        mCityTv.setVisibility(cityList == null || cityList.isEmpty() ? View.GONE : View.VISIBLE);
+        mAreaTv.setVisibility(areaList == null || areaList.isEmpty() ? View.GONE : View.VISIBLE);
     }
 
 
