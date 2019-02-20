@@ -26,7 +26,7 @@
 
 ### **数据来源**
 
-[《中华人民共和国国家统计局-最新县及县以上行政区划代码（截止2016年7月31日）》](http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/index.html)
+[2018年12月中华人民共和国县以上行政区划代码](http://www.mca.gov.cn/article/sj/xzqh/2018/201804-12/20181201301111.html)
 
 
 
@@ -72,7 +72,7 @@
 #### **gradle引用**
 
 ```
-compile 'liji.library.dev:citypickerview:4.0.1'
+compile 'liji.library.dev:citypickerview:4.1.0'
 ```
 
 #### **代码混淆**
@@ -95,11 +95,14 @@ compile 'liji.library.dev:citypickerview:4.0.1'
 
 ### **更新说明**
 
+
+#### **V4.1.0版本更新内容（2019.02.20）**
+1. 发布4.1.0版本,更新最新数据源
+
+
 #### **V4.0.1版本更新内容（2019.01.24）**
 1. 发布4.0.1版本,修复仿京东样式中出现的崩溃bug
 
-#### **V4.0.0版本更新内容（2019.01.23）**
-1. 发布4.0.0版本,新增仿京东的地址选择器样式
 
 
 [历史更新说明](https://github.com/crazyandcoder/citypicker/wiki/%E5%8E%86%E5%8F%B2%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95)
