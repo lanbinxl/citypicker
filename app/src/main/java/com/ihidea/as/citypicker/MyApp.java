@@ -22,7 +22,7 @@ public class MyApp extends Application {
          * 预先加载一级列表所有城市的数据
          */
         CityListLoader.getInstance().loadCityData(this);
-        
+
         /**
          * 预先加载三级列表显示省市区的数据
          */
