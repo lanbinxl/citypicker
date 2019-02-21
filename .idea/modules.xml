@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/citypicker.iml" filepath="$PROJECT_DIR$/citypicker.iml" />
       <module fileurl="file://$PROJECT_DIR$/citypickerview/citypickerview.iml" filepath="$PROJECT_DIR$/citypickerview/citypickerview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib_citydata/lib_citydata.iml" filepath="$PROJECT_DIR$/lib_citydata/lib_citydata.iml" />
     </modules>
   </component>
 </project>
