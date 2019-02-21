@@ -104,8 +104,12 @@ compile 'liji.library.dev:citypickerview:4.1.0'
 1. 发布4.0.1版本,修复仿京东样式中出现的崩溃bug
 
 
-
 [历史更新说明](https://github.com/crazyandcoder/citypicker/wiki/%E5%8E%86%E5%8F%B2%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95)
+
+
+
+### **特别说明**
+感谢[small-dream](https://github.com/small-dream/China_Province_City)提供的获取城市数据的脚本源码
 
 ### **专属QQ群，欢迎加入！**
 
