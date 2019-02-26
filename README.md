@@ -132,10 +132,6 @@ https://github.com/crazyandcoder/citypicker/wiki
 **赞赏的伙计，请注明你们的昵称，请留下你们的联系方式(最好是GitHub地址)，谢谢合作 ^_^ 。**
  
  
-### **赞赏人员列表**
-
-[赞赏的人](https://github.com/crazyandcoder/citypicker/wiki/%E8%B5%9E%E8%B5%8F%E7%9A%84%E4%BA%BA)
-
 
 
  
