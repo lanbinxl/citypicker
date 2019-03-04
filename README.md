@@ -72,7 +72,7 @@
 #### **gradle引用**
 
 ```
-compile 'liji.library.dev:citypickerview:4.1.0'
+compile 'liji.library.dev:citypickerview:4.1.1'
 ```
 
 #### **代码混淆**
@@ -94,6 +94,9 @@ compile 'liji.library.dev:citypickerview:4.1.0'
 ```
 
 ### **更新说明**
+
+#### **V4.1.1版本更新内容（2019.03.04）**
+1. 发布4.1.1版本,修复bug[#138](https://github.com/crazyandcoder/citypicker/issues/138)
 
 
 #### **V4.1.0版本更新内容（2019.02.20）**
