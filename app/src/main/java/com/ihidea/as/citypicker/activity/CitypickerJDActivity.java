@@ -14,7 +14,7 @@ import com.lljjcoder.bean.ProvinceBean;
 import com.lljjcoder.style.cityjd.JDCityPicker;
 
 public class CitypickerJDActivity extends AppCompatActivity {
-
+    JDCityPicker cityPicker;
     private Button jdBtn;
     private TextView resultV;
 
@@ -25,19 +25,7 @@ public class CitypickerJDActivity extends AppCompatActivity {
 
         jdBtn = (Button) findViewById(R.id.jd_btn);
         resultV = (TextView) findViewById(R.id.result_tv);
-
-        jdBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showJD();
-            }
-        });
-    }
-
-
-    private void showJD() {
-
-        JDCityPicker cityPicker = new JDCityPicker();
+        cityPicker = new JDCityPicker();
         cityPicker.init(this);
         cityPicker.setOnCityItemClickListener(new OnCityItemClickListener() {
             @Override
@@ -51,6 +39,16 @@ public class CitypickerJDActivity extends AppCompatActivity {
             public void onCancel() {
             }
         });
+        jdBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showJD();
+            }
+        });
+    }
+
+
+    private void showJD() {
         cityPicker.showCityPicker();
     }
 }

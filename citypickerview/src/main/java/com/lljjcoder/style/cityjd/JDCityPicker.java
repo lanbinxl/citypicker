@@ -82,7 +82,7 @@ public class JDCityPicker {
 
     private void initJDCityPickerPop() {
 
-
+        tabIndex = INDEX_TAB_PROVINCE;
         //解析初始数据
         if (parseHelper == null) {
             parseHelper = new CityParseHelper();
