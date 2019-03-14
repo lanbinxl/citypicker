@@ -95,7 +95,7 @@ compile 'liji.library.dev:citypickerview:4.1.2'
 
 ### **更新说明**
 
-#### **V4.1.1版本更新内容（2019.03.04）**
+#### **V4.1.2版本更新内容（2019.03.14）**
 1. 发布4.1.2版本,修复香港行政区域中ID出现重复的bug[#140](https://github.com/crazyandcoder/citypicker/issues/140)
 
 
