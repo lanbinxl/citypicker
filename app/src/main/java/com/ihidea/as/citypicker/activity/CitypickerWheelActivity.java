@@ -274,6 +274,8 @@ public class CitypickerWheelActivity extends AppCompatActivity {
                 .cityCyclic(isCityCyclic)
                 .districtCyclic(isDistrictCyclic)
                 .setCityWheelType(mWheelType)
+                .setCustomItemLayout(R.layout.item_city)//自定义item的布局
+                .setCustomItemTextViewId(R.id.item_city_name_tv)
                 .setShowGAT(isShowGAT)
                 .build();
 

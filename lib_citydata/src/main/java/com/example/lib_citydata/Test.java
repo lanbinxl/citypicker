@@ -40,7 +40,7 @@ public class Test {
             }
             List<Province> provinceList = processData(stringName, stringCode);
             String path = FileUtils.getProjectDir() + "/2018年11月中华人民共和国县以上行政区划代码" + ".json";
-            JSONFormatUtils.jsonWriter(provinceList, path);
+//            JSONFormatUtils.jsonWriter(provinceList, path);
         } catch (IOException e) {
             e.printStackTrace();
         }
