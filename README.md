@@ -72,7 +72,7 @@
 #### **gradle引用**
 
 ```
-compile 'liji.library.dev:citypickerview:4.1.1'
+compile 'liji.library.dev:citypickerview:4.2.1'
 ```
 
 #### **代码混淆**
@@ -95,8 +95,9 @@ compile 'liji.library.dev:citypickerview:4.1.1'
 
 ### **更新说明**
 
-#### **V4.2.0版本更新内容（2019.04.12）**
-1. 发布4.2.0版本,更新数据源，新增 “省直辖县级行政单位” 城市数据
+#### **V4.2.1版本更新内容（2019.04.15）**
+1. 发布4.2.1版本,更新数据源，新增 “省直辖县级行政单位” 城市数据
+2. 修复城市id为空的bug
 
 
 
