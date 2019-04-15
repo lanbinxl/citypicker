@@ -72,7 +72,7 @@
 #### **gradle引用**
 
 ```
-compile 'liji.library.dev:citypickerview:4.2.0'
+compile 'liji.library.dev:citypickerview:4.1.1'
 ```
 
 #### **代码混淆**
