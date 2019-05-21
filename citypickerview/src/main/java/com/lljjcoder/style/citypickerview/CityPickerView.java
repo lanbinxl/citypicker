@@ -81,7 +81,6 @@ public class CityPickerView implements CanShow, OnWheelChangedListener {
      */
     public void setConfig(final CityConfig config) {
         this.config = config;
-
     }
 
     /**

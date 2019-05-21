@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="20dp"
-        android:layout_weight="2"
+        android:layout_weight="1"
         android:background="@drawable/bg_jd_picker"
         android:text="仿京东城市选择器"
         android:textColor="@color/white" />
@@ -23,6 +23,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="15dp"
-        android:layout_weight="1"
+        android:layout_weight="10"
         android:text="城市选择结果:" />
 </LinearLayout>

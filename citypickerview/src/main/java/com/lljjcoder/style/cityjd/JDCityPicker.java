@@ -75,8 +75,14 @@ public class JDCityPicker {
 
     private OnCityItemClickListener mBaseListener;
 
+    private JDCityConfig cityConfig=null;
+
     public void setOnCityItemClickListener(OnCityItemClickListener listener) {
         mBaseListener = listener;
+    }
+
+    public void setJDCityConfig(JDCityConfig cityConfig){
+        this.cityConfig=cityConfig;
     }
 
 
@@ -89,7 +95,7 @@ public class JDCityPicker {
         }
 
         if (parseHelper.getProvinceBeanArrayList().isEmpty()) {
-            ToastUtils.showLongToast(context, "请在Activity中增加init操作");
+            ToastUtils.showLongToast(context, "请调用init方法进行初始化相关操作");
             return;
         }
 
