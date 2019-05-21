@@ -46,6 +46,8 @@ import static com.lljjcoder.style.cityjd.JDConst.INDEX_TAB_PROVINCE;
 
 public class JDCityPicker {
 
+    // 忽略地区选项，也就是省市两级联动
+    public boolean isIgnoreArea;
     private ListView mCityListView;
 
     private TextView mProTv;
@@ -218,9 +220,13 @@ public class JDCityPicker {
                     mAreaTv.setText("请选择");
                     mCityAdapter.updateSelectedPosition(position);
                     mCityAdapter.notifyDataSetChanged();
-                    mAreaAdapter = new AreaAdapter(context, cityBean.getCityList());
-                    //选中省份数据后更新市数据
-                    mHandler.sendMessage(Message.obtain(mHandler, INDEX_TAB_AREA, cityBean.getCityList()));
+                    if (isIgnoreArea) {
+                        callback(new DistrictBean());
+                    } else {
+                        mAreaAdapter = new AreaAdapter(context, cityBean.getCityList());
+                        //选中省份数据后更新市数据
+                        mHandler.sendMessage(Message.obtain(mHandler, INDEX_TAB_AREA, cityBean.getCityList()));
+                    }
                 }
                 break;
 
