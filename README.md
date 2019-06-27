@@ -72,7 +72,7 @@
 #### **gradle引用**
 
 ```
-compile 'liji.library.dev:citypickerview:4.2.1'
+compile 'liji.library.dev:citypickerview:4.3.0'
 ```
 
 #### **代码混淆**
@@ -95,14 +95,8 @@ compile 'liji.library.dev:citypickerview:4.2.1'
 
 ### **更新说明**
 
-#### **V4.2.1版本更新内容（2019.04.15）**
-1. 发布4.2.1版本,更新数据源，新增 “省直辖县级行政单位” 城市数据
-2. 修复城市id为空的bug
-
-
-
-#### **V4.1.2版本更新内容（2019.03.14）**
-1. 发布4.1.2版本,修复香港行政区域中ID出现重复的bug[#140](https://github.com/crazyandcoder/citypicker/issues/140)
+#### **V4.3.0版本更新内容（2019.06.27）**
+1. 发布4.3.0版本,京东选择器样式新增设置显示“省市两级和省市区三级”样式的属性。
 
 
 [历史更新说明](https://github.com/crazyandcoder/citypicker/wiki/%E5%8E%86%E5%8F%B2%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95)
