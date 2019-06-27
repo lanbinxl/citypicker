@@ -46,8 +46,6 @@ import static com.lljjcoder.style.cityjd.JDConst.INDEX_TAB_PROVINCE;
 
 public class JDCityPicker {
 
-    // 忽略地区选项，也就是省市两级联动
-    public boolean isIgnoreArea;
     private ListView mCityListView;
 
     private TextView mProTv;
@@ -77,18 +75,22 @@ public class JDCityPicker {
 
     private OnCityItemClickListener mBaseListener;
 
-    private JDCityConfig cityConfig=null;
+    private JDCityConfig cityConfig = null;
 
     public void setOnCityItemClickListener(OnCityItemClickListener listener) {
         mBaseListener = listener;
     }
 
-    public void setJDCityConfig(JDCityConfig cityConfig){
-        this.cityConfig=cityConfig;
+    public void setConfig(JDCityConfig cityConfig) {
+        this.cityConfig = cityConfig;
     }
 
 
     private void initJDCityPickerPop() {
+
+        if (this.cityConfig == null) {
+            this.cityConfig = new JDCityConfig.Builder().setJDCityShowType(JDCityConfig.ShowType.PRO_CITY_DIS).build();
+        }
 
         tabIndex = INDEX_TAB_PROVINCE;
         //解析初始数据
@@ -220,7 +222,7 @@ public class JDCityPicker {
                     mAreaTv.setText("请选择");
                     mCityAdapter.updateSelectedPosition(position);
                     mCityAdapter.notifyDataSetChanged();
-                    if (isIgnoreArea) {
+                    if (this.cityConfig != null && this.cityConfig.getShowType() == JDCityConfig.ShowType.PRO_CITY) {
                         callback(new DistrictBean());
                     } else {
                         mAreaAdapter = new AreaAdapter(context, cityBean.getCityList());
@@ -266,7 +268,6 @@ public class JDCityPicker {
         if (parseHelper.getProvinceBeanArrayList().isEmpty()) {
             parseHelper.initData(context);
         }
-
 
     }
 
