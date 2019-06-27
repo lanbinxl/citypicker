@@ -75,18 +75,22 @@ public class JDCityPicker {
 
     private OnCityItemClickListener mBaseListener;
 
-    private JDCityConfig cityConfig=null;
+    private JDCityConfig cityConfig = null;
 
     public void setOnCityItemClickListener(OnCityItemClickListener listener) {
         mBaseListener = listener;
     }
 
-    public void setJDCityConfig(JDCityConfig cityConfig){
-        this.cityConfig=cityConfig;
+    public void setConfig(JDCityConfig cityConfig) {
+        this.cityConfig = cityConfig;
     }
 
 
     private void initJDCityPickerPop() {
+
+        if (this.cityConfig == null) {
+            this.cityConfig = new JDCityConfig.Builder().setJDCityShowType(JDCityConfig.ShowType.PRO_CITY_DIS).build();
+        }
 
         tabIndex = INDEX_TAB_PROVINCE;
         //解析初始数据
@@ -218,9 +222,13 @@ public class JDCityPicker {
                     mAreaTv.setText("请选择");
                     mCityAdapter.updateSelectedPosition(position);
                     mCityAdapter.notifyDataSetChanged();
-                    mAreaAdapter = new AreaAdapter(context, cityBean.getCityList());
-                    //选中省份数据后更新市数据
-                    mHandler.sendMessage(Message.obtain(mHandler, INDEX_TAB_AREA, cityBean.getCityList()));
+                    if (this.cityConfig != null && this.cityConfig.getShowType() == JDCityConfig.ShowType.PRO_CITY) {
+                        callback(new DistrictBean());
+                    } else {
+                        mAreaAdapter = new AreaAdapter(context, cityBean.getCityList());
+                        //选中省份数据后更新市数据
+                        mHandler.sendMessage(Message.obtain(mHandler, INDEX_TAB_AREA, cityBean.getCityList()));
+                    }
                 }
                 break;
 
@@ -260,7 +268,6 @@ public class JDCityPicker {
         if (parseHelper.getProvinceBeanArrayList().isEmpty()) {
             parseHelper.initData(context);
         }
-
 
     }
 

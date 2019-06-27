@@ -12,10 +12,10 @@ public class JDCityConfig {
      * PRO_CITY_DIS:显示省份和城市和县区三级联动的选择器
      */
     public enum ShowType {
-        PRO, PRO_CITY, PRO_CITY_DIS
+        PRO_CITY, PRO_CITY_DIS
     }
 
-    public ShowType showType = ShowType.PRO_CITY_DIS;
+    private ShowType showType = ShowType.PRO_CITY_DIS;
 
     public ShowType getShowType() {
         return showType;
@@ -40,7 +40,6 @@ public class JDCityConfig {
 
         /**
          * 显示省市区三级联动的显示状态
-         * PRO:只显示省份的一级选择器
          * PRO_CITY:显示省份和城市二级联动的选择器
          * PRO_CITY_DIS:显示省份和城市和县区三级联动的选择器
          *
